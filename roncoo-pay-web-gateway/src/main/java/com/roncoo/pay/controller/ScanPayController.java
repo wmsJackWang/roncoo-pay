@@ -134,11 +134,16 @@ public class ScanPayController extends BaseController {
         Date orderDate = DateUtils.parseDate(orderDateStr, "yyyyMMdd");
         Date orderTime = DateUtils.parseDate(orderTimeStr, "yyyyMMddHHmmss");
         Integer orderPeriod = Integer.valueOf(orderPeriodStr);
+        
+        printMap(paramMap);
 
         RpUserPayConfig rpUserPayConfig = rpUserPayConfigService.getByPayKey(payKey);
+        
+        
         if (rpUserPayConfig == null) {
             throw new UserBizException(UserBizException.USER_PAY_CONFIG_ERRPR, "用户支付配置有误");
         }
+        logger.info("支付配置信息 rpUserPayConfig：{}", rpUserPayConfig.toString());
 
         cnpPayService.checkIp(rpUserPayConfig, httpServletRequest);//ip校验
 
@@ -169,6 +174,9 @@ public class ScanPayController extends BaseController {
                 model.addAttribute("orderPrice", orderPrice);//订单价格
                 return "weixinPayScanPay";
             } else if (PayWayEnum.ALIPAY.name().equals(scanPayResultVo.getPayWayCode())) {
+            	logger.info("======>扫码支付，直连方式,支付宝返回二维码");
+            	model.addAttribute("productName", productName);//产品名称
+            	model.addAttribute("orderPrice", orderPrice);//订单价格
                 return "alipayDirectPay";
             }
         }

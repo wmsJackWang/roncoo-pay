@@ -27,6 +27,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -65,7 +66,7 @@ public class RoncooPayController extends BaseController {
         String orderTimeStr = new SimpleDateFormat("yyyyMMddHHmmss").format(orderTime);// 订单时间
         paramMap.put("orderTime", orderTimeStr);
 
-        paramMap.put("payKey", PayConfigUtil.readConfig("payKey"));
+        paramMap.put("payKey", PayConfigUtil.readConfig("payKey"));//支付key
         String productName = getString_UrlDecode_UTF8("productName"); // 商品名称
         paramMap.put("productName", productName);
 
@@ -105,6 +106,7 @@ public class RoncooPayController extends BaseController {
     }
 
     @RequestMapping("/toF2FPay")
+    @ExceptionHandler
     public static String toF2FPay() {
         return "/f2fPay";
     }

@@ -64,6 +64,8 @@ public class LoginController extends BaseController {
 	 */
 	@RequestMapping("/login")
 	public String login(HttpServletRequest req, Model model) {
+		
+		LOG.info("login.....");
 
 		String exceptionClassName = (String) req.getAttribute("shiroLoginFailure");
 		String error = null;

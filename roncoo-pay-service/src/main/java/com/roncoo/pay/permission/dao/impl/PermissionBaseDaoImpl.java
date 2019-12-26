@@ -276,6 +276,7 @@ public abstract class PermissionBaseDaoImpl<T extends PermissionBaseEntity> impl
 		// 单线程用StringBuilder，确保速度；多线程用StringBuffer,确保安全
 		StringBuilder sb = new StringBuilder();
 		sb.append(name).append(".").append(sqlId);
+		LOG.trace("获取的mapper的命名空间："+ sb.toString());
 		return sb.toString();
 	}
 

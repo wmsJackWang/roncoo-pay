@@ -113,7 +113,7 @@ public interface RpUserPayConfigService{
 	 */
 	void updateUserPayConfig(String userNo, String productCode, String productName, Integer riskDay, String fundIntoType,
                              String isAutoSett, String appId, String merchantId, String partnerKey, String ali_partner, String ali_sellerId, String ali_key,
-                             String ali_appid, String ali_rsaPrivateKey, String ali_rsaPublicKey, String securityRating, String merchantServerIp)  throws PayBizException;
+                             String ali_appid, String ali_rsaPrivateKey, String ali_rsaPublicKey, String securityRating, String merchantServerIp,String JD_CLUB_NUMBER_CARD_ID ,String JD_DES_SCERET_KEY , String JD_MD5_SCERET_KEY)  throws PayBizException;
 
 	/**
 	 * 审核

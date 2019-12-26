@@ -21,6 +21,9 @@ import com.roncoo.pay.common.core.page.PageBean;
 import com.roncoo.pay.common.core.page.PageParam;
 import com.roncoo.pay.user.entity.RpUserInfo;
 import com.roncoo.pay.user.service.RpUserInfoService;
+
+import java.util.List;
+
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,6 +54,13 @@ public class UserInfoController {
 	@RequestMapping(value = "/list", method ={RequestMethod.POST, RequestMethod.GET})
 	public String list(RpUserInfo rpUserInfo, PageParam pageParam, Model model) {
 		PageBean pageBean = rpUserInfoService.listPage(pageParam, rpUserInfo);
+//		System.out.println("pageBean==null : "+(pageBean==null)+ "  "+pageBean.getRecordList().size());
+//		for(RpUserInfo user : (List<RpUserInfo>)pageBean.getRecordList())
+//		{
+//			System.out.print(user.toString());
+//			System.out.print(" " + user.getStatusDesc());
+//			System.out.println();
+//		}
 		model.addAttribute("pageBean", pageBean);
         model.addAttribute("pageParam", pageParam);
         model.addAttribute("rpUserInfo",rpUserInfo);
@@ -87,6 +97,9 @@ public class UserInfoController {
 		model.addAttribute("dwz", dwz);
 		return DWZ.AJAX_DONE;
 	}
+	
+	
+	
 	
 	/**
 	 * 函数功能说明 ： 查询用户信息 查找带回

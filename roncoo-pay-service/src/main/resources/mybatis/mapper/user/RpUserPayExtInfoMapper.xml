@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.roncoo.pay.user.dao.impl.RpUserPayExtInfoDaoImpl" >
+  <resultMap id="BaseResultMap" type="com.roncoo.pay.user.entity.RpUserPayExtInfo" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="edit_time" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="version" property="version" jdbcType="BIGINT" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="rp_user_pay_info_id" property="rp_user_pay_info_id" jdbcType="VARCHAR" />
+    <result column="pay_way_code" property="pay_way_code" jdbcType="VARCHAR" />
+    <result column="pay_way_name" property="pay_way_name" jdbcType="VARCHAR" />
+    <result column="type_code" property="type_code" jdbcType="VARCHAR" />
+    <result column="type_desc" property="type_desc" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, create_time, edit_time, version, remark, status, rp_user_pay_info_id, pay_way_code, pay_way_name, 
+    type_code, type_desc,content
+  </sql>
+  <sql id="TABLENAME">rp_user_pay_info_extend</sql>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from <include refid="TABLENAME"/>
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from <include refid="TABLENAME"/>
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.roncoo.pay.user.entity.RpUserPayExtInfo" >
+    insert into <include refid="TABLENAME"/> 
+    (id, create_time, edit_time, 
+      version, remark, status, rp_user_pay_info_id, pay_way_code, pay_way_name, 
+      type_code, type_desc,content
+      
+      )
+    values (#{id,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{editTime,jdbcType=TIMESTAMP}, 
+      #{version,jdbcType=BIGINT}, #{remark,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{rp_user_pay_info_id,jdbcType=VARCHAR}, #{pay_way_code,jdbcType=VARCHAR}, #{pay_way_name,jdbcType=VARCHAR}, 
+      #{type_code,jdbcType=VARCHAR}, #{type_desc,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}
+      )
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="com.roncoo.pay.user.entity.RpUserPayExtInfo" >
+    update <include refid="TABLENAME"/> 
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      edit_time = #{editTime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=BIGINT},
+      remark = #{remark,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      rp_user_pay_info_id = #{rp_user_pay_info_id,jdbcType=VARCHAR},
+      pay_way_code = #{pay_way_code,jdbcType=VARCHAR},
+      pay_way_name = #{pay_way_name,jdbcType=VARCHAR},
+      type_code = #{type_code,jdbcType=VARCHAR},
+      type_desc = #{type_desc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update> 
+  
+  <!-- 根据搜索条件获取数据 -->
+	<sql id="condition_sql">
+      <if test="userNo != null and userNo != ''" >
+          and   rp_user_pay_info_id = #{userNo,jdbcType=VARCHAR}
+      </if>
+      <if test="payWayCode != null and payWayCode != ''" >
+          and   pay_way_code = #{payWayCode,jdbcType=VARCHAR}
+      </if>
+	</sql>
+	
+
+  <select id="listBy" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select * from
+    <include refid="TABLENAME" />
+    <where>
+      <include refid="condition_sql" />
+    </where>
+    order by create_time desc
+  </select>
+  
+  	<!-- 分页查询 -->
+	<select id="listPage" parameterType="java.util.Map" resultMap="BaseResultMap">
+		select * from
+		<include refid="TABLENAME" />
+		<where>
+			<include refid="condition_sql" />
+		</where>
+		order by create_time desc limit #{pageFirst}, #{pageSize}
+	</select>
+
+	<!-- 分页查询时要用到的总数统计 -->
+	<select id="listPageCount" parameterType="java.util.Map"
+		resultType="java.lang.Long">
+		select count(1) from
+		<include refid="TABLENAME" />
+		<where>
+			<include refid="condition_sql" />
+		</where>
+	</select>
+</mapper>

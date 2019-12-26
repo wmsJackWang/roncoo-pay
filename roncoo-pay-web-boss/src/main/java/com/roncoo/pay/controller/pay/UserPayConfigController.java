@@ -15,6 +15,20 @@
  */
 package com.roncoo.pay.controller.pay;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.roncoo.pay.common.core.dwz.DWZ;
 import com.roncoo.pay.common.core.dwz.DwzAjax;
 import com.roncoo.pay.common.core.enums.PayWayEnum;
@@ -25,6 +39,7 @@ import com.roncoo.pay.common.core.utils.StringUtil;
 import com.roncoo.pay.user.entity.RpUserBankAccount;
 import com.roncoo.pay.user.entity.RpUserInfo;
 import com.roncoo.pay.user.entity.RpUserPayConfig;
+import com.roncoo.pay.user.entity.RpUserPayExtInfo;
 import com.roncoo.pay.user.entity.RpUserPayInfo;
 import com.roncoo.pay.user.enums.BankAccountTypeEnum;
 import com.roncoo.pay.user.enums.BankCodeEnum;
@@ -33,16 +48,8 @@ import com.roncoo.pay.user.enums.FundInfoTypeEnum;
 import com.roncoo.pay.user.service.RpUserBankAccountService;
 import com.roncoo.pay.user.service.RpUserInfoService;
 import com.roncoo.pay.user.service.RpUserPayConfigService;
+import com.roncoo.pay.user.service.RpUserPayExtInfoService;
 import com.roncoo.pay.user.service.RpUserPayInfoService;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * 用户支付设置管理
@@ -54,12 +61,18 @@ import javax.servlet.http.HttpServletRequest;
 public class UserPayConfigController {
 	
 	
+	private static final Logger log = LoggerFactory.getLogger(UserPayConfigController.class);
+
+	
+	
 	@Autowired
 	private RpUserPayConfigService rpUserPayConfigService;
 	@Autowired
 	private RpUserInfoService rpUserInfoService;
 	@Autowired
 	private RpUserPayInfoService rpUserPayInfoService;
+	@Autowired
+	private RpUserPayExtInfoService rpUserPayExtInfoService;
 	@Autowired
 	private RpUserBankAccountService rpUserBankAccountService;
 
@@ -152,11 +165,43 @@ public class UserPayConfigController {
 		RpUserPayConfig rpUserPayConfig = rpUserPayConfigService.getByUserNo(userNo,null);
 		RpUserPayInfo wxUserPayInfo = rpUserPayInfoService.getByUserNo(userNo, PayWayEnum.WEIXIN.name());
 		RpUserPayInfo aliUserPayInfo = rpUserPayInfoService.getByUserNo(userNo, PayWayEnum.ALIPAY.name());
+		RpUserPayInfo jdUserPayInfo = rpUserPayInfoService.getByUserNo(userNo, PayWayEnum.JINGDONG.name());
+		RpUserPayInfo unionUserPayInfo = rpUserPayInfoService.getByUserNo(userNo, PayWayEnum.UNION.name());
+		
+		
 		model.addAttribute("FundInfoTypeEnums", FundInfoTypeEnum.toList());
 		model.addAttribute("rpUserPayConfig", rpUserPayConfig);
 		model.addAttribute("wxUserPayInfo", wxUserPayInfo);
 		model.addAttribute("aliUserPayInfo", aliUserPayInfo);
+		model.addAttribute("jdUserPayInfo", jdUserPayInfo);
+		model.addAttribute("unionUserPayInfo", unionUserPayInfo);
 		model.addAttribute("SecurityRatingEnum", SecurityRatingEnum.toList());
+		
+		/* JD_CLUB_NUMBER_CARD_ID JD_DES_SCERET_KEY  JD_MD5_SCERET_KEY
+		 * 京东支付
+		 */
+		String jdId = null;
+		if(jdUserPayInfo !=null)
+			 jdId = jdUserPayInfo.getId();
+		List<RpUserPayExtInfo>  jdPayExtInfos = rpUserPayExtInfoService.getByUserIdAndPayWayCode( jdId,PayWayEnum.JINGDONG.name());
+		if(!StringUtil.isEmpty(jdPayExtInfos))
+			for(RpUserPayExtInfo rpUserPayExtInfo : jdPayExtInfos)
+				model.addAttribute( rpUserPayExtInfo.getType_code(),rpUserPayExtInfo.getContent());
+		
+		log.info("京东支付的扩展信息查询结果数量：{}" , !StringUtil.isEmpty(jdPayExtInfos)?jdPayExtInfos.size():"空");
+		
+		/*
+		 * 银联支付
+		 */
+		String unionId = null;
+		if(unionUserPayInfo !=null)
+			unionId = unionUserPayInfo.getId();
+		List<RpUserPayExtInfo>  unionPayExtInfos = rpUserPayExtInfoService.getByUserIdAndPayWayCode( jdId,PayWayEnum.UNION.name());
+		if(!StringUtil.isEmpty(unionPayExtInfos))
+			for(RpUserPayExtInfo rpUserPayExtInfo : unionPayExtInfos)
+				model.addAttribute( rpUserPayExtInfo.getType_code(),rpUserPayExtInfo.getContent());
+		
+		
 		return "pay/config/edit";
 	}
 	
@@ -183,6 +228,21 @@ public class UserPayConfigController {
 		String ali_appid = request.getParameter("ali_appid");
 		String ali_rsaPrivateKey = request.getParameter("ali_rsaPrivateKey");
 		String ali_rsaPublicKey = request.getParameter("ali_rsaPublicKey");
+		
+		/* JD_CLUB_NUMBER_CARD_ID JD_DES_SCERET_KEY  JD_MD5_SCERET_KEY
+		 * 京东支付
+		 */
+		String JD_CLUB_NUMBER_CARD_ID = request.getParameter("JD_CLUB_NUMBER_CARD_ID");
+		String JD_DES_SCERET_KEY = request.getParameter("JD_DES_SCERET_KEY");
+		String JD_MD5_SCERET_KEY = request.getParameter("JD_MD5_SCERET_KEY");
+		
+		/*
+		 * 银联支付
+		 */
+		String union_appid = request.getParameter("union_appid");
+		String union_mchid = request.getParameter("union_mchid");
+		
+		
 
 		// 如果是商户且安全等级是MD5+IP白名单 , 则 IP白名单不能为空
 		if (SecurityRatingEnum.MD5_IP.name().equals(securityRating)) {
@@ -196,7 +256,8 @@ public class UserPayConfigController {
 
 		rpUserPayConfigService.updateUserPayConfig(rpUserPayConfig.getUserNo(), productCode, productName, 
 				rpUserPayConfig.getRiskDay(), rpUserPayConfig.getFundIntoType(), rpUserPayConfig.getIsAutoSett(),
-				we_appId, we_merchantId, we_partnerKey, ali_partner, ali_sellerId, ali_key, ali_appid, ali_rsaPrivateKey, ali_rsaPublicKey , securityRating , merchantServerIp);
+				we_appId, we_merchantId, we_partnerKey, ali_partner, ali_sellerId, ali_key, ali_appid, ali_rsaPrivateKey, ali_rsaPublicKey , securityRating , merchantServerIp,
+				JD_CLUB_NUMBER_CARD_ID ,JD_DES_SCERET_KEY , JD_MD5_SCERET_KEY);
 		dwz.setStatusCode(DWZ.SUCCESS);
 		dwz.setMessage(DWZ.SUCCESS_MSG);
 		model.addAttribute("dwz", dwz);

@@ -37,9 +37,13 @@ public enum PayTypeEnum {
 
     WX_PROGRAM_PAY("WEIXIN","微信小程序"),
 
-    F2F_PAY("ALIPAY","条码支付"),
+    F2F_PAY("ALIPAY","条码支付"), 
 
-	ALI_TEST("ALIPAY","支付宝测试");
+	ALI_TEST("ALIPAY","支付宝测试"),
+	
+	JINGDONG_SACNPAY("JINGDONG","京东扫码"),
+	
+	UNION_SCANPAY("UNION","银联扫码");
 
 	/** 所属支付方式 */
     private String way;

@@ -50,6 +50,18 @@
                         <input type="submit" value="0.1元支付体验"/>
                     </p>
                 </form>
+            </li>            
+            <li style="margin-left: 20px;">
+                <img src="${path}images/wangguan.png" alt="京东支付"/>
+                <form action="${path}roncooPay/scanPay" method="post">
+                    <input type="hidden" name="productName" value="京东支付产品测试"/><br/>
+                    <input type="hidden" name="orderPrice" value="0.1"/><br/>
+                    <input type="hidden" name="payWayCode" value="JINGDONG">
+                    <input type="hidden" name="remark" value="京东支付备注信息"/>
+                    <p class="pay_btn">
+                        <input type="submit" value="0.1元支付体验"/>
+                    </p>
+                </form>
             </li>
             <li style="margin-left: 20px;">
                 <img src="${path}images/wangguan.png" alt="网关支付"/>
@@ -63,6 +75,8 @@
                     </p>
                 </form>
             </li>
+        </ul>
+        <ul class="payment">
             <li style="margin-left: 20px;">
                 <img src="${path}images/beisao.png" alt="条码支付"/>
                 <form action="${path}roncooPay/toF2FPay" method="post">

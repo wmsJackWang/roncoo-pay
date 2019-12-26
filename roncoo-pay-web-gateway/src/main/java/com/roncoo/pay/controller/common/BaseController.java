@@ -256,4 +256,10 @@ public abstract class BaseController {
             out.close();
         }
     }
+    
+    public void printMap(Map<String , Object> map) {
+    	for(String key : map.keySet())
+    		System.out.print(key+":"+map.get(key)+" ");
+    	System.out.println();
+    }
 }

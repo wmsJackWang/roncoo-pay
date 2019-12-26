@@ -67,7 +67,7 @@ create table rp_account
    sett_amount          decimal(20,6) not null,
    user_no              varchar(50),
    primary key (id)
-);
+) default charset=utf8 ;
 
 alter table rp_account comment '资金账户表';
 
@@ -93,7 +93,7 @@ create table rp_account_history
    risk_day             int,
    user_no              varchar(50),
    primary key (id)
-);
+) default charset=utf8 ;
 
 alter table rp_account_history comment '资金账户流水表';
 
@@ -111,7 +111,7 @@ create table rp_pay_product
    product_name         varchar(200) not null comment '支付产品名称',
    audit_status         varchar(45),
    primary key (id)
-);
+) default charset=utf8 ;
 
 alter table rp_pay_product comment '支付产品表';
 
@@ -133,7 +133,7 @@ create table rp_pay_way
    sorts                int default 1000 comment '排序(倒序排序,默认值1000)',
    pay_rate             double not null comment '商户支付费率',
    primary key (id)
-);
+) default charset=utf8 ;
 
 alter table rp_pay_way comment '支付方式';
 
@@ -156,7 +156,7 @@ create table rp_sett_daily_collect
    remark               varchar(300) comment '备注',
    risk_day             int comment '风险预存期天数',
    primary key (id)
-);
+) default charset=utf8 ;
 
 alter table rp_sett_daily_collect comment '每日待结算汇总';
 
@@ -196,7 +196,7 @@ create table rp_sett_record
    operator_loginname   varchar(50) comment '操作员登录名',
    operator_realname    varchar(50) comment '操作员姓名',
    primary key (id)
-);
+) default charset=utf8 ;
 
 alter table rp_sett_record comment '结算记录';
 
@@ -215,7 +215,7 @@ create table rp_sett_record_annex
    annex_address        varchar(500) not null,
    settlement_id        varchar(50) not null,
    primary key (id)
-);
+) default charset=utf8 ;
 
 /*==============================================================*/
 /* table: rp_user_bank_account                                  */
@@ -243,7 +243,7 @@ create table rp_user_bank_account
    street               varchar(300),
    bank_account_type    varchar(36) not null,
    primary key (id)
-);
+) default charset=utf8 ;
 
 alter table rp_user_bank_account comment '用户银行账户表';
 
@@ -260,7 +260,7 @@ create table rp_user_info
    account_no           varchar(50) not null,
    primary key (id),
    unique key ak_key_2 (account_no)
-);
+) default charset=utf8 ;
 
 alter table rp_user_info comment '该表用来存放用户的基本信息';
 
@@ -286,7 +286,7 @@ create table rp_user_pay_config
    fund_into_type       varchar(50),
    pay_secret           varchar(50),
    primary key (id)
-);
+) default charset=utf8 ;
 
 alter table rp_user_pay_config comment '支付设置表';
 
@@ -311,7 +311,7 @@ create table rp_user_pay_info
    pay_way_code         varchar(50) not null comment '支付方式编号',
    pay_way_name         varchar(100) not null comment '支付方式名称',
    primary key (id_)
-);
+) default charset=utf8 ;
 
 alter table rp_user_pay_info comment '该表用来存放用户开通的第三方支付信息';
 
@@ -346,7 +346,7 @@ create table rp_account_check_batch
    check_fail_msg       varchar(300),
    bank_err_msg         varchar(300),
    primary key (id)
-);
+) default charset=utf8 ;
 
 alter table rp_account_check_batch comment '对账批次表 rp_account_check_batch';
 
@@ -387,7 +387,7 @@ create table rp_account_check_mistake
    operator_name        varchar(100),
    operator_account_no  varchar(50),
    primary key (id)
-);
+) default charset=utf8 ;
 
 alter table rp_account_check_mistake comment '对账差错表 rp_account_check_mistake';
 
@@ -420,7 +420,7 @@ create table rp_account_check_mistake_scratch_pool
    remark               varchar(500) comment '备注',
    batch_no             varchar(50),
    bill_date            datetime
-);
+) default charset=utf8 ;
 
 alter table rp_account_check_mistake_scratch_pool comment '差错暂存池';
 
@@ -441,7 +441,7 @@ create table rp_notify_record
    notify_type          varchar(30) comment '通知类型',
    primary key (id),
    key ak_key_2 (merchant_order_no)
-);
+) default charset=utf8 ;
 
 alter table rp_notify_record comment '通知记录表 rp_notify_record';
 
@@ -460,7 +460,7 @@ create table rp_notify_record_log
    merchant_order_no    varchar(50) not null comment '商户订单号',
    http_status          varchar(50) not null comment 'http状态',
    primary key (id)
-);
+) default charset=utf8 ;
 
 alter table rp_notify_record_log comment '通知记录日志表 rp_notify_record_log';
 
@@ -499,7 +499,7 @@ create table rp_refund_record
    remark               varchar(3000) comment '备注',
    primary key (id),
    unique key ak_key_2 (refund_trx_no)
-);
+) default charset=utf8 ;
 
 alter table rp_refund_record comment '退款记录表';
 
@@ -545,7 +545,7 @@ create table rp_trade_payment_order
    field5               varchar(500),
    primary key (id),
    unique key ak_key_2 (merchant_order_no, merchant_no)
-);
+) default charset=utf8 ;
 
 alter table rp_trade_payment_order comment 'roncoo pay 龙果支付 支付订单表';
 
@@ -605,11 +605,12 @@ create table rp_trade_payment_record
    bank_return_msg      varchar(2000) comment '银行返回信息',
    primary key (id),
    unique key ak_key_2 (trx_no)
-);
+) default charset=utf8 ;
 
 alter table rp_trade_payment_record comment '支付记录表';
 
-CREATE TABLE seq_table (SEQ_NAME varchar(50) NOT NULL, CURRENT_VALUE bigint DEFAULT '1000000002' NOT NULL, INCREMENT smallint DEFAULT '1' NOT NULL, REMARK varchar(100) NOT NULL, PRIMARY KEY (SEQ_NAME)) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE seq_table (SEQ_NAME varchar(50) NOT NULL, CURRENT_VALUE bigint DEFAUL
+T '1000000002' NOT NULL, INCREMENT smallint DEFAULT '1' NOT NULL, REMARK varchar(100) NOT NULL, PRIMARY KEY (SEQ_NAME)) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 INSERT INTO seq_table (SEQ_NAME, CURRENT_VALUE, INCREMENT, REMARK) VALUES ('ACCOUNT_NO_SEQ', 10000000, 1, '账户--账户编号');
 INSERT INTO seq_table (SEQ_NAME, CURRENT_VALUE, INCREMENT, REMARK) VALUES ('ACTIVITY_NO_SEQ', 10000006, 1, '活动--活动编号');
 INSERT INTO seq_table (SEQ_NAME, CURRENT_VALUE, INCREMENT, REMARK) VALUES ('USER_NO_SEQ', 10001113, 1, '用户--用户编号');
@@ -705,7 +706,7 @@ create table pms_menu
    name                 varchar(100),
    url                  varchar(100),
    primary key (id)
-)auto_increment = 1000;
+)auto_increment = 1000 default charset =utf8;
 
 alter table pms_menu comment '菜单表';
 
@@ -726,7 +727,7 @@ create table pms_menu_role
    menu_id              bigint not null,
    primary key (id),
    key ak_key_2 (role_id, menu_id)
-) auto_increment = 1000;
+) auto_increment = 1000 default charset=utf8 ;
 
 alter table pms_menu_role comment '权限与角色关联表';
 
@@ -748,7 +749,7 @@ create table pms_operator
    salt                 varchar(50) not null,
    primary key (id),
    key ak_key_2 (login_name)
-) auto_increment = 1000;
+) auto_increment = 1000 default charset=utf8 ;
 
 alter table pms_operator comment '操作员表';
 
@@ -768,7 +769,7 @@ create table pms_operator_log
    ip                   varchar(100) not null,
    content              varchar(3000),
    primary key (id)
-) auto_increment = 1000;
+) auto_increment = 1000 default charset=utf8 ;
 
 alter table pms_operator_log comment '权限_操作员操作日志表';
 
@@ -787,7 +788,7 @@ create table pms_permission
    primary key (id),
    key ak_key_2 (permission),
    key ak_key_3 (permission_name)
-) auto_increment = 1000;
+) auto_increment = 1000 default charset=utf8 ;
 
 alter table pms_permission comment '权限表';
 
@@ -805,7 +806,7 @@ create table pms_role
    role_name            varchar(100) not null,
    primary key (id),
    key ak_key_2 (role_name)
-) auto_increment = 1000;
+) auto_increment = 1000 default charset=utf8 ;
 
 alter table pms_role comment '角色表';
 
@@ -823,7 +824,7 @@ create table pms_role_operator
    operator_id          bigint not null,
    primary key (id),
    key ak_key_2 (role_id, operator_id)
-) auto_increment = 1000;
+) auto_increment = 1000 default charset=utf8 ;
 
 alter table pms_role_operator comment '操作员与角色关联表';
 
@@ -841,7 +842,7 @@ create table pms_role_permission
    permission_id        bigint not null,
    primary key (id),
    key ak_key_2 (role_id, permission_id)
-) auto_increment = 1000;
+) auto_increment = 1000 default charset=utf8 ;
 
 alter table pms_role_permission comment '权限与角色关联表';
 
@@ -1082,7 +1083,7 @@ create table rp_micro_submit_record
    rate                 varchar(50) not null comment '费率',
    contact_phone        varchar(11) not null comment '手机号码',
    primary key (id)
-);
+) default charset=utf8 ;
 alter table rp_micro_submit_record comment '小微商户进件记录';
 
 --  菜单
@@ -1096,3 +1097,28 @@ insert into pms_permission (id,version,status,creater,create_time, editor, edit_
  (268, 0,'ACTIVE', 'roncoo','2016-06-03 11:07:43', 'test', '2016-06-03 11:07:43','进件记录管理--查询','进件记录管理--查询','trade:micro:submit:record:query');
 
 /*==============================小微商户进件==end=================================*/
+
+
+
+
+----jackdking------------------
+---- 第三方渠道支付的扩展信息，作为支付网关，每次新接入的渠道，配置信息的类型都会不一样，
+---- 不能每次都要扩展 rp_user_pay_info 表字段，因此使用 关联该表的 扩展 表来保存配置信息
+drop table rp_user_pay_info_extend;
+
+create table rp_user_pay_info_extend (
+id varchar(50) not null ,
+rp_user_pay_info_id varchar(50) not null ,
+pay_way_code varchar(50) not null,
+pay_way_name  varchar(100) not null , 
+type_code varchar(50) not null ,
+type_desc varchar(200),
+content varchar(500) not null,
+create_time datetime not null ,
+edit_time datetime ,
+version varchar(10) not null,
+remark varchar(500),
+status varchar(10) ,
+primary key(id)
+)default charset=utf8 ;
+

@@ -91,6 +91,9 @@ public class AlipayConfigUtil {
 
     //支付宝被扫地址
     public static final String trade_pay_url = (String) properties.get("trade_pay_url");
+    
+    //支付宝参数格式
+    public static final String FORMAT = "JSON";
 
     //支付宝交易查询地址
     public static final String trade_query_url = (String) properties.get("trade_query_url");

@@ -15,6 +15,16 @@
  */
 package com.roncoo.pay.user.service.impl;
 
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.roncoo.pay.common.core.enums.JDPayExtEnum;
 import com.roncoo.pay.common.core.enums.PayWayEnum;
 import com.roncoo.pay.common.core.enums.PublicEnum;
 import com.roncoo.pay.common.core.enums.PublicStatusEnum;
@@ -25,20 +35,14 @@ import com.roncoo.pay.user.dao.RpUserPayConfigDao;
 import com.roncoo.pay.user.entity.RpPayProduct;
 import com.roncoo.pay.user.entity.RpPayWay;
 import com.roncoo.pay.user.entity.RpUserPayConfig;
+import com.roncoo.pay.user.entity.RpUserPayExtInfo;
 import com.roncoo.pay.user.entity.RpUserPayInfo;
 import com.roncoo.pay.user.exception.PayBizException;
 import com.roncoo.pay.user.service.RpPayProductService;
 import com.roncoo.pay.user.service.RpPayWayService;
 import com.roncoo.pay.user.service.RpUserPayConfigService;
+import com.roncoo.pay.user.service.RpUserPayExtInfoService;
 import com.roncoo.pay.user.service.RpUserPayInfoService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 用户支付配置service实现类
@@ -56,6 +60,8 @@ public class RpUserPayConfigServiceImpl implements RpUserPayConfigService{
 	private RpPayWayService rpPayWayService;
 	@Autowired
 	private RpUserPayInfoService rpUserPayInfoService;
+	@Autowired
+	private RpUserPayExtInfoService rpUserPayExtInfoService;
 	
 	@Override
 	public void saveData(RpUserPayConfig rpUserPayConfig) {
@@ -275,15 +281,17 @@ public class RpUserPayConfigServiceImpl implements RpUserPayConfigService{
 
 			updateUserPayConfig( userNo,  productCode,  productName,  riskDay,  fundIntoType,
 				 isAutoSett,  appId,  merchantId,  partnerKey,
-				 ali_partner,  ali_sellerId,  ali_key,  ali_appid,  ali_rsaPrivateKey,  ali_rsaPublicKey  ,  null ,  null);
+				 ali_partner,  ali_sellerId,  ali_key,  ali_appid,  ali_rsaPrivateKey,  ali_rsaPublicKey  ,  null ,  null ,  null ,  null ,  null);
 	}
 	/**
 	 * 修改用户支付配置
 	 */
+	@Transactional
 	@Override
 	public void updateUserPayConfig(String userNo, String productCode, String productName, Integer riskDay, String fundIntoType,
 			String isAutoSett, String appId, String merchantId, String partnerKey,
-			String ali_partner, String ali_sellerId, String ali_key, String ali_appid, String ali_rsaPrivateKey, String ali_rsaPublicKey  , String securityRating , String merchantServerIp)  throws PayBizException{
+			String ali_partner, String ali_sellerId, String ali_key, String ali_appid, String ali_rsaPrivateKey, String ali_rsaPublicKey  ,
+			String securityRating , String merchantServerIp,String JD_CLUB_NUMBER_CARD_ID ,String JD_DES_SCERET_KEY , String JD_MD5_SCERET_KEY)  throws PayBizException{
 		RpUserPayConfig rpUserPayConfig = rpUserPayConfigDao.getByUserNo(userNo, null);
 		if(rpUserPayConfig == null){
 			throw new PayBizException(PayBizException.USER_PAY_CONFIG_IS_NOT_EXIST,"用户支付配置不存在");
@@ -365,6 +373,59 @@ public class RpUserPayConfigServiceImpl implements RpUserPayConfigService{
 					rpUserPayInfo.setRsaPublicKey(ali_rsaPublicKey);
 					rpUserPayInfoService.updateData(rpUserPayInfo);
 				}
+			}else if(key.equals(PayWayEnum.JINGDONG.name())){
+				//创建用户第三方支付信息
+				RpUserPayInfo rpUserPayInfo = rpUserPayInfoService.getByUserNo(userNo, PayWayEnum.JINGDONG.name());
+				if(rpUserPayInfo == null){
+					rpUserPayInfo = new RpUserPayInfo();
+					rpUserPayInfo.setId(StringUtil.get32UUID());
+					rpUserPayInfo.setCreateTime(new Date());
+					rpUserPayInfo.setAppId(JD_CLUB_NUMBER_CARD_ID);
+					rpUserPayInfo.setUserNo(userNo);
+					rpUserPayInfo.setUserName(rpUserPayConfig.getUserName());
+					rpUserPayInfo.setPayWayCode(PayWayEnum.JINGDONG.name());
+					rpUserPayInfo.setPayWayName(PayWayEnum.JINGDONG.getDesc());
+					rpUserPayInfo.setStatus(PublicStatusEnum.ACTIVE.name());
+					rpUserPayInfoService.saveData(rpUserPayInfo);
+					
+					RpUserPayExtInfo payExtInfo1 = new RpUserPayExtInfo();
+					RpUserPayExtInfo payExtInfo2 = new RpUserPayExtInfo();
+					
+					if(!StringUtil.isEmpty(JD_DES_SCERET_KEY))
+					{
+						payExtInfo1.setId(StringUtil.get32UUID());
+						payExtInfo1.setCreateTime(new Date());
+						payExtInfo1.setRp_user_pay_info_id(rpUserPayInfo.getId());
+						payExtInfo1.setPay_way_code(PayWayEnum.JINGDONG.name());
+						payExtInfo1.setPay_way_name(PayWayEnum.JINGDONG.getDesc());
+						payExtInfo1.setType_code(JDPayExtEnum.JD_DES_SCERET_KEY.name());
+						payExtInfo1.setContent(JD_DES_SCERET_KEY);
+						rpUserPayExtInfoService.saveData(payExtInfo1);
+					}
+					
+					if(!StringUtil.isEmpty(JD_MD5_SCERET_KEY))
+					{
+						payExtInfo2.setId(StringUtil.get32UUID());
+						payExtInfo2.setCreateTime(new Date());
+						payExtInfo2.setRp_user_pay_info_id(rpUserPayInfo.getId());
+						payExtInfo2.setPay_way_code(PayWayEnum.JINGDONG.name());
+						payExtInfo2.setPay_way_name(PayWayEnum.JINGDONG.getDesc());
+						payExtInfo2.setType_code(JDPayExtEnum.JD_MD5_SCERET_KEY.name());
+						payExtInfo2.setContent(JD_MD5_SCERET_KEY);
+						rpUserPayExtInfoService.saveData(payExtInfo2);
+					}
+					
+				}else {
+
+					rpUserPayInfo.setEditTime(new Date());
+					rpUserPayInfo.setPayWayCode(PayWayEnum.JINGDONG.name());
+					rpUserPayInfo.setPayWayName(PayWayEnum.JINGDONG.getDesc());
+					rpUserPayInfoService.updateData(rpUserPayInfo);
+					
+					
+					
+				}
+				
 			}
 		}
 	}

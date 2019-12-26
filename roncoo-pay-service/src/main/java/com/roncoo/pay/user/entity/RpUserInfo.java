@@ -93,4 +93,9 @@ public class RpUserInfo extends BaseEntity implements Serializable {
         return PublicStatusEnum.getEnum(this.getStatus()).getDesc();
     }
 
+	@Override
+	public String toString() {
+		return "RpUserInfo [userNo=" + userNo + ", userName=" + userName + ", accountNo=" + accountNo + ", mobile="
+				+ mobile + ", password=" + password + ", payPwd=" + payPwd + "]" + super.toString();
+	}
 }

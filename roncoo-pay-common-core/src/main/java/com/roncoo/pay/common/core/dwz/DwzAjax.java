@@ -92,7 +92,7 @@ public class DwzAjax {
     public final void setNavTabId(final String argNavTabId) {
         this.navTabId = argNavTabId;
     }
-
+    
     /**
      * @return the callbackType
      */

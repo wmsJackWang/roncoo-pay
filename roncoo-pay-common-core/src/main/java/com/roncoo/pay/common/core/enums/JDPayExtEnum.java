@@ -1,18 +1,3 @@
-/*
- * Copyright 2015-2102 RonCoo(http://www.roncoo.com) Group.
- *  
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *  
- *      http://www.apache.org/licenses/LICENSE-2.0
- *  
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.roncoo.pay.common.core.enums;
 
 import java.util.ArrayList;
@@ -20,25 +5,28 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 支付方式枚举
- * @company：广州领课网络科技有限公司（龙果学院 www.roncoo.com）.
- * @author Along.shen
- */
-public enum PayWayEnum {
+public enum JDPayExtEnum {
 
-	WEIXIN("微信"),
-
-	ALIPAY("支付宝"),
+	JD_DES_SCERET_KEY("京东DES秘钥"),
+	JD_MD5_SCERET_KEY("京东MD5秘钥"),
+	JD_DZ_MD5_SCERET_KEY("京东对账MD5秘钥"),
+	JD_CLUB_NUMBER_CARD_ID("京东支付会员卡号"),
+	JD_AGENT_BUSSINESS_TYPE_CODE("京东代扣，业务分类码"),
+	JD_AGENT_TRADE_SOURCE("京东代扣，交易来源"),
+	JD_AGENT_CERTIFICATE_SECRET_KEY("京东代扣，商户私钥证书"),
+	JD_AGENT_CERTIFICATE_PUBLIC_KEY("京东代扣，渠道公钥证书"),
+	JD_AGENT_CERTIFICATE_PASSWORD("京东代扣证书密码"),
+	JD_AGENT_SHA_256_SIGN_KEY("京东代扣，商户SHA-256签名密钥"),
+	JD_AGENT_ACCOUNT("京东代扣，商户号绑定的account字段"),
+	JD_AGENT_TEMPLATE_ID("京东代扣模板id"),
+	JD_AGENT_SIGN_NUMBER_ID("京东代扣 签约会员号");
 	
-	JINGDONG("京东"),
 	
-	UNION("银联");
 
 	/** 描述 */
 	private String desc;
 
-	private PayWayEnum(String desc) {
+	private JDPayExtEnum(String desc) {
 		this.desc = desc;
 	}
 

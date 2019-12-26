@@ -170,4 +170,14 @@ public class RpUserPayInfo extends BaseEntity implements Serializable {
     public void setUserName(String userName) {
         this.userName = userName == null ? null : userName.trim();
     }
+
+	@Override
+	public String toString() {
+		return "RpUserPayInfo [appId=" + appId + ", appSectet=" + appSectet + ", merchantId=" + merchantId
+				+ ", appType=" + appType + ", userNo=" + userNo + ", userName=" + userName + ", partnerKey="
+				+ partnerKey + ", payWayCode=" + payWayCode + ", payWayName=" + payWayName + ", offlineAppId="
+				+ offlineAppId + ", rsaPrivateKey=" + rsaPrivateKey + ", rsaPublicKey=" + rsaPublicKey + "]" + super.toString();
+	}
+    
+    
 }

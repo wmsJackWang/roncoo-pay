@@ -103,25 +103,58 @@
 						</tr>
 						<tr>
 							<td>MD5_KEY：</td>
-							<td><input type="text" name="ali_key" id="ali_key" maxlength="150" class="required" value="${aliUserPayInfo.merchantId }"/></td>
+							<td><input type="text" name="ali_key" id="ali_key" maxlength="150" class="required" value="${aliUserPayInfo.partnerKey }"/></td>
 						</tr>
 						<tr>
-							<td>收款账号：</td>
-							<td><input type="text" name="ali_sellerId" id="ali_sellerId" maxlength="200" class="required" value="${aliUserPayInfo.partnerKey }"/></td>
+							<td>收款账号(商户号)：</td>
+							<td><input type="text" name="ali_sellerId" id="ali_sellerId" maxlength="200" class="required" value="${aliUserPayInfo.merchantId }"/></td>
 						</tr>
 						<tr>
 							<td>APPID：</td>
-							<td><input type="text" name="ali_appid" id="ali_appid" maxlength="200" class="required" value="${aliUserPayInfo.offlineAppId }"/></td>
+							<td><input type="text" name="ali_appid" id="ali_appid" maxlength="200" class="required" value="${aliUserPayInfo.appId }"/></td>
 						</tr>
 						<tr>
 							<td>支付宝私钥：</td>
-							<td><input type="text" name="ali_rsaPrivateKey" id="ali_rsaPrivateKey" maxlength="200" class="required" value="${aliUserPayInfo.rsaPrivateKey }"/></td>
+							<td><input type="text" name="ali_rsaPrivateKey" id="ali_rsaPrivateKey" maxlength="10000" class="required" value="${aliUserPayInfo.rsaPrivateKey }"/></td>
 						</tr>
 						<tr>
 							<td>支付宝公钥：</td>
-							<td><input type="text" name="ali_rsaPublicKey" id="ali_rsaPublicKey" maxlength="200" class="required" value="${aliUserPayInfo.rsaPublicKey }"/></td>
+							<td><input type="text" name="ali_rsaPublicKey" id="ali_rsaPublicKey" maxlength="10000" class="required" value="${aliUserPayInfo.rsaPublicKey }"/></td>
 						</tr>
 					</table>
+				</fieldset  id="jd_field" style="display: none;">
+					<legend>京东设置</legend>
+					<table style="border-spacing: 10px">
+						<tr>
+							<td>京东支付会员卡号：</td>
+							<td><input type="text" name="JD_CLUB_NUMBER_CARD_ID" id="JD_CLUB_NUMBER_CARD_ID" maxlength="100" class="required" value="${jdUserPayInfo.appId}"/></td>
+						</tr>
+						<tr>
+							<td>京东DES秘钥：</td>
+							<td><input type="text" name="JD_DES_SCERET_KEY" id="JD_DES_SCERET_KEY" maxlength="100" class="required" value="${JD_DES_SCERET_KEY}"/></td>
+						</tr>
+						<tr>
+							<td>京东MD5秘钥：</td>
+							<td><input type="text" name="JD_MD5_SCERET_KEY" id="JD_MD5_SCERET_KEY" maxlength="100" class="required" value="${JD_MD5_SCERET_KEY}"/></td>
+						</tr>
+					</table>
+				<fieldset>
+				
+				</fieldset  id="union_field" style="display: none;">
+					<legend>银联设置</legend>
+					<table style="border-spacing: 10px">
+						<tr>
+							<td>appid：</td>
+							<td><input type="text" name="union_appid" id="union_appid" maxlength="100" class="required" value="${unionUserPayInfo.appId}"/></td>
+						</tr>
+						<tr>
+							<td>mchid：</td>
+							<td><input type="text" name="union_mchid" id="union_mchid" maxlength="100" class="required" value="${unionUserPayInfo.merchantId}"/></td>
+						</tr>
+					</table>
+				<fieldset>
+				
+					
 				</fieldset>
 			</div>
 		</div>
@@ -191,6 +224,11 @@ function changeWePay(){
 	              			$("#ali_appid").attr("class", "required");
 	              			$("#ali_rsaPrivateKey").attr("class", "required");
 	              			$("#ali_rsaPublicKey").attr("class", "required");
+	                      }else if(obj.name == "JINGDONG"){     
+	                        $("#jd_field").show();
+	                        $("#JD_CLUB_NUMBER_CARD_ID").attr("class", "required");
+	              			$("#JD_DES_SCERET_KEY").attr("class", "required");
+	              			$("#JD_MD5_SCERET_KEY").attr("class", "required");
 	                      }
 	                   }
 	                }

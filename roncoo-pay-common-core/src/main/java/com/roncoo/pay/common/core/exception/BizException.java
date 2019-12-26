@@ -104,6 +104,12 @@ public class BizException extends RuntimeException {
     public int getCode() {
         return code;
     }
+    
+    @Override
+    public String toString() {
+    	// TODO Auto-generated method stub
+    	return "code:"+this.code+"  message:"+this.msg;
+    }
 
     /**
      * 实例化异常

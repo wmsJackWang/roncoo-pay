@@ -31,7 +31,7 @@
 
     <logger name="com.roncoo.pay" level="debug"/>
 
-    <root level="info">
+    <root level="debug">
         <appender-ref ref="CONSOLE"/>
         <!--<appender-ref ref="LOGGER_FILE"/>-->
     </root>

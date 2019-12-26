@@ -34,6 +34,10 @@ public class BaseEntity {
 	private String editor;// 修改人.
 	private Date editTime;// 修改时间.
 	private String remark;// 描述
+	
+	public BaseEntity() {
+		
+	}
 
 	public String getId() {
 		return id;
@@ -99,4 +103,11 @@ public class BaseEntity {
 		this.remark = remark;
 	}
 
+	@Override
+	public String toString() {
+		return "BaseEntity [id=" + id + ", version=" + version + ", status=" + status + ", creater=" + creater
+				+ ", createTime=" + createTime + ", editor=" + editor + ", editTime=" + editTime + ", remark=" + remark
+				+ "]";
+	}
+	
 }

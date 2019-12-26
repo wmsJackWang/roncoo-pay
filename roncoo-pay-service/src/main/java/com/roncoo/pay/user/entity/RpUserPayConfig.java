@@ -162,4 +162,14 @@ public class RpUserPayConfig extends BaseEntity implements Serializable {
     public void setMerchantServerIp(String merchantServerIp) {
         this.merchantServerIp = merchantServerIp;
     }
+
+	@Override
+	public String toString() {
+		return "RpUserPayConfig [auditStatus=" + auditStatus + ", isAutoSett=" + isAutoSett + ", productCode="
+				+ productCode + ", productName=" + productName + ", userNo=" + userNo + ", userName=" + userName
+				+ ", riskDay=" + riskDay + ", payKey=" + payKey + ", fundIntoType=" + fundIntoType + ", paySecret="
+				+ paySecret + ", securityRating=" + securityRating + ", merchantServerIp=" + merchantServerIp + "]";
+	}
+    
+    
 }

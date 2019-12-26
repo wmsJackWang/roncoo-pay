@@ -102,6 +102,8 @@ public class LoginController extends BaseController {
         }
         model.addAttribute("mobile", mobile);
         model.addAttribute("password", password);
+        
+        
         request.getSession().setAttribute(ConstantClass.USER, rpUserInfo);
         if (!StringUtil.isEmpty(msg)) {
             model.addAttribute("msg", msg);
