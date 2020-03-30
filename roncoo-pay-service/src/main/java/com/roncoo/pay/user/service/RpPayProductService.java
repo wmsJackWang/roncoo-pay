@@ -88,5 +88,10 @@ public interface RpPayProductService{
 	 * @param auditStatus
 	 */
 	void audit(String productCode, String auditStatus) throws PayBizException;
+
+	/*
+	 * 获取默认的产品权限
+	 */
+	RpPayProduct getDefaultProduct();
 	
 }

@@ -15,9 +15,11 @@
  */
 package com.roncoo.pay.controller.common;
 
+import com.roncoo.pay.common.core.Intefaces.IPay;
 import com.roncoo.pay.common.core.utils.StringUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.ui.Model;
 import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -43,13 +45,36 @@ import java.util.Set;
  * @author  Peter
  * <a href="http://www.roncoo.com">龙果学院(www.roncoo.com)</a>
  */
-public abstract class BaseController {
+public abstract class BaseController implements IPay{
 
     private static final Log log = LogFactory.getLog(BaseController.class);
     
 	private static final String UTF_8 = "utf-8";
 
 	private static final String GBK = "GBK";
+	
+
+	public String pay() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public String pay(Map<String, String> paramMap) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public String pay(Model model, HttpServletRequest httpServletRequest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public String pay(Model model, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
 
 	/**
 	 * 获取request
@@ -262,4 +287,8 @@ public abstract class BaseController {
     		System.out.print(key+":"+map.get(key)+" ");
     	System.out.println();
     }
+    
+    
+    
+    
 }

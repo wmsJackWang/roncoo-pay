@@ -45,9 +45,10 @@
 		<thead>
 			<tr>
 				<th width="5%">序号</th>
-				<th width="15%">支付方式编号</th>
+				<th width="10%">payWayId</th>
+				<th width="10%">支付方式编号</th>
 				<th width="10%">支付方式名称</th>
-				<th width="15%">支付类型编号</th>
+				<th width="10%">支付类型编号</th>
 				<th width="10%">支付类型名称</th>
 				<th width="10%">费率(%)</th>
 				<th width="15%">创建时间</th>
@@ -58,6 +59,7 @@
 			<c:forEach var="item" items="${pageBean.recordList}" varStatus="s">
 				<tr>
 					<td>${s.index + 1}</td>
+					<td>${item.payWayId}</td>
 					<td>${item.payWayCode}</td>
 					<td>${item.payWayName}</td>
 					<td>${item.payTypeCode}</td>

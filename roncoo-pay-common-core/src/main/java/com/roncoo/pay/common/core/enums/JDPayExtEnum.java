@@ -9,6 +9,8 @@ public enum JDPayExtEnum {
 
 	JD_DES_SCERET_KEY("京东DES秘钥"),
 	JD_MD5_SCERET_KEY("京东MD5秘钥"),
+	JD_RSA_SCERET_KEY("京东RSA秘钥"),
+	JD_RSA_PUBLIC_KEY("京东RSA公钥"),
 	JD_DZ_MD5_SCERET_KEY("京东对账MD5秘钥"),
 	JD_CLUB_NUMBER_CARD_ID("京东支付会员卡号"),
 	JD_AGENT_BUSSINESS_TYPE_CODE("京东代扣，业务分类码"),
@@ -19,7 +21,8 @@ public enum JDPayExtEnum {
 	JD_AGENT_SHA_256_SIGN_KEY("京东代扣，商户SHA-256签名密钥"),
 	JD_AGENT_ACCOUNT("京东代扣，商户号绑定的account字段"),
 	JD_AGENT_TEMPLATE_ID("京东代扣模板id"),
-	JD_AGENT_SIGN_NUMBER_ID("京东代扣 签约会员号");
+	JD_AGENT_SIGN_NUMBER_ID("京东代扣 签约会员号"),
+	JD_SELLER_ID("京东商户号");
 	
 	
 

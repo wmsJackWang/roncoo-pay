@@ -86,6 +86,8 @@ public class WeiXinPrePay implements Serializable {
 
     /** 用户标识 **/
     private String openid;
+    
+    private String sceneInfo;
 
     public String getAppid() {
         return appid;
@@ -247,4 +249,12 @@ public class WeiXinPrePay implements Serializable {
     public void setLimitPay(String limitPay) {
         this.limitPay = limitPay;
     }
+    
+    public String getSceneInfo() {
+		return sceneInfo;
+	}
+    
+    public void setSceneInfo(String sceneInfo) {
+		this.sceneInfo = sceneInfo;
+	}
 }

@@ -20,6 +20,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -51,6 +53,9 @@ import com.roncoo.pay.user.service.RpUserPayInfoService;
  */
 @Service("rpUserPayConfigService")
 public class RpUserPayConfigServiceImpl implements RpUserPayConfigService{
+	
+	private static final Logger log = LoggerFactory.getLogger(RpUserPayConfigServiceImpl.class);
+
 
 	@Autowired
 	private RpUserPayConfigDao rpUserPayConfigDao;
@@ -281,7 +286,7 @@ public class RpUserPayConfigServiceImpl implements RpUserPayConfigService{
 
 			updateUserPayConfig( userNo,  productCode,  productName,  riskDay,  fundIntoType,
 				 isAutoSett,  appId,  merchantId,  partnerKey,
-				 ali_partner,  ali_sellerId,  ali_key,  ali_appid,  ali_rsaPrivateKey,  ali_rsaPublicKey  ,  null ,  null ,  null ,  null ,  null);
+				 ali_partner,  ali_sellerId,  ali_key,  ali_appid,  ali_rsaPrivateKey,  ali_rsaPublicKey  ,  null ,  null ,  null, null );
 	}
 	/**
 	 * 修改用户支付配置
@@ -291,7 +296,9 @@ public class RpUserPayConfigServiceImpl implements RpUserPayConfigService{
 	public void updateUserPayConfig(String userNo, String productCode, String productName, Integer riskDay, String fundIntoType,
 			String isAutoSett, String appId, String merchantId, String partnerKey,
 			String ali_partner, String ali_sellerId, String ali_key, String ali_appid, String ali_rsaPrivateKey, String ali_rsaPublicKey  ,
-			String securityRating , String merchantServerIp,String JD_CLUB_NUMBER_CARD_ID ,String JD_DES_SCERET_KEY , String JD_MD5_SCERET_KEY)  throws PayBizException{
+			String securityRating , String merchantServerIp ,String JD_SELLER_ID ,Map<String, Map<String ,String>> JD_Prams)  throws PayBizException{
+//		/ , String JD_DES_SCERET_KEY , String JD_MD5_SCERET_KEY,String JD_SELLER_ID ,String JD_RSA_SCERET_KEY
+		
 		RpUserPayConfig rpUserPayConfig = rpUserPayConfigDao.getByUserNo(userNo, null);
 		if(rpUserPayConfig == null){
 			throw new PayBizException(PayBizException.USER_PAY_CONFIG_IS_NOT_EXIST,"用户支付配置不存在");
@@ -349,7 +356,7 @@ public class RpUserPayConfigServiceImpl implements RpUserPayConfigService{
 					rpUserPayInfo = new RpUserPayInfo();
 					rpUserPayInfo.setId(StringUtil.get32UUID());
 					rpUserPayInfo.setCreateTime(new Date());
-					rpUserPayInfo.setAppId(ali_partner);
+					rpUserPayInfo.setAppId(ali_appid);
 					rpUserPayInfo.setMerchantId(ali_sellerId);
 					rpUserPayInfo.setPartnerKey(ali_key);
 					rpUserPayInfo.setPayWayCode(PayWayEnum.ALIPAY.name());
@@ -363,7 +370,8 @@ public class RpUserPayConfigServiceImpl implements RpUserPayConfigService{
 					rpUserPayInfoService.saveData(rpUserPayInfo);
 				}else{
 					rpUserPayInfo.setEditTime(new Date());
-					rpUserPayInfo.setAppId(ali_partner);
+					log.info("ali_appid:"+ali_appid);
+					rpUserPayInfo.setAppId(ali_appid);
 					rpUserPayInfo.setMerchantId(ali_sellerId);
 					rpUserPayInfo.setPartnerKey(ali_key);
 					rpUserPayInfo.setPayWayCode(PayWayEnum.ALIPAY.name());
@@ -380,7 +388,8 @@ public class RpUserPayConfigServiceImpl implements RpUserPayConfigService{
 					rpUserPayInfo = new RpUserPayInfo();
 					rpUserPayInfo.setId(StringUtil.get32UUID());
 					rpUserPayInfo.setCreateTime(new Date());
-					rpUserPayInfo.setAppId(JD_CLUB_NUMBER_CARD_ID);
+					rpUserPayInfo.setAppId(JD_SELLER_ID);
+					rpUserPayInfo.setMerchantId(JD_SELLER_ID);
 					rpUserPayInfo.setUserNo(userNo);
 					rpUserPayInfo.setUserName(rpUserPayConfig.getUserName());
 					rpUserPayInfo.setPayWayCode(PayWayEnum.JINGDONG.name());
@@ -388,10 +397,28 @@ public class RpUserPayConfigServiceImpl implements RpUserPayConfigService{
 					rpUserPayInfo.setStatus(PublicStatusEnum.ACTIVE.name());
 					rpUserPayInfoService.saveData(rpUserPayInfo);
 					
-					RpUserPayExtInfo payExtInfo1 = new RpUserPayExtInfo();
-					RpUserPayExtInfo payExtInfo2 = new RpUserPayExtInfo();
 					
-					if(!StringUtil.isEmpty(JD_DES_SCERET_KEY))
+					
+				}else {
+
+					rpUserPayInfo.setEditTime(new Date());
+					rpUserPayInfo.setPayWayCode(PayWayEnum.JINGDONG.name());
+					rpUserPayInfo.setPayWayName(PayWayEnum.JINGDONG.getDesc());
+//					rpUserPayInfo.setAppId(JD_CLUB_NUMBER_CARD_ID);
+					rpUserPayInfo.setMerchantId(JD_SELLER_ID);
+					rpUserPayInfoService.updateData(rpUserPayInfo);
+				}
+				//京东支付扩展信息
+				RpUserPayExtInfo payExtInfo1 = new RpUserPayExtInfo();
+				RpUserPayExtInfo payExtInfo2 = new RpUserPayExtInfo();
+				RpUserPayExtInfo payExtInfo3 = new RpUserPayExtInfo();
+				RpUserPayExtInfo payExtInfo4 = new RpUserPayExtInfo();
+				RpUserPayExtInfo payExtInfo5 = new RpUserPayExtInfo();
+	
+				
+				if(JD_Prams.get(JDPayExtEnum.JD_DES_SCERET_KEY.name())!=null)
+				{
+					if(StringUtil.isEmpty(JD_Prams.get(JDPayExtEnum.JD_DES_SCERET_KEY.name()).get("ID")))
 					{
 						payExtInfo1.setId(StringUtil.get32UUID());
 						payExtInfo1.setCreateTime(new Date());
@@ -399,11 +426,25 @@ public class RpUserPayConfigServiceImpl implements RpUserPayConfigService{
 						payExtInfo1.setPay_way_code(PayWayEnum.JINGDONG.name());
 						payExtInfo1.setPay_way_name(PayWayEnum.JINGDONG.getDesc());
 						payExtInfo1.setType_code(JDPayExtEnum.JD_DES_SCERET_KEY.name());
-						payExtInfo1.setContent(JD_DES_SCERET_KEY);
+						payExtInfo1.setType_desc(JDPayExtEnum.JD_DES_SCERET_KEY.getDesc());
+						payExtInfo1.setContent(JD_Prams.get(JDPayExtEnum.JD_DES_SCERET_KEY.name()).get("CONTENT"));
 						rpUserPayExtInfoService.saveData(payExtInfo1);
 					}
+					else {
+						log.info("ID:"+JD_Prams.get(JDPayExtEnum.JD_DES_SCERET_KEY.name()).get("ID"));
+						payExtInfo1.setId(JD_Prams.get(JDPayExtEnum.JD_DES_SCERET_KEY.name()).get("ID"));
+						payExtInfo1.setEditTime(new Date());
+						payExtInfo1.setType_desc(JDPayExtEnum.JD_DES_SCERET_KEY.getDesc());
+						payExtInfo1.setContent(JD_Prams.get(JDPayExtEnum.JD_DES_SCERET_KEY.name()).get("CONTENT"));
+						rpUserPayExtInfoService.updateData(payExtInfo1);
+						
+					}
 					
-					if(!StringUtil.isEmpty(JD_MD5_SCERET_KEY))
+				}
+				
+				if(JD_Prams.get(JDPayExtEnum.JD_MD5_SCERET_KEY.name())!=null)
+				{
+					if(StringUtil.isEmpty(JD_Prams.get(JDPayExtEnum.JD_MD5_SCERET_KEY.name()).get("ID")))
 					{
 						payExtInfo2.setId(StringUtil.get32UUID());
 						payExtInfo2.setCreateTime(new Date());
@@ -411,18 +452,98 @@ public class RpUserPayConfigServiceImpl implements RpUserPayConfigService{
 						payExtInfo2.setPay_way_code(PayWayEnum.JINGDONG.name());
 						payExtInfo2.setPay_way_name(PayWayEnum.JINGDONG.getDesc());
 						payExtInfo2.setType_code(JDPayExtEnum.JD_MD5_SCERET_KEY.name());
-						payExtInfo2.setContent(JD_MD5_SCERET_KEY);
+						payExtInfo2.setType_desc(JDPayExtEnum.JD_MD5_SCERET_KEY.getDesc());
+						payExtInfo2.setContent(JD_Prams.get(JDPayExtEnum.JD_MD5_SCERET_KEY.name()).get("CONTENT"));
 						rpUserPayExtInfoService.saveData(payExtInfo2);
 					}
+					else {
+						log.info("ID:"+JD_Prams.get(JDPayExtEnum.JD_MD5_SCERET_KEY.name()).get("ID"));
+						payExtInfo2.setId(JD_Prams.get(JDPayExtEnum.JD_MD5_SCERET_KEY.name()).get("ID"));
+						payExtInfo2.setEditTime(new Date());
+						payExtInfo2.setType_desc(JDPayExtEnum.JD_MD5_SCERET_KEY.getDesc());
+						payExtInfo2.setContent(JD_Prams.get(JDPayExtEnum.JD_MD5_SCERET_KEY.name()).get("CONTENT"));
+						rpUserPayExtInfoService.updateData(payExtInfo2);
+						
+					}
 					
-				}else {
+				}
+//				JD_CLUB_NUMBER_CARD_ID
+				
+				if(JD_Prams.get(JDPayExtEnum.JD_CLUB_NUMBER_CARD_ID.name())!=null)
+				{
+					if(StringUtil.isEmpty(JD_Prams.get(JDPayExtEnum.JD_CLUB_NUMBER_CARD_ID.name()).get("ID")))
+					{
+						payExtInfo3.setId(StringUtil.get32UUID());
+						payExtInfo3.setCreateTime(new Date());
+						payExtInfo3.setRp_user_pay_info_id(rpUserPayInfo.getId());
+						payExtInfo3.setPay_way_code(PayWayEnum.JINGDONG.name());
+						payExtInfo3.setPay_way_name(PayWayEnum.JINGDONG.getDesc());
+						payExtInfo3.setType_code(JDPayExtEnum.JD_CLUB_NUMBER_CARD_ID.name());
+						payExtInfo3.setType_desc(JDPayExtEnum.JD_CLUB_NUMBER_CARD_ID.getDesc());
+						payExtInfo3.setContent(JD_Prams.get(JDPayExtEnum.JD_CLUB_NUMBER_CARD_ID.name()).get("CONTENT"));
+						rpUserPayExtInfoService.saveData(payExtInfo3);
+					}
+					else {
+						log.info("ID:"+JD_Prams.get(JDPayExtEnum.JD_CLUB_NUMBER_CARD_ID.name()).get("ID"));
+						payExtInfo3.setId(JD_Prams.get(JDPayExtEnum.JD_CLUB_NUMBER_CARD_ID.name()).get("ID"));
+						payExtInfo3.setEditTime(new Date());
+						payExtInfo3.setType_desc(JDPayExtEnum.JD_CLUB_NUMBER_CARD_ID.getDesc());
+						payExtInfo3.setContent(JD_Prams.get(JDPayExtEnum.JD_CLUB_NUMBER_CARD_ID.name()).get("CONTENT"));
+						rpUserPayExtInfoService.updateData(payExtInfo3);
+						
+					}
+					
+				}
 
-					rpUserPayInfo.setEditTime(new Date());
-					rpUserPayInfo.setPayWayCode(PayWayEnum.JINGDONG.name());
-					rpUserPayInfo.setPayWayName(PayWayEnum.JINGDONG.getDesc());
-					rpUserPayInfoService.updateData(rpUserPayInfo);
+				if(JD_Prams.get(JDPayExtEnum.JD_RSA_SCERET_KEY.name())!=null)
+				{
+					if(StringUtil.isEmpty(JD_Prams.get(JDPayExtEnum.JD_RSA_SCERET_KEY.name()).get("ID")))
+					{
+						payExtInfo4.setId(StringUtil.get32UUID());
+						payExtInfo4.setCreateTime(new Date());
+						payExtInfo4.setRp_user_pay_info_id(rpUserPayInfo.getId());
+						payExtInfo4.setPay_way_code(PayWayEnum.JINGDONG.name());
+						payExtInfo4.setPay_way_name(PayWayEnum.JINGDONG.getDesc());
+						payExtInfo4.setType_code(JDPayExtEnum.JD_RSA_SCERET_KEY.name());
+						payExtInfo4.setType_desc(JDPayExtEnum.JD_RSA_SCERET_KEY.getDesc());
+						payExtInfo4.setContent(JD_Prams.get(JDPayExtEnum.JD_RSA_SCERET_KEY.name()).get("CONTENT"));
+						rpUserPayExtInfoService.saveData(payExtInfo4);
+					}
+					else {
+						log.info("ID:"+JD_Prams.get(JDPayExtEnum.JD_RSA_SCERET_KEY.name()).get("ID"));
+						payExtInfo4.setId(JD_Prams.get(JDPayExtEnum.JD_RSA_SCERET_KEY.name()).get("ID"));
+						payExtInfo4.setEditTime(new Date());
+						payExtInfo4.setType_desc(JDPayExtEnum.JD_RSA_SCERET_KEY.getDesc());
+						payExtInfo4.setContent(JD_Prams.get(JDPayExtEnum.JD_RSA_SCERET_KEY.name()).get("CONTENT"));
+						rpUserPayExtInfoService.updateData(payExtInfo4);
+						
+					}
 					
-					
+				}
+				
+				if(JD_Prams.get(JDPayExtEnum.JD_RSA_PUBLIC_KEY.name())!=null)
+				{
+					if(StringUtil.isEmpty(JD_Prams.get(JDPayExtEnum.JD_RSA_PUBLIC_KEY.name()).get("ID")))
+					{
+						payExtInfo5.setId(StringUtil.get32UUID());
+						payExtInfo5.setCreateTime(new Date());
+						payExtInfo5.setRp_user_pay_info_id(rpUserPayInfo.getId());
+						payExtInfo5.setPay_way_code(PayWayEnum.JINGDONG.name());
+						payExtInfo5.setPay_way_name(PayWayEnum.JINGDONG.getDesc());
+						payExtInfo5.setType_code(JDPayExtEnum.JD_RSA_PUBLIC_KEY.name());
+						payExtInfo5.setType_desc(JDPayExtEnum.JD_RSA_PUBLIC_KEY.getDesc());
+						payExtInfo5.setContent(JD_Prams.get(JDPayExtEnum.JD_RSA_PUBLIC_KEY.name()).get("CONTENT"));
+						rpUserPayExtInfoService.saveData(payExtInfo5);
+					}
+					else {
+						log.info("ID:"+JD_Prams.get(JDPayExtEnum.JD_RSA_PUBLIC_KEY.name()).get("ID"));
+						payExtInfo5.setId(JD_Prams.get(JDPayExtEnum.JD_RSA_PUBLIC_KEY.name()).get("ID"));
+						payExtInfo5.setEditTime(new Date());
+						payExtInfo5.setType_desc(JDPayExtEnum.JD_RSA_PUBLIC_KEY.getDesc());
+						payExtInfo5.setContent(JD_Prams.get(JDPayExtEnum.JD_RSA_PUBLIC_KEY.name()).get("CONTENT"));
+						rpUserPayExtInfoService.updateData(payExtInfo5);
+						
+					}
 					
 				}
 				
@@ -462,6 +583,7 @@ public class RpUserPayConfigServiceImpl implements RpUserPayConfigService{
 	 * @return
 	 */
 	public RpUserPayConfig getByPayKey(String payKey){
+		log.info("payKey"+payKey);
 	    Map<String , Object> paramMap = new HashMap<String , Object>();
 	    paramMap.put("payKey", payKey);
 	    paramMap.put("status", PublicStatusEnum.ACTIVE.name());

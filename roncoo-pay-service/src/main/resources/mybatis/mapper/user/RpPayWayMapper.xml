@@ -14,10 +14,12 @@
     <result column="status" property="status" jdbcType="VARCHAR" />
     <result column="sorts" property="sorts" jdbcType="INTEGER" />
     <result column="pay_rate" property="payRate" jdbcType="DOUBLE" />
+    <result column="pay_way_id" property="payWayId" jdbcType="VARCHAR" />
+    
   </resultMap>
   <sql id="Base_Column_List" >
     ID, version, create_time, edit_time, pay_way_code, pay_way_name, pay_type_code, 
-    pay_type_name, pay_product_code, status, sorts, pay_rate
+    pay_type_name, pay_product_code, status, sorts, pay_rate, pay_way_id
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -33,12 +35,12 @@
     insert into rp_pay_way (ID, version, create_time, 
       edit_time, pay_way_code, pay_way_name, 
       pay_type_code, pay_type_name, pay_product_code, 
-      status, sorts, pay_rate
+      status, sorts, pay_rate, pay_way_id
       )
     values (#{id,jdbcType=VARCHAR}, #{version,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
       #{editTime,jdbcType=TIMESTAMP}, #{payWayCode,jdbcType=VARCHAR}, #{payWayName,jdbcType=VARCHAR}, 
       #{payTypeCode,jdbcType=VARCHAR}, #{payTypeName,jdbcType=VARCHAR}, #{payProductCode,jdbcType=VARCHAR}, 
-      #{status,jdbcType=VARCHAR}, #{sorts,jdbcType=INTEGER}, #{payRate,jdbcType=DOUBLE}
+      #{status,jdbcType=VARCHAR}, #{sorts,jdbcType=INTEGER}, #{payRate,jdbcType=DOUBLE},#{payWayId,jdbcType=VARCHAR}
       )
   </insert>
  
@@ -67,6 +69,7 @@
 		<if test="payTypeCode != null and payTypeCode != ''"> and pay_type_code = #{payTypeCode,jdbcType=VARCHAR}</if>
 		<if test="payWayCode != null and payWayCode != ''"> and pay_way_code = #{payWayCode,jdbcType=VARCHAR}</if>
 		<if test="payProductCode != null and payProductCode != ''"> and pay_product_code = #{payProductCode,jdbcType=VARCHAR}</if>
+		<if test="payWayId != null and payWayId != ''"> and pay_way_id = #{payWayId,jdbcType=VARCHAR}</if>
 	</sql>
   
   	<select id="listBy" parameterType="java.util.Map" resultMap="BaseResultMap">
@@ -75,7 +78,7 @@
 		<where>
 			<include refid="condition_sql" />
 		</where>
-		order by create_time desc
+		order by pay_way_id desc
 	</select>
   
   	<!-- 分页查询 -->

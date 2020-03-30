@@ -91,6 +91,8 @@ public class ScanPayController extends BaseController {
     public String initPay(Model model, HttpServletRequest httpServletRequest) {
         logger.info("======>进入扫码支付");
         Map<String, Object> paramMap = new HashMap<String, Object>();
+        
+        //===================================================获取参数
 
         //获取商户传入参数
         String payKey = getString_UrlDecode_UTF8("payKey"); // 企业支付KEY
@@ -150,8 +152,12 @@ public class ScanPayController extends BaseController {
         if (!MerchantApiUtil.isRightSign(paramMap, rpUserPayConfig.getPaySecret(), sign)) {
             throw new TradeBizException(TradeBizException.TRADE_ORDER_ERROR, "订单签名异常");
         }
-
-        if (StringUtil.isEmpty(payWayCode)) {//非直连方式
+        
+        
+        /*
+         * payWayCode 代表 是支付渠道，微信/支付宝
+         */
+        if (StringUtil.isEmpty(payWayCode)) {//非直连方式   这里  是收银台的方式 , 返回payKey对应商户的产品码  绑定的所有payway信息
             logger.info("======>扫码支付，非直连方式");
             BigDecimal orderPrice = BigDecimal.valueOf(Double.valueOf(orderPriceStr));
             RpPayGateWayPageShowVo payGateWayPageShowVo = rpTradePaymentManagerService.initNonDirectScanPay(payKey, productName, orderNo, orderDate, orderTime, orderPrice, orderIp, orderPeriod, returnUrl
@@ -160,7 +166,7 @@ public class ScanPayController extends BaseController {
             model.addAttribute("payGateWayPageShowVo", payGateWayPageShowVo);//支付网关展示数据
             return "gateway";
 
-        } else {//直连方式
+        } else {//直连方式   , 这个是直接支付
             logger.info("======>扫码支付，直连方式");
             BigDecimal orderPrice = BigDecimal.valueOf(Double.valueOf(orderPriceStr));
             ScanPayResultVo scanPayResultVo = rpTradePaymentManagerService.initDirectScanPay(payKey, productName, orderNo, orderDate, orderTime, orderPrice, payWayCode, orderIp, orderPeriod, returnUrl

@@ -15,6 +15,17 @@
  */
 package com.roncoo.pay.user.service.impl;
 
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.roncoo.pay.common.core.enums.PublicEnum;
 import com.roncoo.pay.common.core.enums.PublicStatusEnum;
 import com.roncoo.pay.common.core.page.PageBean;
@@ -28,13 +39,6 @@ import com.roncoo.pay.user.exception.PayBizException;
 import com.roncoo.pay.user.service.RpPayProductService;
 import com.roncoo.pay.user.service.RpPayWayService;
 import com.roncoo.pay.user.service.RpUserPayConfigService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 支付产品service实现类
@@ -43,6 +47,11 @@ import java.util.Map;
  */
 @Service("rpPayProductService")
 public class RpPayProductServiceImpl implements RpPayProductService {
+	
+	
+	
+	private static final Logger log = LoggerFactory.getLogger(RpPayProductServiceImpl.class);
+
 
 	@Autowired
 	private RpPayProductDao rpPayProductDao;
@@ -176,5 +185,14 @@ public class RpPayProductServiceImpl implements RpPayProductService {
 		rpPayProduct.setAuditStatus(auditStatus);
 		rpPayProduct.setEditTime(new Date());
 		updateData(rpPayProduct);
+	}
+
+	@Override
+	@RequiresPermissions({"pay:way:edit" , "pay:way:delete"})
+	public RpPayProduct getDefaultProduct() {
+		// TODO Auto-generated method stub
+		RpPayProduct result = new RpPayProduct();
+		result.setAuditStatus("NO");
+		return result;
 	}
 }

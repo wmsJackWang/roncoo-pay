@@ -31,6 +31,9 @@ import com.roncoo.pay.trade.vo.PaymentOrderQueryParam;
 import com.roncoo.pay.user.entity.RpUserPayConfig;
 import com.roncoo.pay.user.exception.UserBizException;
 import com.roncoo.pay.user.service.RpUserPayConfigService;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,6 +50,11 @@ import java.util.Map;
 
 @Service("rpTradePaymentQueryService")
 public class RpTradePaymentQueryServiceImpl implements RpTradePaymentQueryService {
+	
+	
+	private static final Logger log = LoggerFactory.getLogger(RpTradePaymentQueryServiceImpl.class);
+
+	
 	@Autowired
 	private RpTradePaymentRecordDao rpTradePaymentRecordDao;
 
@@ -85,9 +93,11 @@ public class RpTradePaymentQueryServiceImpl implements RpTradePaymentQueryServic
 
 		String merchantNo = rpUserPayConfig.getUserNo();// 商户编号
 		RpTradePaymentOrder rpTradePaymentOrder = rpTradePaymentOrderDao.selectByMerchantNoAndMerchantOrderNo(merchantNo, orderNo);
-
+		log.info("订单数据是否为空:{}" ,rpTradePaymentOrder!=null);
+		
 		RpTradePaymentRecord rpTradePaymentRecord = rpTradePaymentRecordDao.getSuccessRecordByMerchantNoAndMerchantOrderNo(rpTradePaymentOrder.getMerchantNo(), rpTradePaymentOrder.getMerchantOrderNo());
-
+		log.info("订单交易数据是否为空:{}" ,rpTradePaymentRecord!=null);
+		
 		OrderPayResultVo orderPayResultVo = new OrderPayResultVo();// 返回结果
 		if (rpTradePaymentOrder != null && TradeStatusEnum.SUCCESS.name().equals(rpTradePaymentOrder.getStatus())) {// 支付记录为空,或者支付状态非成功
 			orderPayResultVo.setStatus(PublicEnum.YES.name());// 设置支付状态

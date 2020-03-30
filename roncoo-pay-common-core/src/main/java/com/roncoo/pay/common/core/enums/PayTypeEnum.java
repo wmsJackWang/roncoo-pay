@@ -27,19 +27,33 @@ import java.util.Map;
  */
 public enum PayTypeEnum {
 
-    SCANPAY("WEIXIN","扫码支付"),
+	WX_NATIVE("WEIXIN","扫码支付-Native"),
     
-    H5PAY("WEIXIN","H5支付"),
+	WX_MWEB("WEIXIN","H5支付"),
 
-    DIRECT_PAY("ALIPAY","即时到账"),
+    MICRO_PAY("WEIXIN","刷卡支付-付款码支付"),
+    
+    WX_JSAPI("WEIXIN","微信JSAPI支付"),
 
-    MICRO_PAY("WEIXIN","刷卡支付"),
+    WX_APP("WEIXIN","微信APP支付"),
 
     WX_PROGRAM_PAY("WEIXIN","微信小程序"),
+    
+    WX_FACE_PAY("WEIXIN","微信刷脸支付"),
 
-    F2F_PAY("ALIPAY","条码支付"), 
+    F2F_PAY("ALIPAY","条码支付-扫码支付[当面付]"), 
+    
+    ALIPAY_MOBILE("ALIPAY","支付宝APP支付"), 
+    
+    ALIPAY_WAP("ALIPAY","支付宝手机网站支付"), 
+
+    ALIPAY_PC("ALIPAY","支付宝手电脑网站支付"), 
+    
+    ALIPAY_QR("ALIPAY","支付宝当面付之扫码支付"),
 
 	ALI_TEST("ALIPAY","支付宝测试"),
+
+    DIRECT_PAY("ALIPAY","即时到账"),
 	
 	JINGDONG_SACNPAY("JINGDONG","京东扫码"),
 	

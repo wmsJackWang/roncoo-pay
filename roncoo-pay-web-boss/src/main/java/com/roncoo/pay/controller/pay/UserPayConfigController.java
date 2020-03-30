@@ -15,7 +15,9 @@
  */
 package com.roncoo.pay.controller.pay;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -31,6 +33,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.roncoo.pay.common.core.dwz.DWZ;
 import com.roncoo.pay.common.core.dwz.DwzAjax;
+import com.roncoo.pay.common.core.enums.JDPayExtEnum;
 import com.roncoo.pay.common.core.enums.PayWayEnum;
 import com.roncoo.pay.common.core.enums.SecurityRatingEnum;
 import com.roncoo.pay.common.core.page.PageBean;
@@ -186,8 +189,13 @@ public class UserPayConfigController {
 		List<RpUserPayExtInfo>  jdPayExtInfos = rpUserPayExtInfoService.getByUserIdAndPayWayCode( jdId,PayWayEnum.JINGDONG.name());
 		if(!StringUtil.isEmpty(jdPayExtInfos))
 			for(RpUserPayExtInfo rpUserPayExtInfo : jdPayExtInfos)
+			{
+				//传入的是扩展信息的内容
 				model.addAttribute( rpUserPayExtInfo.getType_code(),rpUserPayExtInfo.getContent());
-		
+				//传入的是扩展信息的id
+				model.addAttribute( rpUserPayExtInfo.getType_code() +"_ID" , rpUserPayExtInfo.getId());
+				log.info("id: "+ rpUserPayExtInfo.getType_code()+"  "+ rpUserPayExtInfo.getId());
+			}
 		log.info("京东支付的扩展信息查询结果数量：{}" , !StringUtil.isEmpty(jdPayExtInfos)?jdPayExtInfos.size():"空");
 		
 		/*
@@ -226,6 +234,7 @@ public class UserPayConfigController {
 		String ali_key = request.getParameter("ali_key");
 		String ali_sellerId = request.getParameter("ali_sellerId");
 		String ali_appid = request.getParameter("ali_appid");
+		log.info("ali_appid: "+ ali_appid);
 		String ali_rsaPrivateKey = request.getParameter("ali_rsaPrivateKey");
 		String ali_rsaPublicKey = request.getParameter("ali_rsaPublicKey");
 		
@@ -235,6 +244,21 @@ public class UserPayConfigController {
 		String JD_CLUB_NUMBER_CARD_ID = request.getParameter("JD_CLUB_NUMBER_CARD_ID");
 		String JD_DES_SCERET_KEY = request.getParameter("JD_DES_SCERET_KEY");
 		String JD_MD5_SCERET_KEY = request.getParameter("JD_MD5_SCERET_KEY");
+		String JD_SELLER_ID = request.getParameter("JD_SELLER_ID");
+		String JD_RSA_SCERET_KEY = request.getParameter("JD_RSA_SCERET_KEY");
+		String JD_RSA_PUBLIC_KEY = request.getParameter("JD_RSA_PUBLIC_KEY");
+		
+		//获取扩展信息的id，为空则表示是新创建的扩展数据
+		String JD_CLUB_NUMBER_CARD_ID_ID = request.getParameter("JD_CLUB_NUMBER_CARD_ID_ID");
+		String JD_DES_SCERET_KEY_ID = request.getParameter("JD_DES_SCERET_KEY_ID");
+		String JD_MD5_SCERET_KEY_ID = request.getParameter("JD_MD5_SCERET_KEY_ID");
+		String JD_RSA_SCERET_KEY_ID = request.getParameter("JD_RSA_SCERET_KEY_ID");
+		String JD_RSA_PUBLIC_KEY_ID = request.getParameter("JD_RSA_PUBLIC_KEY_ID");
+		
+		log.info("JD_DES_SCERET_KEY_ID: "+ JD_DES_SCERET_KEY_ID);
+		log.info("JD_MD5_SCERET_KEY_ID: "+ JD_MD5_SCERET_KEY_ID);
+		log.info("JD_CLUB_NUMBER_CARD_ID_ID: "+ JD_CLUB_NUMBER_CARD_ID_ID);
+		log.info("JD_RSA_SCERET_KEY_ID: "+ JD_RSA_SCERET_KEY_ID);
 		
 		/*
 		 * 银联支付
@@ -253,11 +277,44 @@ public class UserPayConfigController {
 				return DWZ.AJAX_DONE;
 			}
 		}
+		
+		
+		Map<String, Map<String ,String>> JD_Prams = new HashMap<>();
+		
+		Map<String ,String> JD_CLUB_NUMBER_CARD_ID_MAP = new HashMap<>();
+		JD_CLUB_NUMBER_CARD_ID_MAP.put("CONTENT", JD_CLUB_NUMBER_CARD_ID);
+		JD_CLUB_NUMBER_CARD_ID_MAP.put("ID", JD_CLUB_NUMBER_CARD_ID_ID);
+		JD_Prams.put(JDPayExtEnum.JD_CLUB_NUMBER_CARD_ID.name(), JD_CLUB_NUMBER_CARD_ID_MAP);
+		
+		Map<String ,String> JD_DES_SCERET_KEY_MAP = new HashMap<>();
+		JD_DES_SCERET_KEY_MAP.put("CONTENT", JD_DES_SCERET_KEY);
+		JD_DES_SCERET_KEY_MAP.put("ID", JD_DES_SCERET_KEY_ID);
+		JD_Prams.put(JDPayExtEnum.JD_DES_SCERET_KEY.name(), JD_DES_SCERET_KEY_MAP);
+		
+		Map<String ,String> JD_MD5_SCERET_KEY_MAP = new HashMap<>();
+		JD_MD5_SCERET_KEY_MAP.put("CONTENT", JD_MD5_SCERET_KEY);
+		JD_MD5_SCERET_KEY_MAP.put("ID", JD_MD5_SCERET_KEY_ID);
+		JD_Prams.put(JDPayExtEnum.JD_MD5_SCERET_KEY.name(), JD_MD5_SCERET_KEY_MAP);
+		
+		Map<String ,String> JD_RSA_SCERET_KEY_MAP = new HashMap<>();
+		JD_RSA_SCERET_KEY_MAP.put("CONTENT", JD_RSA_SCERET_KEY);
+		JD_RSA_SCERET_KEY_MAP.put("ID", JD_RSA_SCERET_KEY_ID);
+		JD_Prams.put(JDPayExtEnum.JD_RSA_SCERET_KEY.name(), JD_RSA_SCERET_KEY_MAP);//
+		
+		Map<String ,String> JD_RSA_PUBLIC_KEY_MAP = new HashMap<>();
+		JD_RSA_PUBLIC_KEY_MAP.put("CONTENT", JD_RSA_PUBLIC_KEY);
+		JD_RSA_PUBLIC_KEY_MAP.put("ID", JD_RSA_PUBLIC_KEY_ID);
+		JD_Prams.put(JDPayExtEnum.JD_RSA_PUBLIC_KEY.name(), JD_RSA_PUBLIC_KEY_MAP);
+		
+//		/JD_CLUB_NUMBER_CARD_ID ,JD_DES_SCERET_KEY , JD_MD5_SCERET_KEY,JD_SELLER_ID,JD_RSA_SCERET_KEY
+		
+		
 
 		rpUserPayConfigService.updateUserPayConfig(rpUserPayConfig.getUserNo(), productCode, productName, 
 				rpUserPayConfig.getRiskDay(), rpUserPayConfig.getFundIntoType(), rpUserPayConfig.getIsAutoSett(),
-				we_appId, we_merchantId, we_partnerKey, ali_partner, ali_sellerId, ali_key, ali_appid, ali_rsaPrivateKey, ali_rsaPublicKey , securityRating , merchantServerIp,
-				JD_CLUB_NUMBER_CARD_ID ,JD_DES_SCERET_KEY , JD_MD5_SCERET_KEY);
+				we_appId, we_merchantId, we_partnerKey, ali_partner, ali_sellerId, ali_key, ali_appid, ali_rsaPrivateKey, 
+				ali_rsaPublicKey , securityRating , merchantServerIp,JD_SELLER_ID,
+				JD_Prams);
 		dwz.setStatusCode(DWZ.SUCCESS);
 		dwz.setMessage(DWZ.SUCCESS_MSG);
 		model.addAttribute("dwz", dwz);

@@ -54,6 +54,9 @@ public interface RpPayWayService{
 	 */
 	RpPayWay getByPayWayTypeCode(String payProductCode, String payWayCode, String rpTypeCode);
 	
+	
+	RpPayWay getByPayWayId(String payWayId);
+	
 
 	/**
 	 * 获取分页数据

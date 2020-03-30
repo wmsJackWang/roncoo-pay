@@ -120,10 +120,15 @@ public class WeiXinPayUtils {
         sb.append("<mch_id>").append(weiXinPrePay.getMchId()).append("</mch_id>");
         sb.append("<nonce_str>").append(weiXinPrePay.getNonceStr()).append("</nonce_str>");
         sb.append("<notify_url>").append(weiXinPrePay.getNotifyUrl()).append("</notify_url>");
-        if (WeiXinTradeTypeEnum.NATIVE.name().equals(weiXinPrePay.getTradeType())) {
+        if (WeiXinTradeTypeEnum.NATIVE.name().equals(weiXinPrePay.getTradeType().name())) {
             sb.append("<product_id>").append(weiXinPrePay.getProductId()).append("</product_id>");
-        } else if (WeiXinTradeTypeEnum.JSAPI.name().equals(weiXinPrePay.getTradeType())) {
+            LOG.info("微信NATIVE支付,product_id:{}  , tradetype:{}",weiXinPrePay.getProductId(),weiXinPrePay.getTradeType().name());
+        } else if (WeiXinTradeTypeEnum.JSAPI.name().equals(weiXinPrePay.getTradeType().name())) {
             sb.append("<openid>").append(weiXinPrePay.getOpenid()).append("</openid>");
+            LOG.info("微信jsapi支付,openid:{}  , tradetype:{}",weiXinPrePay.getOpenid(),weiXinPrePay.getTradeType().name());
+        } else if (WeiXinTradeTypeEnum.MWEB.name().equals(weiXinPrePay.getTradeType().name())) {
+            sb.append("<scene_info>").append(weiXinPrePay.getOpenid()).append("</scene_info>");
+            LOG.info("微信jsapi支付,scene_info:{}  , tradetype:{}",weiXinPrePay.getOpenid(),weiXinPrePay.getTradeType().name());
         }
         sb.append("<out_trade_no>").append(weiXinPrePay.getOutTradeNo()).append("</out_trade_no>");
         sb.append("<spbill_create_ip>").append(weiXinPrePay.getSpbillCreateIp()).append("</spbill_create_ip>");
@@ -190,7 +195,9 @@ public class WeiXinPayUtils {
             preParams.put("code_url", prePay.get("code_url"));
         }
         String argPreSign = getStringByMap(preParams) + "&key=" + partnerKey;
+        LOG.info("微信同步返回 验签参数 ：{}",argPreSign);
         String preSign = MD5Util.encode(argPreSign).toUpperCase();
+        LOG.info("微信同步返回 生成的sign ：{}",preSign);
         return preSign;
     }
 
@@ -226,10 +233,12 @@ public class WeiXinPayUtils {
         prePayMap.put("time_expire", weiXinPrePay.getTimeExpire()); // 截止时间
         prePayMap.put("notify_url", weiXinPrePay.getNotifyUrl()); // 接收财付通通知的URL
         prePayMap.put("trade_type", weiXinPrePay.getTradeType().name()); // 交易类型
-        if (WeiXinTradeTypeEnum.NATIVE.name().equals(weiXinPrePay.getTradeType())) {
+        if (WeiXinTradeTypeEnum.NATIVE.name().equals(weiXinPrePay.getTradeType().name())) {
             prePayMap.put("product_id", weiXinPrePay.getProductId()); // 商品ID
-        } else if (WeiXinTradeTypeEnum.JSAPI.name().equals(weiXinPrePay.getTradeType())) {
+        } else if (WeiXinTradeTypeEnum.JSAPI.name().equals(weiXinPrePay.getTradeType().name())) {
             prePayMap.put("openid", weiXinPrePay.getOpenid()); // openid
+        } else if (WeiXinTradeTypeEnum.MWEB.name().equals(weiXinPrePay.getTradeType().name())) {
+        	prePayMap.put("scene_info", weiXinPrePay.getSceneInfo()); // scene_info
         }
 
         String argPreSign = getStringByMap(prePayMap) + "&key=" + partnerKey;

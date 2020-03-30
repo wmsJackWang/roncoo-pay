@@ -44,19 +44,45 @@
       #{type_code,jdbcType=VARCHAR}, #{type_desc,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}
       )
   </insert>
-
+  
+ 
   <update id="updateByPrimaryKey" parameterType="com.roncoo.pay.user.entity.RpUserPayExtInfo" >
     update <include refid="TABLENAME"/> 
-    set create_time = #{createTime,jdbcType=TIMESTAMP},
-      edit_time = #{editTime,jdbcType=TIMESTAMP},
-      version = #{version,jdbcType=BIGINT},
-      remark = #{remark,jdbcType=VARCHAR},
-      status = #{status,jdbcType=VARCHAR},
-      rp_user_pay_info_id = #{rp_user_pay_info_id,jdbcType=VARCHAR},
-      pay_way_code = #{pay_way_code,jdbcType=VARCHAR},
-      pay_way_name = #{pay_way_name,jdbcType=VARCHAR},
-      type_code = #{type_code,jdbcType=VARCHAR},
-      type_desc = #{type_desc,jdbcType=VARCHAR}
+    <set>
+    	<if test="createTime != null ">  
+            create_time = #{createTime,jdbcType=TIMESTAMP},
+        </if>  
+    	<if test="editTime != null ">  
+            edit_time = #{editTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="version != null ">  
+            version = #{version,jdbcType=BIGINT},
+        </if>   
+        <if test="remark != null and remark != '' ">  
+            remark = #{remark,jdbcType=VARCHAR},  
+        </if>     
+        <if test="status != null and status != '' ">  
+            status = #{status,jdbcType=VARCHAR},  
+        </if>       
+        <if test="rp_user_pay_info_id != null and rp_user_pay_info_id != '' ">  
+            rp_user_pay_info_id = #{rp_user_pay_info_id,jdbcType=VARCHAR},  
+        </if>             
+        <if test="pay_way_code != null and pay_way_code != '' ">  
+            pay_way_code = #{pay_way_code,jdbcType=VARCHAR},  
+        </if>       
+        <if test="pay_way_name != null and pay_way_name != '' ">  
+            pay_way_name = #{pay_way_name,jdbcType=VARCHAR},  
+        </if>       
+        <if test="type_code != null and type_code != '' ">  
+            type_code = #{type_code,jdbcType=VARCHAR},  
+        </if>        
+        <if test="type_desc != null and type_desc != '' ">  
+            type_desc = #{type_desc,jdbcType=VARCHAR},  
+        </if> 
+        <if test="content != null and content != '' ">  
+            content = #{content,jdbcType=VARCHAR},  
+        </if>   
+    </set>
     where id = #{id,jdbcType=VARCHAR}
   </update> 
   

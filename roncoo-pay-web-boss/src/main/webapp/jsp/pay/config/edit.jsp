@@ -126,8 +126,19 @@
 					<legend>京东设置</legend>
 					<table style="border-spacing: 10px">
 						<tr>
+							<input  type ="hidden" value = "${JD_CLUB_NUMBER_CARD_ID_ID}"  name ="JD_CLUB_NUMBER_CARD_ID_ID" />
+							<input  type ="hidden" value = "${JD_DES_SCERET_KEY_ID}"  name ="JD_DES_SCERET_KEY_ID" />
+							<input  type ="hidden" value = "${JD_MD5_SCERET_KEY_ID}"  name ="JD_MD5_SCERET_KEY_ID" />
+							<input  type ="hidden" value = "${JD_RSA_SCERET_KEY_ID}"  name ="JD_RSA_SCERET_KEY_ID" />
+							<input  type ="hidden" value = "${JD_RSA_PUBLIC_KEY_ID}"  name ="JD_RSA_PUBLIC_KEY_ID" />
+						</tr>
+						<tr>
+							<td>京东商户号：</td>
+							<td><input type="text" name="JD_SELLER_ID" id="JD_SELLER_ID" maxlength="100" class="required" value="${jdUserPayInfo.merchantId}"/></td>
+						</tr>
+						<tr>
 							<td>京东支付会员卡号：</td>
-							<td><input type="text" name="JD_CLUB_NUMBER_CARD_ID" id="JD_CLUB_NUMBER_CARD_ID" maxlength="100" class="required" value="${jdUserPayInfo.appId}"/></td>
+							<td><input type="text" name="JD_CLUB_NUMBER_CARD_ID" id="JD_CLUB_NUMBER_CARD_ID" maxlength="100" class="required" value="${JD_CLUB_NUMBER_CARD_ID}"/></td>
 						</tr>
 						<tr>
 							<td>京东DES秘钥：</td>
@@ -136,6 +147,14 @@
 						<tr>
 							<td>京东MD5秘钥：</td>
 							<td><input type="text" name="JD_MD5_SCERET_KEY" id="JD_MD5_SCERET_KEY" maxlength="100" class="required" value="${JD_MD5_SCERET_KEY}"/></td>
+						</tr>						
+						<tr>
+							<td>RSA秘钥：</td>
+							<td><input type="text" name="JD_RSA_SCERET_KEY" id="JD_RSA_SCERET_KEY" maxlength="10000" class="required" value="${JD_RSA_SCERET_KEY}"/></td>
+						</tr>						
+						<tr>
+							<td>RSA公钥：</td>
+							<td><input type="text" name="JD_RSA_PUBLIC_KEY" id="JD_RSA_PUBLIC_KEY" maxlength="10000" class="required" value="${JD_RSA_PUBLIC_KEY}"/></td>
 						</tr>
 					</table>
 				<fieldset>
@@ -145,11 +164,11 @@
 					<table style="border-spacing: 10px">
 						<tr>
 							<td>appid：</td>
-							<td><input type="text" name="union_appid" id="union_appid" maxlength="100" class="required" value="${unionUserPayInfo.appId}"/></td>
+							<td><input type="text" name="union_appid" id="union_appid" maxlength="100" class="" value="${unionUserPayInfo.appId}"/></td>
 						</tr>
 						<tr>
 							<td>mchid：</td>
-							<td><input type="text" name="union_mchid" id="union_mchid" maxlength="100" class="required" value="${unionUserPayInfo.merchantId}"/></td>
+							<td><input type="text" name="union_mchid" id="union_mchid" maxlength="100" class="" value="${unionUserPayInfo.merchantId}"/></td>
 						</tr>
 					</table>
 				<fieldset>

@@ -22,6 +22,7 @@ import com.roncoo.pay.common.core.enums.PublicStatusEnum;
 import com.roncoo.pay.common.core.page.PageBean;
 import com.roncoo.pay.common.core.page.PageParam;
 import com.roncoo.pay.common.core.utils.StringUtil;
+import com.roncoo.pay.common.xxpay.common.constant.PayConstant;
 import com.roncoo.pay.user.dao.RpPayWayDao;
 import com.roncoo.pay.user.entity.RpPayProduct;
 import com.roncoo.pay.user.entity.RpPayWay;
@@ -113,6 +114,15 @@ public class RpPayWayServiceImpl implements RpPayWayService {
 		rpPayWay.setStatus(PublicStatusEnum.ACTIVE.name());
 		rpPayWay.setCreateTime(new Date());
 		rpPayWay.setId(StringUtil.get32UUID());
+		RpPayWay maxRpPayWay = this.getMaxPayWayIdObject();
+		
+		//設置  paywayid的值
+		if(maxRpPayWay==null)
+			rpPayWay.setPayWayId(PayConstant.PAY_WAY_ID_BASE_VALUE+"");
+		else {
+			rpPayWay.setPayWayId((Integer.valueOf(maxRpPayWay.getPayWayId())+1)+"");
+		}
+		
 		saveData(rpPayWay);
 	}
 	
@@ -135,5 +145,20 @@ public class RpPayWayServiceImpl implements RpPayWayService {
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("status", PublicStatusEnum.ACTIVE.name());
 		return rpPayWayDao.listBy(paramMap);
+	}
+
+	@Override
+	public RpPayWay getByPayWayId(String payWayId) {
+		// TODO Auto-generated method stub
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("payWayId", payWayId);
+		paramMap.put("status", PublicStatusEnum.ACTIVE.name());
+		return rpPayWayDao.getBy(paramMap);
+	}
+	
+	public RpPayWay getMaxPayWayIdObject() {
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		List<RpPayWay> resultLis = rpPayWayDao.listBy(paramMap);
+		return resultLis == null?null:resultLis.get(0);
 	}
 }

@@ -21,6 +21,7 @@ import com.roncoo.pay.user.entity.RpUserPayConfig;
 import com.roncoo.pay.user.exception.PayBizException;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  *  用户支付配置service接口
@@ -113,7 +114,8 @@ public interface RpUserPayConfigService{
 	 */
 	void updateUserPayConfig(String userNo, String productCode, String productName, Integer riskDay, String fundIntoType,
                              String isAutoSett, String appId, String merchantId, String partnerKey, String ali_partner, String ali_sellerId, String ali_key,
-                             String ali_appid, String ali_rsaPrivateKey, String ali_rsaPublicKey, String securityRating, String merchantServerIp,String JD_CLUB_NUMBER_CARD_ID ,String JD_DES_SCERET_KEY , String JD_MD5_SCERET_KEY)  throws PayBizException;
+                             String ali_appid, String ali_rsaPrivateKey, String ali_rsaPublicKey, String securityRating, String merchantServerIp,
+                             String JD_SELLER_ID ,Map<String, Map<String ,String>> JD_Prams)  throws PayBizException;
 
 	/**
 	 * 审核

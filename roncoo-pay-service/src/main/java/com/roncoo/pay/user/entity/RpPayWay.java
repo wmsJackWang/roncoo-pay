@@ -40,6 +40,8 @@ public class RpPayWay extends BaseEntity implements Serializable {
     private Integer sorts;
 
     private Double payRate;
+    
+    private String payWayId;
 
     private static final long serialVersionUID = 1L;
 
@@ -101,4 +103,12 @@ public class RpPayWay extends BaseEntity implements Serializable {
         this.payRate = payRate;
     }
 
+	public String getPayWayId() {
+		return payWayId;
+	}
+
+	public void setPayWayId(String payWayId) {
+		this.payWayId = payWayId;
+	}
+    
 }

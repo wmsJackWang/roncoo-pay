@@ -24,12 +24,15 @@ import com.roncoo.pay.common.core.enums.PublicStatusEnum;
 import com.roncoo.pay.common.core.page.PageBean;
 import com.roncoo.pay.common.core.page.PageParam;
 import com.roncoo.pay.common.core.utils.StringUtil;
+import com.roncoo.pay.common.xxpay.common.util.ObjectValidUtil;
 import com.roncoo.pay.user.entity.RpPayProduct;
 import com.roncoo.pay.user.entity.RpPayWay;
 import com.roncoo.pay.user.exception.PayBizException;
 import com.roncoo.pay.user.service.RpPayProductService;
 import com.roncoo.pay.user.service.RpPayWayService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,6 +52,9 @@ import java.util.*;
 @RequestMapping("/pay/way")
 public class PayWayController {
 	
+	private static final Logger log = LoggerFactory.getLogger(PayWayController.class);
+
+	
 	@Autowired
 	private RpPayWayService rpPayWayService;
 	
@@ -64,12 +70,22 @@ public class PayWayController {
 	 */
 	@RequestMapping(value = "/list", method ={RequestMethod.POST, RequestMethod.GET})
 	public String list(RpPayWay rpPayWay, PageParam pageParam, Model model) {
+
+		RpPayProduct rpPayProduct = null;
+		
 		// payProductCode 每次添加或编辑后 会变成以“,”分隔的重复数据
 		if(!StringUtil.isEmpty(rpPayWay.getPayProductCode())&&rpPayWay.getPayProductCode().contains(",")){
+			log.info(" 由支付产品信息页面进入  rpPayWay信息不为空");
 			String[] payProductCodes = rpPayWay.getPayProductCode().split(",");
 			rpPayWay.setPayProductCode(payProductCodes[0]);
 		}
-		RpPayProduct rpPayProduct = rpPayProductService.getByProductCode(rpPayWay.getPayProductCode(), null);
+		if(!StringUtil.isEmpty(rpPayWay.getPayProductCode()))
+			//由于rpPayWay信息为空 ， 是无法查出  产品信息的，因此只有rpPayWay不为空时候才会有这一段代码
+			rpPayProduct = rpPayProductService.getByProductCode(rpPayWay.getPayProductCode(), null);
+		else {
+			rpPayProduct = rpPayProductService.getDefaultProduct();//这个判断默认的 产品
+		}
+		
 		PageBean pageBean = rpPayWayService.listPage(pageParam, rpPayWay);
 		model.addAttribute("pageBean", pageBean);
         model.addAttribute("pageParam", pageParam);

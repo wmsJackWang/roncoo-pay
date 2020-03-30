@@ -15,6 +15,7 @@
  */
 package com.roncoo.pay.trade.vo;
 
+import com.alibaba.fastjson.JSON;
 import com.roncoo.pay.common.core.enums.PayWayEnum;
 
 import java.math.BigDecimal;
@@ -93,4 +94,12 @@ public class RpPayGateWayPageShowVo {
     public void setPayKey(String payKey) {
         this.payKey = payKey;
     }
+
+	@Override
+	public String toString() {
+		return "RpPayGateWayPageShowVo [orderAmount=" + orderAmount + ", productName=" + productName + ", merchantName="
+				+ merchantName + ", merchantOrderNo=" + merchantOrderNo + ", payKey=" + payKey + ", payWayEnumMap="
+				+ JSON.toJSONString(payWayEnumMap) + "]";
+	}
+
 }

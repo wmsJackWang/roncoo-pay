@@ -15,7 +15,14 @@
  */
 package com.roncoo.pay.trade.service;
 
+import com.alibaba.fastjson.JSONObject;
+import com.roncoo.pay.common.core.enums.PayTypeEnum;
+import com.roncoo.pay.trade.entity.RpTradePaymentOrder;
+import com.roncoo.pay.trade.entity.RpTradePaymentRecord;
+import com.roncoo.pay.trade.entity.weixinpay.WeiXinPrePay;
+import com.roncoo.pay.trade.enums.weixinpay.WeiXinTradeTypeEnum;
 import com.roncoo.pay.trade.vo.*;
+import com.roncoo.pay.user.entity.RpPayWay;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -59,6 +66,14 @@ public interface RpTradePaymentManagerService {
             , String notifyUrl, String remark, String field1, String field2, String field3, String field4, String field5);
 
 
+    public RpTradePaymentOrder sealRpTradePaymentOrder(JSONObject payOrder ,String merchantNo ,String userName ,String fundIntoType,PayTypeEnum payType);
+    
+    
+    public RpTradePaymentRecord sealRpTradePaymentRecord(RpTradePaymentOrder rpTradePaymentOrder , RpPayWay payWay);
+    
+    public WeiXinPrePay sealWeixinPerPay(String appId, String mchId, String productName, String remark, String bankOrderNo, BigDecimal orderPrice, Date orderTime, Integer orderPeriod, WeiXinTradeTypeEnum weiXinTradeTypeEnum, String productId, String openId, String orderIp);
+    
+    
     /**
      * 条码支付,对应的是支付宝的条码支付或者微信的刷卡支付
      *
