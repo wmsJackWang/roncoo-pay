@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -42,10 +41,12 @@
 		<!--支付网关web-->
 		<module>roncoo-pay-web-gateway</module>
 		<!--商户后台-->
-			<module>roncoo-pay-web-merchant</module>
+		<module>roncoo-pay-web-merchant</module>
 		<!--模拟工程-->
 		<module>roncoo-pay-web-sample-shop</module>
-	</modules>
+		<!--中台封装业务能力--> 
+    	<module>roncoo-pay-jackdking-middleplatformservices</module>
+  </modules>
 
 	<!-- 配置maven地址 -->
 	<distributionManagement>
