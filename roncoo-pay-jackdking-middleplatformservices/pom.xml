@@ -19,7 +19,11 @@
             <groupId>com.roncoo.pay.service</groupId>
             <artifactId>roncoo-pay-service</artifactId>
         </dependency>
-
+        
+		<dependency>
+			<groupId>com.roncoo.pay.common</groupId>
+			<artifactId>roncoo-pay-common-core</artifactId>
+		</dependency>
         <!--jsp-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -56,18 +60,23 @@
         <finalName>${project.name}</finalName>
 
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                            <goal>build-info</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.springframework.boot</groupId> -->
+<!-- 				<artifactId>spring-boot-maven-plugin</artifactId> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<goals> -->
+<!-- 							<goal>repackage</goal> -->
+<!-- 							<goal>build-info</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
+			<plugin>
+	          <groupId>org.springframework.boot</groupId>
+	          <artifactId>spring-boot-maven-plugin</artifactId>
+	          <version>1.4.2.RELEASE </version>
+	        </plugin> 
         </plugins>
 
 
@@ -84,7 +93,7 @@
                 <directory>src/main/webapp</directory>
                 <targetPath>META-INF/resources</targetPath>
                 <includes>
-                    <include>**/*.*</include>
+                    <include>**/**</include>
                 </includes>
             </resource>
         </resources>

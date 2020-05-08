@@ -8,11 +8,11 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,7 +21,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.roncoo.pay.common.core.utils.HttpHelper;
 
 
-@Controller("/wx")
+@Controller
+@RequestMapping("/wx")
 public class OpenIdController {
 	
 	
@@ -48,33 +49,14 @@ public class OpenIdController {
 		
 		String AppID = "wx4389c6c165b0fe57";
 		String AppSecret = "bc48185eb1e7d3dfaec28cf40a877de0";
-//		String AppID = "";
-//		String AppSecret = "";
 		
 		try {	
-			/*
-			 * 	这段代码解决的问题是：
-			 * 	因为从定向 url中带有参数，且url又作为其他url的参数。
-			 * 	这就会出现 一个问题，参数会混乱。例如：
-			 * 	url1 = "url?x1=1&x2=2";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
-			 * 	url2 = "url?url1="url1;
-			 * 	那么直接组装到url2会导致url的参数 被当成是url2的参数。
-			 * 	解决方式:聚合组装url1的参数
-			 */
-			//获取聚合一起的参数
-			String unionParam = redirectUrl.substring(redirectUrl.indexOf("=")+1);
-			//将聚合的参数都拆分,分别放到
-			String [] param = unionParam.split(":");
-			String orderid  = param[0];
-			String productid  = param[1];
-			String token = param[2];
 			
-	
-			log.info("{} 调用微信返回code={} 判断code是否为空：{} , {}","扫码步骤5", code,"22222222222222222222222",!StringUtils.isBlank(code));
+			log.info("{} 调用微信返回code={} 判断code是否为空：{} , {}","扫码步骤5", code,"22222222222222222222222",!StringUtils.isEmpty(code));
 			
 	
 			// 如果request中包括code，则是微信回调
-			if (!StringUtils.isBlank(code)) {
+			if (!StringUtils.isEmpty(code)) {
 	
 				log.info("{} 调用微信openid 接口  openId={} , {}","扫码步骤7", openId,"c");
 				Map params = new HashMap();
@@ -90,15 +72,6 @@ public class OpenIdController {
 				openId = jsonObject.get("openid").toString();
 				log.info("{} 调用微信返回openId={} , {} , redirectUrl:{}","扫码步骤8", openId,"22222222222222222222222",redirectUrl);
 
-				
-				redirectUrl += "&orderid=" + orderid;
-				redirectUrl += "&productid=" + productid;
-				redirectUrl += "&token=" + token;
-				redirectUrl += "&openId=" + openId;
-				
-				log.info("unionParam:{} , id:{} , redirectUrl:{}",unionParam,"22222222222222222222222",redirectUrl);
-				
-//				response.sendRedirect(redirectUrl);
 			} else {
 				// oauth获取code
 				// http://www.abc.com/xxx/get-weixin-code.html?appid=XXXX&scope=snsapi_base&state=hello-world&redirect_uri=http%3A%2F%2Fwww.xyz.com%2Fhello-world.html
@@ -133,7 +106,7 @@ public class OpenIdController {
 
 		
 		
-		return "返回公众号域名权限配置文件.txt 内容";
+		return "mVNLTSwlCYsWLaKb";
 	}
 
 	@RequestMapping(value = "/")

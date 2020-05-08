@@ -92,7 +92,7 @@
         
         //微信jsapi支付  +  支付宝 wap支付
         //var qrText = 'http://wallet-test.sohupay.com/testwallet/trans/qrPay.pay?amount=' + (vAmt*100);
-        qrText = 'http://129.28.178.8/wx/openIdDomain/getOpenId';
+        qrText = 'http://bittechblog.com:8090/wx/openIdDomain/getOpenId';
         qrcode.makeCode(qrText);
     }
 
