@@ -33,7 +33,7 @@
     </div>
     <div class="main" align="center">
         <div class="inwrap">
-            <h3>#扫码方式来测试微信公众号api开发#</h3>
+            <h3>#扫码方式来获取用户信息#</h3>
             <!--
 	            <h5>
 	                <input type="radio" name="amount" id="amount" value="1" checked="checked"> 0.01 元&nbsp;&nbsp;
@@ -42,20 +42,11 @@
 	               	 任意: <input type="text" id="othAmt" style="width: 60px;" value=""> 元
 	            </h5>
 	         -->
-	         
-	         
             <div class="example" >
-<!--                 <div id="qrcode"></div> -->
+                <div id="qrcode"></div>
             <!--
                 <div><h3 id="vAmt" style="color: red">0.01元</h3></div>
 	         -->
-	         
-	         <div style="font-size:30px">
-	         <a   href="http://bittechblog.com/roncopay/index-openid.jsp"  >【测试获取openid接口】 </a>
-                    
-             <a   href="http://bittechblog.com/roncopay/index-userinfo.jsp" >【测试获取userinfo接口】 </a>
-             </div>
-             
                 <div><h4 >请使用微信手机客户端扫一扫</h4></div>
             </div>
             
@@ -105,9 +96,9 @@
         //var qrText = 'http://wallet-test.sohupay.com/testwallet/trans/qrPay.pay?amount=' + (vAmt*100);
         //openid获取
         //qrText = 'http://bittechblog.com/roncopay/wx/openIdDomain/getOpenId';
-        qrText='http://bittechblog.com/roncopay/wx/openIdDomain/getCodeUserNotNotice';
+        //qrText='http://bittechblog.com/roncopay/wx/openIdDomain/getCodeUserNotNotice';
         //qrText='http://bittechblog.com/roncopay/wx/openIdDomain/getCodeUserNotice';
-        //qrText='http://bittechblog.com/roncopay/wx/openIdDomain/getOpenIdUserInfo';
+        qrText='http://bittechblog.com/roncopay/wx/openIdDomain/testGetOpenIdUserInfo';
         //userinfo获取
         
         
