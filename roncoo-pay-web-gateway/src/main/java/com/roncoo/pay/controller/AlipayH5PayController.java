@@ -133,9 +133,9 @@ public class AlipayH5PayController extends BaseController {
 //			return XXPayUtil.makeRetFail(XXPayUtil.makeRetMap(PayConstant.RETURN_VALUE_FAIL, "订单签名异常", null, null));
 //		}
 
-		 if (!MerchantApiUtil.isRightSign(payOrder, rpUserPayConfig.getPaySecret(),sign)) {
-			 throw new TradeBizException(TradeBizException.TRADE_ORDER_ERROR, "订单签名异常");
-		 }
+		if (!MerchantApiUtil.isRightSign(payOrder, rpUserPayConfig.getPaySecret(),sign)) {
+			throw new TradeBizException(TradeBizException.TRADE_ORDER_ERROR, "订单签名异常");
+		}
 		
 		payOrder.put("payWayCode", payWayCode);
 		String result = rpPayChannelAlipayService.doAlipayRequest(rpPayWay.getPayTypeCode(), payOrder,

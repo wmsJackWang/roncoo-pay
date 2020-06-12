@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="jackdking">
 
-    <title>openid测试</title>
+    <title>聚合支付</title>
 
     <!-- Bootstrap core CSS -->
     <link href="//cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -29,28 +29,22 @@
 <!-- Begin page content -->
 <div class="container">
     <div class="page-header">
-        <h1>微信用户openid数据获取——测试扫码</h1>
+        <h1>聚合支付系统</h1>
     </div>
     <div class="main" align="center">
         <div class="inwrap">
-            <h3>#扫码方式来获取用户信息#</h3>
-            <!--
-	            <h5>
-	                <input type="radio" name="amount" id="amount" value="1" checked="checked"> 0.01 元&nbsp;&nbsp;
-	                <input type="radio" name="amount" id="amount" value="100"> 1.00 元&nbsp;&nbsp;
-	                <input type="radio" name="amount" id="amount" value="1000"> 10.00 元&nbsp;&nbsp;
-	               	 任意: <input type="text" id="othAmt" style="width: 60px;" value=""> 元
-	            </h5>
-	         -->
+            <h3>#扫码测试#</h3>
+            <h5>
+                <input type="radio" name="amount" id="amount" value="1" checked="checked"> 0.01 元&nbsp;&nbsp;
+                <input type="radio" name="amount" id="amount" value="100"> 1.00 元&nbsp;&nbsp;
+                <input type="radio" name="amount" id="amount" value="1000"> 10.00 元&nbsp;&nbsp;
+                任意: <input type="text" id="othAmt" style="width: 60px;" value=""> 元
+            </h5>
             <div class="example" >
                 <div id="qrcode"></div>
-            <!--
                 <div><h3 id="vAmt" style="color: red">0.01元</h3></div>
-	         -->
-                <div><h4 >请使用微信手机客户端扫一扫</h4></div>
+                <div><h4 >请使用支付宝或微信手机客户端扫一扫</h4></div>
             </div>
-            
-            
         </div>
     </div>
 </div>
@@ -75,7 +69,6 @@
     });
 
     function makeCode () {
-    /*
         var elText = document.getElementById("othAmt");
         var amt = $.trim(elText.value);
         var vAmt = (amt/1).toFixed(2);
@@ -89,19 +82,11 @@
             return;
         }
         $("#vAmt").text(vAmt+'元');
-     */
         //var qrText = 'http://xxpay-shop.ngrok.cc/goods/qrPay/' + (vAmt*100);
         
         //微信jsapi支付  +  支付宝 wap支付
         //var qrText = 'http://wallet-test.sohupay.com/testwallet/trans/qrPay.pay?amount=' + (vAmt*100);
-        //openid获取
-        //qrText = 'http://bittechblog.com/roncopay/wx/openIdDomain/getOpenId';
-        //qrText='http://bittechblog.com/roncopay/wx/openIdDomain/getCodeUserNotNotice';
-        //qrText='http://bittechblog.com/roncopay/wx/openIdDomain/getCodeUserNotice';
-        qrText='http://bittechblog.com/roncopay/wx/openIdDomain/testGetOpenIdUserInfo';
-        //userinfo获取
-        
-        
+        qrText = 'http://wallet-test.sohupay.com/testwallet/trans/qrPay.pay?amt=' + vAmt;
         qrcode.makeCode(qrText);
     }
 
