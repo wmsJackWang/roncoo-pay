@@ -4,8 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * Hello world!
@@ -14,13 +13,9 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})//这个注解使用场景： 开发者使用自己的数据源配置信息
-public class MiddlePlatformServicesApplication  extends SpringBootServletInitializer {
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(MiddlePlatformServicesApplication.class);
-    }
-
+@ComponentScan(basePackages = {"org.roncoo.pay.jackdking.middleplatformservices","com.roncoo.pay.trade.service.impl.RpPayChannelWechatServiceImpl","com.roncoo.pay.trade.service.impl.RpPayChannelAlipayServiceImpl"})
+public class MiddlePlatformServicesApplication{
+	
     public static void main(String[] args) {
         SpringApplication.run(MiddlePlatformServicesApplication.class, args);
     }

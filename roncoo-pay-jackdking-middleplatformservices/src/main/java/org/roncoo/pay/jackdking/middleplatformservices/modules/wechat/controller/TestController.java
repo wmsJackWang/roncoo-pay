@@ -96,7 +96,7 @@ public class TestController {
 	@RequestMapping(value = "/")
 	public String index(){
 		
-	    return "index";
+	    return "jsp/index";
 	}
 	@RequestMapping(value = "/test")
 	public String test(){

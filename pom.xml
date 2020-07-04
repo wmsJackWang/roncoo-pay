@@ -211,5 +211,14 @@
 			</roles>
 			<timezone>+8</timezone>
 		</developer>
+		<developer>
+			<name>jack</name>
+			<id>jack.d.king</id>
+			<email>jackdking@foxmail.com</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+			<timezone>+8</timezone>
+		</developer>
 	</developers>
 </project>
