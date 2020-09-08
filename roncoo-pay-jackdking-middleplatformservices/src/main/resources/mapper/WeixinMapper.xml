@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.WeixinMapper">
+    
+    <resultMap type="Weixin" id="WeixinResult">
+        <result property="id"    column="id"    />
+        <result property="openid"    column="openid"    />
+        <result property="token"    column="token"    />
+        <result property="status"    column="status"    />
+    </resultMap>
+
+    <sql id="selectWeixinVo">
+        select id, openid, token, status from weixin
+    </sql>
+
+    <select id="selectWeixinList" parameterType="Weixin" resultMap="WeixinResult">
+        <include refid="selectWeixinVo"/>
+        <where>  
+            <if test="openid != null  and openid != ''"> and openid = #{openid}</if>
+            <if test="token != null  and token != ''"> and token = #{token}</if>
+            <if test="status != null "> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectWeixinById" parameterType="Long" resultMap="WeixinResult">
+        <include refid="selectWeixinVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertWeixin" parameterType="Weixin" useGeneratedKeys="true" keyProperty="id">
+        insert into weixin
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="openid != null  and openid != ''">openid,</if>
+            <if test="token != null  and token != ''">token,</if>
+            <if test="status != null ">status,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="openid != null  and openid != ''">#{openid},</if>
+            <if test="token != null  and token != ''">#{token},</if>
+            <if test="status != null ">#{status},</if>
+         </trim>
+    </insert>
+
+    <update id="updateWeixin" parameterType="Weixin">
+        update weixin
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="openid != null  and openid != ''">openid = #{openid},</if>
+            <if test="token != null  and token != ''">token = #{token},</if>
+            <if test="status != null ">status = #{status},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteWeixinById" parameterType="Long">
+        delete from weixin where id = #{id}
+    </delete>
+
+    <delete id="deleteWeixinByIds" parameterType="String">
+        delete from weixin where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

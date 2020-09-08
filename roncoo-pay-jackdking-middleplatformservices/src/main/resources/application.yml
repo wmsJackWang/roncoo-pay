@@ -1,0 +1,15 @@
+wx:
+  mp:
+    useRedis: false
+    redisConfig:
+      host: bittechblog.com
+      port: 6379
+    configs:
+      - appId: wx21eb36134e421873 # 第一个公众号的appid
+        secret: 64d6d5297a25ee50ec23ee51a38a3db1 # 公众号的appsecret
+        token: ncl1234 # 接口配置里的Token值
+        aesKey: LsWuUafNY5Qx36rNAOTkemWkAcoJSCBBDL5FBTLybYZ # 接口配置里的EncodingAESKey值
+      - appId: 2222 # 第二个公众号的appid，以下同上
+        secret: 1111
+        token: 111
+        aesKey: 111

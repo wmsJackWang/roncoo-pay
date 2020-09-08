@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.RetMessagesMapper">
+    
+    <resultMap type="RetMessages" id="RetMessagesResult">
+        <result property="id"    column="id"    />
+        <result property="msg"    column="msg"    />
+        <result property="retmsg"    column="retmsg"    />
+    </resultMap>
+
+    <sql id="selectRetMessagesVo">
+        select id, msg, retmsg from ret_messages
+    </sql>
+
+    <select id="selectRetMessagesList" parameterType="RetMessages" resultMap="RetMessagesResult">
+        <include refid="selectRetMessagesVo"/>
+        <where>  
+            <if test="msg != null  and msg != ''"> and msg = #{msg}</if>
+            <if test="retmsg != null  and retmsg != ''"> and retmsg = #{retmsg}</if>
+        </where>
+    </select>
+    
+    <select id="selectRetMessagesById" parameterType="Long" resultMap="RetMessagesResult">
+        <include refid="selectRetMessagesVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertRetMessages" parameterType="RetMessages" useGeneratedKeys="true" keyProperty="id">
+        insert into ret_messages
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="msg != null  and msg != ''">msg,</if>
+            <if test="retmsg != null  and retmsg != ''">retmsg,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="msg != null  and msg != ''">#{msg},</if>
+            <if test="retmsg != null  and retmsg != ''">#{retmsg},</if>
+         </trim>
+    </insert>
+
+    <update id="updateRetMessages" parameterType="RetMessages">
+        update ret_messages
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="msg != null  and msg != ''">msg = #{msg},</if>
+            <if test="retmsg != null  and retmsg != ''">retmsg = #{retmsg},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteRetMessagesById" parameterType="Long">
+        delete from ret_messages where id = #{id}
+    </delete>
+
+    <delete id="deleteRetMessagesByIds" parameterType="String">
+        delete from ret_messages where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

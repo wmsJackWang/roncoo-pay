@@ -178,6 +178,12 @@
 				<artifactId>commons-io</artifactId>
 				<version>${commons-io.version}</version>
 			</dependency>
+			
+			<dependency>
+				<groupId>com.github.binarywang</groupId>
+				<artifactId>weixin-java-mp</artifactId>
+				<version>3.9.0</version>
+			</dependency>
 
 		</dependencies>
 	</dependencyManagement>
