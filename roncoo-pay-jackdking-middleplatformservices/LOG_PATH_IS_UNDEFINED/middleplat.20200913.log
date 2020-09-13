@@ -1,0 +1,720 @@
+2020-09-13 22:42:00.514  INFO 18044 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on jackdking with PID 18044 (C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by 10421 in C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-09-13 22:42:00.522  INFO 18044 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-09-13 22:42:00.727  INFO 18044 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-13 22:42:00.727  INFO 18044 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-13 22:42:03.708  INFO 18044 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-13 22:42:03.713  INFO 18044 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-13 22:42:03.836  INFO 18044 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 93ms. Found 0 repository interfaces.
+2020-09-13 22:42:05.950  INFO 18044 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-09-13 22:42:05.988  INFO 18044 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-09-13 22:42:06.004  INFO 18044 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-13 22:42:06.005  INFO 18044 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-09-13 22:42:06.028  INFO 18044 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\software_envronment\java\jdk1.8.0_91\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/bin/server;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/bin;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/lib/amd64;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\software_envronment\java\jdk1.8.0_91\bin;C:\software_envronment\java\jdk1.8.0_91\jre\bin;C:\software_envronment\mysql\mysql-8.0.11-winx64\bin;C:\WINDOWS\System32\OpenSSH\;D:\apache-jmeter-5.1.1\bin;C:\software_envronment\Redis-x64-3.0.504;D:\redis\;C:\ProgramData\chocolatey\bin;D:\nodejs\;D:\nodejs\node_global;C:\software_envronment\python\Scripts\;C:\software_envronment\python\;C:\Users\10421\AppData\Local\Microsoft\WindowsApps;;D:\电脑软件\ssh;C:\Users\10421\AppData\Roaming\npm;C:\Users\10421\eclipse\java-oxygen\eclipse;;.]
+2020-09-13 22:42:06.576  INFO 18044 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-09-13 22:42:06.591  INFO 18044 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-13 22:42:06.591  INFO 18044 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5863 ms
+2020-09-13 22:42:06.773  WARN 18044 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'wxMpConfiguration' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\config\WxMpConfiguration.class]: Unsatisfied dependency expressed through constructor parameter 7; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'unsubscribeHandler': Unsatisfied dependency expressed through field 'iWeixinService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinServiceImpl': Unsatisfied dependency expressed through field 'weixinMapper'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.dao.WeixinMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2020-09-13 22:42:06.777  INFO 18044 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-09-13 22:42:06.885  INFO 18044 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-09-13 22:42:07.960 ERROR 18044 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field weixinMapper in org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.service.impl.WeixinServiceImpl required a bean of type 'org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.dao.WeixinMapper' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.dao.WeixinMapper' in your configuration.
+
+2020-09-13 23:15:13.988  INFO 1252 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on jackdking with PID 1252 (C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by 10421 in C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-09-13 23:15:13.997  INFO 1252 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-09-13 23:15:14.129  INFO 1252 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-13 23:15:14.158  INFO 1252 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-13 23:15:18.412  INFO 1252 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-13 23:15:18.419  INFO 1252 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-13 23:15:18.574  INFO 1252 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 120ms. Found 0 repository interfaces.
+2020-09-13 23:15:19.746  INFO 1252 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8b413b38] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-13 23:15:21.377  INFO 1252 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-09-13 23:15:21.426  INFO 1252 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-09-13 23:15:21.462  INFO 1252 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-13 23:15:21.463  INFO 1252 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-09-13 23:15:21.493  INFO 1252 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\software_envronment\java\jdk1.8.0_91\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/bin/server;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/bin;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/lib/amd64;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\software_envronment\java\jdk1.8.0_91\bin;C:\software_envronment\java\jdk1.8.0_91\jre\bin;C:\software_envronment\mysql\mysql-8.0.11-winx64\bin;C:\WINDOWS\System32\OpenSSH\;D:\apache-jmeter-5.1.1\bin;C:\software_envronment\Redis-x64-3.0.504;D:\redis\;C:\ProgramData\chocolatey\bin;D:\nodejs\;D:\nodejs\node_global;C:\software_envronment\python\Scripts\;C:\software_envronment\python\;C:\Users\10421\AppData\Local\Microsoft\WindowsApps;;D:\电脑软件\ssh;C:\Users\10421\AppData\Roaming\npm;C:\Users\10421\eclipse\java-oxygen\eclipse;;.]
+2020-09-13 23:15:22.242  INFO 1252 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-09-13 23:15:22.263  INFO 1252 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-13 23:15:22.264  INFO 1252 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 8104 ms
+2020-09-13 23:15:23.189  WARN 1252 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'wxMpConfiguration' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\config\WxMpConfiguration.class]: Unsatisfied dependency expressed through constructor parameter 7; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'unsubscribeHandler': Unsatisfied dependency expressed through field 'iWeixinService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinServiceImpl': Unsatisfied dependency expressed through field 'weixinMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinMapper' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\dao\WeixinMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+2020-09-13 23:15:23.209  INFO 1252 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-09-13 23:15:23.231  INFO 1252 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-09-13 23:15:23.243 ERROR 1252 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'wxMpConfiguration' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\config\WxMpConfiguration.class]: Unsatisfied dependency expressed through constructor parameter 7; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'unsubscribeHandler': Unsatisfied dependency expressed through field 'iWeixinService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinServiceImpl': Unsatisfied dependency expressed through field 'weixinMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinMapper' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\dao\WeixinMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:769)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:218)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1308)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1154)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:846)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:863)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at org.roncoo.pay.jackdking.middleplatformservices.MiddlePlatformServicesApplication.main(MiddlePlatformServicesApplication.java:17)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'unsubscribeHandler': Unsatisfied dependency expressed through field 'iWeixinService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinServiceImpl': Unsatisfied dependency expressed through field 'weixinMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinMapper' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\dao\WeixinMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1378)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1244)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1164)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:857)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:760)
+	... 24 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinServiceImpl': Unsatisfied dependency expressed through field 'weixinMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinMapper' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\dao\WeixinMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1378)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1244)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1164)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	... 38 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinMapper' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\dao\WeixinMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1482)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1362)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1244)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1164)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	... 51 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:627)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1288)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1244)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1164)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1467)
+	... 62 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622)
+	... 75 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:522)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:408)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:541)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:150)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$be158c68.CGLIB$sqlSessionFactory$2(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$be158c68$$FastClassBySpringCGLIB$$c8970782.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$be158c68.sqlSessionFactory(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 76 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:122)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:94)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:520)
+	... 89 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:118)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:266)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:253)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElements(XMLMapperBuilder.java:245)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:118)
+	... 91 common frames omitted
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:120)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:149)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:116)
+	... 95 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:200)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:116)
+	... 97 common frames omitted
+
+2020-09-13 23:20:24.189  INFO 33184 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on jackdking with PID 33184 (C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by 10421 in C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-09-13 23:20:24.202  INFO 33184 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-09-13 23:20:24.418  INFO 33184 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-13 23:20:24.418  INFO 33184 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-13 23:20:27.889  INFO 33184 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-13 23:20:27.894  INFO 33184 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-13 23:20:28.010  INFO 33184 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 85ms. Found 0 repository interfaces.
+2020-09-13 23:20:29.024  INFO 33184 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7956c0bb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-13 23:20:30.647  INFO 33184 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-09-13 23:20:30.710  INFO 33184 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-09-13 23:20:30.759  INFO 33184 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-13 23:20:30.765  INFO 33184 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-09-13 23:20:30.807  INFO 33184 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\software_envronment\java\jdk1.8.0_91\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/bin/server;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/bin;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/lib/amd64;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\software_envronment\java\jdk1.8.0_91\bin;C:\software_envronment\java\jdk1.8.0_91\jre\bin;C:\software_envronment\mysql\mysql-8.0.11-winx64\bin;C:\WINDOWS\System32\OpenSSH\;D:\apache-jmeter-5.1.1\bin;C:\software_envronment\Redis-x64-3.0.504;D:\redis\;C:\ProgramData\chocolatey\bin;D:\nodejs\;D:\nodejs\node_global;C:\software_envronment\python\Scripts\;C:\software_envronment\python\;C:\Users\10421\AppData\Local\Microsoft\WindowsApps;;D:\电脑软件\ssh;C:\Users\10421\AppData\Roaming\npm;C:\Users\10421\eclipse\java-oxygen\eclipse;;.]
+2020-09-13 23:20:31.504  INFO 33184 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-09-13 23:20:31.530  INFO 33184 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-13 23:20:31.531  INFO 33184 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 7113 ms
+2020-09-13 23:20:32.354  WARN 33184 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'wxMpConfiguration' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\config\WxMpConfiguration.class]: Unsatisfied dependency expressed through constructor parameter 7; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'unsubscribeHandler': Unsatisfied dependency expressed through field 'iWeixinService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinServiceImpl': Unsatisfied dependency expressed through field 'weixinMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinMapper' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\dao\WeixinMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+2020-09-13 23:20:32.360  INFO 33184 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-09-13 23:20:32.389  INFO 33184 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-09-13 23:20:32.405 ERROR 33184 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'wxMpConfiguration' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\config\WxMpConfiguration.class]: Unsatisfied dependency expressed through constructor parameter 7; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'unsubscribeHandler': Unsatisfied dependency expressed through field 'iWeixinService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinServiceImpl': Unsatisfied dependency expressed through field 'weixinMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinMapper' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\dao\WeixinMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:769)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:218)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1308)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1154)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:846)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:863)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at org.roncoo.pay.jackdking.middleplatformservices.MiddlePlatformServicesApplication.main(MiddlePlatformServicesApplication.java:17)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'unsubscribeHandler': Unsatisfied dependency expressed through field 'iWeixinService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinServiceImpl': Unsatisfied dependency expressed through field 'weixinMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinMapper' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\dao\WeixinMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1378)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1244)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1164)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:857)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:760)
+	... 24 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinServiceImpl': Unsatisfied dependency expressed through field 'weixinMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinMapper' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\dao\WeixinMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1378)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1244)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1164)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	... 38 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinMapper' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\dao\WeixinMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1482)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1362)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1244)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1164)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	... 51 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:627)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1288)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1244)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1164)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1467)
+	... 62 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622)
+	... 75 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:522)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:408)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:541)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:150)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$ac2b11eb.CGLIB$sqlSessionFactory$2(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$ac2b11eb$$FastClassBySpringCGLIB$$fb1479fd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$ac2b11eb.sqlSessionFactory(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 76 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:122)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:94)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:520)
+	... 89 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:118)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:68)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:137)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:130)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:120)
+	... 91 common frames omitted
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:120)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:149)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:116)
+	... 95 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:200)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:116)
+	... 97 common frames omitted
+
+2020-09-13 23:21:16.871  INFO 7752 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on jackdking with PID 7752 (C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by 10421 in C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-09-13 23:21:16.877  INFO 7752 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-09-13 23:21:17.009  INFO 7752 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-13 23:21:17.009  INFO 7752 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-13 23:21:20.656  INFO 7752 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-13 23:21:20.665  INFO 7752 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-13 23:21:20.774  INFO 7752 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 81ms. Found 0 repository interfaces.
+2020-09-13 23:21:21.777  INFO 7752 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$22cd276c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-13 23:21:23.117  INFO 7752 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-09-13 23:21:23.158  INFO 7752 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-09-13 23:21:23.177  INFO 7752 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-13 23:21:23.178  INFO 7752 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-09-13 23:21:23.202  INFO 7752 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\software_envronment\java\jdk1.8.0_91\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/bin/server;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/bin;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/lib/amd64;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\software_envronment\java\jdk1.8.0_91\bin;C:\software_envronment\java\jdk1.8.0_91\jre\bin;C:\software_envronment\mysql\mysql-8.0.11-winx64\bin;C:\WINDOWS\System32\OpenSSH\;D:\apache-jmeter-5.1.1\bin;C:\software_envronment\Redis-x64-3.0.504;D:\redis\;C:\ProgramData\chocolatey\bin;D:\nodejs\;D:\nodejs\node_global;C:\software_envronment\python\Scripts\;C:\software_envronment\python\;C:\Users\10421\AppData\Local\Microsoft\WindowsApps;;D:\电脑软件\ssh;C:\Users\10421\AppData\Roaming\npm;C:\Users\10421\eclipse\java-oxygen\eclipse;;.]
+2020-09-13 23:21:23.804  INFO 7752 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-09-13 23:21:23.821  INFO 7752 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-13 23:21:23.821  INFO 7752 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6812 ms
+2020-09-13 23:21:24.631  WARN 7752 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'wxMpConfiguration' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\config\WxMpConfiguration.class]: Unsatisfied dependency expressed through constructor parameter 7; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'unsubscribeHandler': Unsatisfied dependency expressed through field 'iWeixinService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinServiceImpl': Unsatisfied dependency expressed through field 'weixinMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinMapper' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\dao\WeixinMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+2020-09-13 23:21:24.635  INFO 7752 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-09-13 23:21:24.659  INFO 7752 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-09-13 23:21:24.669 ERROR 7752 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'wxMpConfiguration' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\config\WxMpConfiguration.class]: Unsatisfied dependency expressed through constructor parameter 7; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'unsubscribeHandler': Unsatisfied dependency expressed through field 'iWeixinService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinServiceImpl': Unsatisfied dependency expressed through field 'weixinMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinMapper' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\dao\WeixinMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:769)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:218)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1308)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1154)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:846)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:863)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at org.roncoo.pay.jackdking.middleplatformservices.MiddlePlatformServicesApplication.main(MiddlePlatformServicesApplication.java:17)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'unsubscribeHandler': Unsatisfied dependency expressed through field 'iWeixinService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinServiceImpl': Unsatisfied dependency expressed through field 'weixinMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinMapper' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\dao\WeixinMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1378)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1244)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1164)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:857)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:760)
+	... 24 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinServiceImpl': Unsatisfied dependency expressed through field 'weixinMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinMapper' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\dao\WeixinMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1378)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1244)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1164)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	... 38 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'weixinMapper' defined in file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\org\roncoo\pay\jackdking\middleplatformservices\modules\wechat\dao\WeixinMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1482)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1362)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1244)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1164)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	... 51 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:627)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1288)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1244)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1164)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1467)
+	... 62 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622)
+	... 75 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:522)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:408)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:541)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:150)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$55a1789c.CGLIB$sqlSessionFactory$2(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$55a1789c$$FastClassBySpringCGLIB$$ec8632a9.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$55a1789c.sqlSessionFactory(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 76 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:122)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:94)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:520)
+	... 89 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:118)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:68)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:137)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:130)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:120)
+	... 91 common frames omitted
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:120)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:149)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:116)
+	... 95 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Cannot find class: RetMessages
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:200)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:116)
+	... 97 common frames omitted
+
+2020-09-13 23:25:44.604  INFO 732 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on jackdking with PID 732 (C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by 10421 in C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-09-13 23:25:44.615  INFO 732 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-09-13 23:25:44.846  INFO 732 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-13 23:25:44.847  INFO 732 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-13 23:25:48.680  INFO 732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-13 23:25:48.685  INFO 732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-13 23:25:48.795  INFO 732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80ms. Found 0 repository interfaces.
+2020-09-13 23:25:49.796  INFO 732 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$700b8cd6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-13 23:25:51.205  INFO 732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-09-13 23:25:51.246  INFO 732 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-09-13 23:25:51.262  INFO 732 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-13 23:25:51.262  INFO 732 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-09-13 23:25:51.283  INFO 732 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\software_envronment\java\jdk1.8.0_91\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/bin/server;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/bin;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/lib/amd64;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\software_envronment\java\jdk1.8.0_91\bin;C:\software_envronment\java\jdk1.8.0_91\jre\bin;C:\software_envronment\mysql\mysql-8.0.11-winx64\bin;C:\WINDOWS\System32\OpenSSH\;D:\apache-jmeter-5.1.1\bin;C:\software_envronment\Redis-x64-3.0.504;D:\redis\;C:\ProgramData\chocolatey\bin;D:\nodejs\;D:\nodejs\node_global;C:\software_envronment\python\Scripts\;C:\software_envronment\python\;C:\Users\10421\AppData\Local\Microsoft\WindowsApps;;D:\电脑软件\ssh;C:\Users\10421\AppData\Roaming\npm;C:\Users\10421\eclipse\java-oxygen\eclipse;;.]
+2020-09-13 23:25:51.881  INFO 732 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-09-13 23:25:51.895  INFO 732 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-13 23:25:51.896  INFO 732 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 7049 ms
+2020-09-13 23:25:54.678  INFO 732 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-13 23:25:57.476  INFO 732 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-13 23:25:57.547  INFO 732 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8090"]
+2020-09-13 23:25:57.687  INFO 732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2020-09-13 23:25:57.693  INFO 732 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Started MiddlePlatformServicesApplication in 14.596 seconds (JVM running for 15.796)
+2020-09-13 23:32:38.715  INFO 732 --- [Thread-6] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-13 23:32:39.470  INFO 732 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on jackdking with PID 732 (C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by 10421 in C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-09-13 23:32:39.471  INFO 732 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-09-13 23:32:41.199 ERROR 732 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.ClassCastException: java.lang.ClassNotFoundException cannot be cast to [Ljava.lang.Object;
+	at org.springframework.boot.context.properties.EnableConfigurationPropertiesImportSelector$ConfigurationPropertiesBeanRegistrar.lambda$collectClasses$1(EnableConfigurationPropertiesImportSelector.java:83)
+	at java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:267)
+	at java.util.LinkedList$LLSpliterator.forEachRemaining(LinkedList.java:1235)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at org.springframework.boot.context.properties.EnableConfigurationPropertiesImportSelector$ConfigurationPropertiesBeanRegistrar.collectClasses(EnableConfigurationPropertiesImportSelector.java:85)
+	at org.springframework.boot.context.properties.EnableConfigurationPropertiesImportSelector$ConfigurationPropertiesBeanRegistrar.getTypes(EnableConfigurationPropertiesImportSelector.java:78)
+	at org.springframework.boot.context.properties.EnableConfigurationPropertiesImportSelector$ConfigurationPropertiesBeanRegistrar.registerBeanDefinitions(EnableConfigurationPropertiesImportSelector.java:70)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.lambda$loadBeanDefinitionsFromRegistrars$1(ConfigurationClassBeanDefinitionReader.java:364)
+	at java.util.LinkedHashMap.forEach(LinkedHashMap.java:676)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsFromRegistrars(ConfigurationClassBeanDefinitionReader.java:363)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:145)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:117)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:327)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:232)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:275)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:95)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:691)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:528)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at org.roncoo.pay.jackdking.middleplatformservices.MiddlePlatformServicesApplication.main(MiddlePlatformServicesApplication.java:17)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+
+2020-09-13 23:37:22.325  INFO 16728 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on jackdking with PID 16728 (C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by 10421 in C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-09-13 23:37:22.331  INFO 16728 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-09-13 23:37:22.487  INFO 16728 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-13 23:37:22.487  INFO 16728 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-13 23:37:26.049  INFO 16728 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-13 23:37:26.055  INFO 16728 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-13 23:37:26.174  INFO 16728 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 86ms. Found 0 repository interfaces.
+2020-09-13 23:37:27.358  INFO 16728 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d2294d50] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-13 23:37:28.805  INFO 16728 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-09-13 23:37:28.845  INFO 16728 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-09-13 23:37:28.872  INFO 16728 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-13 23:37:28.872  INFO 16728 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-09-13 23:37:28.894  INFO 16728 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\software_envronment\java\jdk1.8.0_91\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/bin/server;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/bin;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/lib/amd64;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\software_envronment\java\jdk1.8.0_91\bin;C:\software_envronment\java\jdk1.8.0_91\jre\bin;C:\software_envronment\mysql\mysql-8.0.11-winx64\bin;C:\WINDOWS\System32\OpenSSH\;D:\apache-jmeter-5.1.1\bin;C:\software_envronment\Redis-x64-3.0.504;D:\redis\;C:\ProgramData\chocolatey\bin;D:\nodejs\;D:\nodejs\node_global;C:\software_envronment\python\Scripts\;C:\software_envronment\python\;C:\Users\10421\AppData\Local\Microsoft\WindowsApps;;D:\电脑软件\ssh;C:\Users\10421\AppData\Roaming\npm;C:\Users\10421\eclipse\java-oxygen\eclipse;;.]
+2020-09-13 23:37:29.503  INFO 16728 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-09-13 23:37:29.517  INFO 16728 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-13 23:37:29.518  INFO 16728 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 7031 ms
+2020-09-13 23:37:31.982  INFO 16728 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-13 23:37:35.467  INFO 16728 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-13 23:37:35.528  INFO 16728 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8090"]
+2020-09-13 23:37:35.710  INFO 16728 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2020-09-13 23:37:35.716  INFO 16728 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Started MiddlePlatformServicesApplication in 15.076 seconds (JVM running for 16.32)
+2020-09-13 23:38:27.092  INFO 16728 --- [Thread-6] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-13 23:38:27.837  INFO 16728 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on jackdking with PID 16728 (C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by 10421 in C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-09-13 23:38:27.839  INFO 16728 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-09-13 23:38:30.254  WARN 16728 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[org.roncoo.pay.jackdking.middleplatformservices]' package. Please check your configuration.
+2020-09-13 23:38:30.330  INFO 16728 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-13 23:38:30.330  INFO 16728 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-13 23:38:30.333  INFO 16728 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3ms. Found 0 repository interfaces.
+2020-09-13 23:38:30.616  INFO 16728 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d2294d50] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-13 23:38:30.975  INFO 16728 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-09-13 23:38:30.976  INFO 16728 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-09-13 23:38:30.976  INFO 16728 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-13 23:38:30.977  INFO 16728 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-09-13 23:38:31.225  INFO 16728 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-09-13 23:38:31.243  INFO 16728 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-13 23:38:31.243  INFO 16728 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3389 ms
+2020-09-13 23:38:31.715  INFO 16728 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-13 23:38:31.976  WARN 16728 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages
+2020-09-13 23:38:31.984  INFO 16728 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-13 23:38:31.985  INFO 16728 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-09-13 23:38:32.050  INFO 16728 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-09-13 23:38:32.169 ERROR 16728 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:627)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1288)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:846)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:863)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at org.roncoo.pay.jackdking.middleplatformservices.MiddlePlatformServicesApplication.main(MiddlePlatformServicesApplication.java:17)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622)
+	... 24 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:522)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:408)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:541)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:150)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$4fd9e80.CGLIB$sqlSessionFactory$2(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$4fd9e80$$FastClassBySpringCGLIB$$3f4d3e48.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$4fd9e80.sqlSessionFactory(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 25 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes\mapper\RetMessagesMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:122)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:94)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:520)
+	... 38 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:118)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:266)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:253)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElements(XMLMapperBuilder.java:245)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:118)
+	... 40 common frames omitted
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages'.  Cause: java.lang.ClassNotFoundException: Cannot find class: org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:120)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:149)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:116)
+	... 44 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Cannot find class: org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:200)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:116)
+	... 46 common frames omitted
+
+2020-09-13 23:38:41.471  INFO 16728 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on jackdking with PID 16728 (C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by 10421 in C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-09-13 23:38:41.472  INFO 16728 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-09-13 23:38:43.474  INFO 16728 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-13 23:38:43.474  INFO 16728 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-13 23:38:43.566  INFO 16728 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91ms. Found 0 repository interfaces.
+2020-09-13 23:38:43.786  INFO 16728 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d2294d50] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-13 23:38:44.018  INFO 16728 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-09-13 23:38:44.020  INFO 16728 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-09-13 23:38:44.020  INFO 16728 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-13 23:38:44.021  INFO 16728 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-09-13 23:38:44.211  INFO 16728 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-09-13 23:38:44.247  INFO 16728 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-09-13 23:38:44.247  INFO 16728 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2763 ms
+2020-09-13 23:38:44.810  INFO 16728 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-13 23:38:46.087  INFO 16728 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-13 23:38:46.163  INFO 16728 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8090"]
+2020-09-13 23:38:46.213  INFO 16728 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2020-09-13 23:38:46.216  INFO 16728 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Started MiddlePlatformServicesApplication in 4.95 seconds (JVM running for 86.82)
+2020-09-13 23:38:46.219  INFO 16728 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-09-13 23:39:57.925  INFO 14280 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on jackdking with PID 14280 (C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by 10421 in C:\Users\10421\Documents\GitHub\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-09-13 23:39:57.933  INFO 14280 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-09-13 23:39:58.116  INFO 14280 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-13 23:39:58.116  INFO 14280 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-13 23:40:01.523  INFO 14280 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-13 23:40:01.528  INFO 14280 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-13 23:40:01.636  INFO 14280 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 79ms. Found 0 repository interfaces.
+2020-09-13 23:40:02.634  INFO 14280 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$86ad3203] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-13 23:40:03.985  INFO 14280 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-09-13 23:40:04.026  INFO 14280 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-09-13 23:40:04.048  INFO 14280 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-13 23:40:04.049  INFO 14280 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-09-13 23:40:04.070  INFO 14280 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\software_envronment\java\jdk1.8.0_91\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/bin/server;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/bin;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/lib/amd64;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\software_envronment\java\jdk1.8.0_91\bin;C:\software_envronment\java\jdk1.8.0_91\jre\bin;C:\software_envronment\mysql\mysql-8.0.11-winx64\bin;C:\WINDOWS\System32\OpenSSH\;D:\apache-jmeter-5.1.1\bin;C:\software_envronment\Redis-x64-3.0.504;D:\redis\;C:\ProgramData\chocolatey\bin;D:\nodejs\;D:\nodejs\node_global;C:\software_envronment\python\Scripts\;C:\software_envronment\python\;C:\Users\10421\AppData\Local\Microsoft\WindowsApps;;D:\电脑软件\ssh;C:\Users\10421\AppData\Roaming\npm;C:\Users\10421\eclipse\java-oxygen\eclipse;;.]
+2020-09-13 23:40:04.661  INFO 14280 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-09-13 23:40:04.681  INFO 14280 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-13 23:40:04.681  INFO 14280 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6565 ms
+2020-09-13 23:40:07.274  INFO 14280 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-13 23:40:09.829  INFO 14280 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-13 23:40:09.892  INFO 14280 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8090"]
+2020-09-13 23:40:10.061  INFO 14280 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2020-09-13 23:40:10.065  INFO 14280 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Started MiddlePlatformServicesApplication in 13.889 seconds (JVM running for 15.054)

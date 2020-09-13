@@ -1,11 +1,16 @@
 package org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.handler;
 
+import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
-import org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.build.TextBuilder;
-import org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.utils.JsonUtils;
+import org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.Weixin;
+import org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.service.IWeixinService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.ObjectUtils;
 
 import me.chanjar.weixin.common.api.WxConsts.XmlMsgType;
 import me.chanjar.weixin.common.error.WxErrorException;
@@ -13,12 +18,17 @@ import me.chanjar.weixin.common.session.WxSessionManager;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlOutMessage;
+import me.chanjar.weixin.mp.builder.outxml.TextBuilder;
 
 /**
  * @author Binary Wang(https://github.com/binarywang)
  */
 @Component
 public class MsgHandler extends AbstractHandler {
+	
+
+	@Autowired
+	IWeixinService iWeixinService;
 
     @Override
     public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage,
@@ -38,9 +48,39 @@ public class MsgHandler extends AbstractHandler {
                     .fromUser(wxMessage.getToUser())
                     .toUser(wxMessage.getFromUser()).build();
             }
+            if(isAlphaNumeric(wxMessage.getContent())&&wxMessage.getContent().length()==6)
+            {
+            	
+            	 Weixin newUser = new Weixin();
+                 newUser.setOpenid(wxMessage.getFromUser());
+                 
+
+                 List<Weixin> result = iWeixinService.selectWeixinList(newUser);
+                 
+                 
+                 if(!ObjectUtils.isEmpty(result)) {
+                 	
+                 	Weixin updateUser = result.get(0);
+                 	updateUser.setStatus(0);
+//                 	updateUser.setToken(wxMessage.getContent());
+                 	iWeixinService.updateWeixin(updateUser);//设置为不可用
+                 	
+                 }
+            	
+            	String content = "恭喜已经解锁网站全部文章！！";
+            	WxMpXmlOutMessage message = new TextBuilder().content(content)
+						 .toUser(wxMessage.getFromUser())
+						 .fromUser(wxMessage.getToUser())
+						 .build();
+
+            	return message;//("感谢关注", wxMessage, weixinService);
+            	
+            }
+            
         } catch (WxErrorException e) {
             e.printStackTrace();
         }
+        
 ///
         
 //        DROP TABLE IF EXISTS `weixin`;
@@ -68,8 +108,21 @@ public class MsgHandler extends AbstractHandler {
         if("数据分片".equals(wxMessage.getContent()))
         	content="github地址为：。。。。。";
 
-        return new TextBuilder().build(content, wxMessage, weixinService);
+        return new org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.build.TextBuilder().build(content, wxMessage, weixinService);
 
     }
+    
+    
+    /**
+     * 方法功能：判断一个字符串是否有字母和数字组成
+     * @param String s
+     * @return boolean
+     * */
+    public static boolean isAlphaNumeric(String s){
+      Pattern p = Pattern.compile("[0-9a-zA-Z]{1,}");
+      Matcher m = p.matcher(s);
+      return m.matches();
+    }
+    
 
 }

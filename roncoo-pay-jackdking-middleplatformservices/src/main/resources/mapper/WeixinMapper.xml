@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ruoyi.system.mapper.WeixinMapper">
+<mapper namespace="org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.dao.WeixinMapper">
     
-    <resultMap type="Weixin" id="WeixinResult">
+    <resultMap type="org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.Weixin" id="WeixinResult">
         <result property="id"    column="id"    />
         <result property="openid"    column="openid"    />
         <result property="token"    column="token"    />
@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         select id, openid, token, status from weixin
     </sql>
 
-    <select id="selectWeixinList" parameterType="Weixin" resultMap="WeixinResult">
+    <select id="selectWeixinList" parameterType="org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.Weixin" resultMap="WeixinResult">
         <include refid="selectWeixinVo"/>
         <where>  
             <if test="openid != null  and openid != ''"> and openid = #{openid}</if>
@@ -29,7 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </select>
         
-    <insert id="insertWeixin" parameterType="Weixin" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insertWeixin" parameterType="org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.Weixin" useGeneratedKeys="true" keyProperty="id">
         insert into weixin
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="openid != null  and openid != ''">openid,</if>
@@ -43,7 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          </trim>
     </insert>
 
-    <update id="updateWeixin" parameterType="Weixin">
+    <update id="updateWeixin" parameterType="org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.Weixin">
         update weixin
         <trim prefix="SET" suffixOverrides=",">
             <if test="openid != null  and openid != ''">openid = #{openid},</if>

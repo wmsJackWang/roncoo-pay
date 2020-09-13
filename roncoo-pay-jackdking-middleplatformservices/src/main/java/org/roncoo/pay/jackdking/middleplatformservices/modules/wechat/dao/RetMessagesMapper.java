@@ -2,6 +2,7 @@ package org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages;
 
 /**
@@ -10,6 +11,7 @@ import org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.Ret
  * @author ruoyi
  * @date 2020-09-08
  */
+@Mapper
 public interface RetMessagesMapper 
 {
     /**

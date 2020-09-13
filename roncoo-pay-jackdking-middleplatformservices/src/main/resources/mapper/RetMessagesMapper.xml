@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ruoyi.system.mapper.RetMessagesMapper">
+<mapper namespace="org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.dao.RetMessagesMapper">
     
-    <resultMap type="RetMessages" id="RetMessagesResult">
+    <resultMap type="org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages" id="RetMessagesResult">
         <result property="id"    column="id"    />
         <result property="msg"    column="msg"    />
         <result property="retmsg"    column="retmsg"    />
@@ -14,7 +14,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         select id, msg, retmsg from ret_messages
     </sql>
 
-    <select id="selectRetMessagesList" parameterType="RetMessages" resultMap="RetMessagesResult">
+    <select id="selectRetMessagesList" parameterType="org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages" resultMap="RetMessagesResult">
         <include refid="selectRetMessagesVo"/>
         <where>  
             <if test="msg != null  and msg != ''"> and msg = #{msg}</if>
@@ -27,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </select>
         
-    <insert id="insertRetMessages" parameterType="RetMessages" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insertRetMessages" parameterType="org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages" useGeneratedKeys="true" keyProperty="id">
         insert into ret_messages
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="msg != null  and msg != ''">msg,</if>
@@ -39,7 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          </trim>
     </insert>
 
-    <update id="updateRetMessages" parameterType="RetMessages">
+    <update id="updateRetMessages" parameterType="org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages">
         update ret_messages
         <trim prefix="SET" suffixOverrides=",">
             <if test="msg != null  and msg != ''">msg = #{msg},</if>

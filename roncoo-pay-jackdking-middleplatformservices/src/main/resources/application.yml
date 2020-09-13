@@ -13,3 +13,26 @@ wx:
         secret: 1111
         token: 111
         aesKey: 111
+#logging logback
+logging:
+  config: classpath:logback-spring.xml
+  file: middleplat
+
+#mybatis
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    log-prefix: repository.
+ 
+spring:
+  profiles:
+    active:  dev
+  redis:
+    host: 129.28.178.8
+    password: jackdking@1234
+  datasource:
+    url: jdbc:mysql://bittechblog.com:3308/middleplat?useSSL=false&useUnicode=true&serverTimezone=Asia/Shanghai&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true&allowMultiQueries=true
+    username: root
+    password: wanyang@wms
+    driver-class-name: com.mysql.cj.jdbc.Driver
+      

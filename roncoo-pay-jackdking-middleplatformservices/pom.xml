@@ -82,6 +82,18 @@
             <artifactId>jedis-lock</artifactId>
             <version>1.0.0</version>
         </dependency>
+        
+        <dependency>
+		    <groupId>cn.hutool</groupId>
+		    <artifactId>hutool-all</artifactId>
+		    <version>5.4.2</version>
+		</dependency>
+		
+		<dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.17</version>
+        </dependency>
 
     </dependencies>
 
