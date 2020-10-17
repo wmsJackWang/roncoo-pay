@@ -59,4 +59,8 @@ public interface IRetMessagesService
      * @return 结果
      */
     public int deleteRetMessagesById(Long id);
+    
+    
+    public RetMessages selectOne(RetMessages retMessages);
+    
 }

@@ -56,13 +56,13 @@ public class SubscribeHandler extends AbstractHandler {
         {
         	logger.info("新关注用户{},不在粉丝列表中",wxMessage.getFromUser());
         	newUser.setToken(wxMessage.getContent());
-        	newUser.setStatus(1);
+        	newUser.setStatus(1);////用户关注并不会解锁，而是要发送token
         	iWeixinService.insertWeixin(newUser);
         }
         else {
         	logger.info("新关注用户{},在粉丝列表中",wxMessage.getFromUser());
         	Weixin updateUser = result.get(0);
-//        	updateUser.setStatus(1);
+//        	updateUser.setStatus(1);//用户关注并不会解锁，而是要发送token
         	updateUser.setToken(wxMessage.getContent());
         	iWeixinService.updateWeixin(updateUser);
         }
@@ -78,7 +78,9 @@ public class SubscribeHandler extends AbstractHandler {
             return responseResult;
         }
         
-        String content = "欢迎关注 前沿科技   \n专栏列表 : \n <a href='https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzI5NDcxNDY2Ng==&action=getalbum&album_id=1363971746453585923&scene=173#wechat_redirect&scene=0&subscene=92&sessionid=1599487747&enterid=1599487754'>Java架构师方案宝典</a>\n<a https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzI5NDcxNDY2Ng==&action=getalbum&album_id=1370184404953530368&scene=173#wechat_redirect&scene=0&subscene=92&sessionid=1599488643&enterid=1599488854'>你或许感兴趣的</a>";
+        String content = "你好，欢迎关注FrontierTechnology！   \n\n公众号专栏列表 : \n<a href='https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzI5NDcxNDY2Ng==&action=getalbum&album_id=1363971746453585923&scene=173#wechat_redirect&scene=0&subscene=92&sessionid=1599487747&enterid=1599487754'>Java架构师方案宝典</a>\n<a href='https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzI5NDcxNDY2Ng==&action=getalbum&album_id=1370184404953530368&scene=173#wechat_redirect&scene=0&subscene=92&sessionid=1599488643&enterid=1599488854'>你或许感兴趣的科技美文</a>"
+        		+ "\n\n头条搜索\"前沿科技bot\",这里有最新的科技资讯报道,期待您的关注"
+        		+ "\n\n本公众号技术博客网站：http://bittechblog.com/blog/";
 
         try {
         	WxMpXmlOutMessage message = new TextBuilder().content(content)

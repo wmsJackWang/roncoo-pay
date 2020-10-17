@@ -22,6 +22,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </where>
     </select>
     
+    <select id="selectRetMessagesOne" parameterType="org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages" resultMap="RetMessagesResult">
+        <include refid="selectRetMessagesVo"/>
+        <where>  
+            <if test="msg != null  and msg != ''"> and msg = #{msg}</if>
+            <if test="retmsg != null  and retmsg != ''"> and retmsg = #{retmsg}</if>
+        </where>
+    </select>
+    
     <select id="selectRetMessagesById" parameterType="Long" resultMap="RetMessagesResult">
         <include refid="selectRetMessagesVo"/>
         where id = #{id}

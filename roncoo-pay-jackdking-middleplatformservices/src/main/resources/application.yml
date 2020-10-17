@@ -9,10 +9,10 @@ wx:
         secret: 64d6d5297a25ee50ec23ee51a38a3db1 # 公众号的appsecret
         token: ncl1234 # 接口配置里的Token值
         aesKey: LsWuUafNY5Qx36rNAOTkemWkAcoJSCBBDL5FBTLybYZ # 接口配置里的EncodingAESKey值
-      - appId: 2222 # 第二个公众号的appid，以下同上
-        secret: 1111
-        token: 111
-        aesKey: 111
+      - appId: wx2552a35ae9265062 # 第二个公众号的appid，以下同上
+        secret: bc068758d3c748a9db79e5b3ed97f4ba
+        token: ncl1234
+        aesKey: LsWuUafNY5Qx36rNAOTkemWkAcoJSCBBDL5FBTLybYZ
 #logging logback
 logging:
   config: classpath:logback-spring.xml

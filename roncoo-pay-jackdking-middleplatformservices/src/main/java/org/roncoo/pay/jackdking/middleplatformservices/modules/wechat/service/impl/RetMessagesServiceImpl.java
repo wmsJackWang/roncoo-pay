@@ -93,4 +93,10 @@ public class RetMessagesServiceImpl implements IRetMessagesService
     {
         return retMessagesMapper.deleteRetMessagesById(id);
     }
+
+	@Override
+	public RetMessages selectOne(RetMessages retMessages) {
+		// TODO Auto-generated method stub
+		return retMessagesMapper.selectRetMessagesOne(retMessages);
+	}
 }

@@ -6,7 +6,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
+import org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages;
 import org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.Weixin;
+import org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.service.IRetMessagesService;
 import org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.service.IWeixinService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -29,6 +31,9 @@ public class MsgHandler extends AbstractHandler {
 
 	@Autowired
 	IWeixinService iWeixinService;
+	
+	@Autowired
+	IRetMessagesService iRetMessagesService;
 
     @Override
     public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage,
@@ -48,6 +53,7 @@ public class MsgHandler extends AbstractHandler {
                     .fromUser(wxMessage.getToUser())
                     .toUser(wxMessage.getFromUser()).build();
             }
+            //网站文章解锁 token
             if(isAlphaNumeric(wxMessage.getContent())&&wxMessage.getContent().length()==6)
             {
             	
@@ -56,15 +62,22 @@ public class MsgHandler extends AbstractHandler {
                  
 
                  List<Weixin> result = iWeixinService.selectWeixinList(newUser);
-                 
-                 
+
+                 //用户在粉丝列表中
                  if(!ObjectUtils.isEmpty(result)) {
                  	
                  	Weixin updateUser = result.get(0);
                  	updateUser.setStatus(0);
-//                 	updateUser.setToken(wxMessage.getContent());
+                 	updateUser.setToken(wxMessage.getContent());//发送新的token会覆盖掉之前的token值
                  	iWeixinService.updateWeixin(updateUser);//设置为不可用
                  	
+                 //用户不在粉丝列表中，之前就关注了的粉丝
+                 }else{
+                     
+                  	logger.info("新关注用户{},不在粉丝列表中",wxMessage.getFromUser());
+                 	newUser.setToken(wxMessage.getContent());
+                 	newUser.setStatus(0);////已关注的用户发送token 默认解锁
+                 	iWeixinService.insertWeixin(newUser);
                  }
             	
             	String content = "恭喜已经解锁网站全部文章！！";
@@ -76,6 +89,25 @@ public class MsgHandler extends AbstractHandler {
             	return message;//("感谢关注", wxMessage, weixinService);
             	
             }
+            
+            //其他消息 回复
+            RetMessages param = new RetMessages();
+            param.setMsg(wxMessage.getContent());
+            RetMessages messages = iRetMessagesService.selectOne(param);
+            
+            
+            if(messages==null) {
+            	
+            }else {
+            	String content = messages.getRetmsg();
+            	WxMpXmlOutMessage message = new TextBuilder().content(content)
+						 .toUser(wxMessage.getFromUser())
+						 .fromUser(wxMessage.getToUser())
+						 .build();
+
+            	return message;//("感谢关注", wxMessage, weixinService);
+            }
+            
             
         } catch (WxErrorException e) {
             e.printStackTrace();
@@ -103,10 +135,9 @@ public class MsgHandler extends AbstractHandler {
         
         //TODO 组装回复消息  默认方式
 //        String content = "收到信息内容：" + JsonUtils.toJson(wxMessage);
-        String content = "欢迎关注 前沿科技   \n专栏列表 : \n<a href='https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzI5NDcxNDY2Ng==&action=getalbum&album_id=1363971746453585923&scene=173#wechat_redirect&scene=0&subscene=92&sessionid=1599487747&enterid=1599487754'>Java架构师方案宝典</a>\n<a href='https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzI5NDcxNDY2Ng==&action=getalbum&album_id=1370184404953530368&scene=173#wechat_redirect&scene=0&subscene=92&sessionid=1599488643&enterid=1599488854'>你或许感兴趣的</a>";
-        
-        if("数据分片".equals(wxMessage.getContent()))
-        	content="github地址为：。。。。。";
+        String content = "你好，欢迎关注FrontierTechnology！   \n\n公众号专栏列表 : \n<a href='https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzI5NDcxNDY2Ng==&action=getalbum&album_id=1363971746453585923&scene=173#wechat_redirect&scene=0&subscene=92&sessionid=1599487747&enterid=1599487754'>Java架构师方案宝典</a>\n<a href='https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzI5NDcxNDY2Ng==&action=getalbum&album_id=1370184404953530368&scene=173#wechat_redirect&scene=0&subscene=92&sessionid=1599488643&enterid=1599488854'>你或许感兴趣的科技美文</a>"
+        		+ "\n\n头条搜索\"前沿科技bot\",这里有最新的科技资讯报道,期待您的关注"
+        		+ "\n\n本公众号技术博客网站：http://bittechblog.com/blog/";
 
         return new org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.build.TextBuilder().build(content, wxMessage, weixinService);
 

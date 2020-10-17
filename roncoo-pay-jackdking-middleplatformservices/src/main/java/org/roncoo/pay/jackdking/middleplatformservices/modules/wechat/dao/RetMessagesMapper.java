@@ -61,4 +61,8 @@ public interface RetMessagesMapper
      * @return 结果
      */
     public int deleteRetMessagesByIds(String[] ids);
+    
+    
+    public RetMessages selectRetMessagesOne(RetMessages retMessages);
+    
 }
