@@ -1,0 +1,726 @@
+2020-10-28 15:44:42.754  INFO 7496 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on mingshengwang-02 with PID 7496 (D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by mingshengwang in D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-10-28 15:44:42.756  INFO 7496 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-10-28 15:44:42.838  INFO 7496 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-10-28 15:44:42.838  INFO 7496 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-10-28 15:44:43.662  INFO 7496 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-28 15:44:43.665  INFO 7496 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-10-28 15:44:43.696  INFO 7496 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 repository interfaces.
+2020-10-28 15:44:44.164  INFO 7496 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.config.RedisConfig$$EnhancerBySpringCGLIB$$ec708145] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 15:44:44.173  INFO 7496 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$986918ec] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 15:44:44.946  INFO 7496 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-10-28 15:44:44.964  INFO 7496 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-10-28 15:44:44.975  INFO 7496 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-28 15:44:44.976  INFO 7496 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-10-28 15:44:44.992  INFO 7496 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\softwareEnviroment\jdk\jdk1.8.0_121\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/bin/server;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/bin;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/lib/amd64;D:\worksoftware\python379\Scripts\;D:\worksoftware\python379\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\softwareEnviroment\jdk\jdk1.8.0_121\bin;C:\softwareEnviroment\apache-maven-3.6.3\bin;D:\worksoftware\svn\bin;D:\worksoftware\Git\cmd;D:\worksoftware\redis-2.6;D:\worksoftware\nodejs;D:\worksoftware\python379\Scripts;C:\Users\mingshengwang\AppData\Local\Microsoft\WindowsApps;D:\worksoftware\eclipse;;.]
+2020-10-28 15:44:45.266  INFO 7496 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-10-28 15:44:45.274  INFO 7496 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-28 15:44:45.274  INFO 7496 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2435 ms
+2020-10-28 15:44:46.853  INFO 7496 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-28 15:44:47.308  INFO 7496 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-28 15:44:47.344  INFO 7496 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8090"]
+2020-10-28 15:44:47.384  INFO 7496 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2020-10-28 15:44:47.387  INFO 7496 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Started MiddlePlatformServicesApplication in 5.138 seconds (JVM running for 5.624)
+2020-10-28 15:57:49.188  INFO 18140 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on mingshengwang-02 with PID 18140 (D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by mingshengwang in D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-10-28 15:57:49.191  INFO 18140 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-10-28 15:57:49.272  INFO 18140 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-10-28 15:57:49.273  INFO 18140 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-10-28 15:57:50.124  INFO 18140 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-28 15:57:50.128  INFO 18140 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-10-28 15:57:50.160  INFO 18140 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 repository interfaces.
+2020-10-28 15:57:50.630  INFO 18140 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.config.RedisConfig$$EnhancerBySpringCGLIB$$bd2bb3ce] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 15:57:50.638  INFO 18140 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$69244b75] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 15:57:51.320  INFO 18140 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-10-28 15:57:51.339  INFO 18140 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-10-28 15:57:51.349  INFO 18140 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-28 15:57:51.349  INFO 18140 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-10-28 15:57:51.364  INFO 18140 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\softwareEnviroment\jdk\jdk1.8.0_121\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/bin/server;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/bin;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/lib/amd64;D:\worksoftware\python379\Scripts\;D:\worksoftware\python379\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\softwareEnviroment\jdk\jdk1.8.0_121\bin;C:\softwareEnviroment\apache-maven-3.6.3\bin;D:\worksoftware\svn\bin;D:\worksoftware\Git\cmd;D:\worksoftware\redis-2.6;D:\worksoftware\nodejs;D:\worksoftware\python379\Scripts;C:\Users\mingshengwang\AppData\Local\Microsoft\WindowsApps;D:\worksoftware\eclipse;;.]
+2020-10-28 15:57:51.663  INFO 18140 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-10-28 15:57:51.670  INFO 18140 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-28 15:57:51.670  INFO 18140 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2397 ms
+2020-10-28 15:57:53.522  INFO 18140 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-28 15:57:53.976  INFO 18140 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-28 15:57:54.008  INFO 18140 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8090"]
+2020-10-28 15:57:54.045  INFO 18140 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2020-10-28 15:57:54.049  INFO 18140 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Started MiddlePlatformServicesApplication in 5.351 seconds (JVM running for 5.906)
+2020-10-28 15:58:11.474  INFO 18140 --- [http-nio-8090-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-28 15:58:11.474  INFO 18140 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-28 15:58:11.485  INFO 18140 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2020-10-28 15:58:11.520  WARN 18140 --- [http-nio-8090-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required String parameter 'token' is not present]
+2020-10-28 15:58:39.018  INFO 18140 --- [http-nio-8090-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-28 15:58:39.674  INFO 18140 --- [http-nio-8090-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-28 15:58:39.684 DEBUG 18140 --- [http-nio-8090-exec-4] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==>  Preparing: select id, openid, token, status from weixin WHERE token = ? 
+2020-10-28 15:58:39.849 DEBUG 18140 --- [http-nio-8090-exec-4] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==> Parameters: 1212(String)
+2020-10-28 15:58:39.936 DEBUG 18140 --- [http-nio-8090-exec-4] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : <==      Total: 0
+2020-10-28 15:58:40.222  INFO 18140 --- [http-nio-8090-exec-4] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2020-10-28 15:58:40.224  INFO 18140 --- [http-nio-8090-exec-4] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library
+2020-10-28 15:58:42.924 ERROR 18140 --- [http-nio-8090-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to localhost:6379] with root cause
+
+java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:327)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:636)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:583)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:500)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:462)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:897)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:745)
+
+2020-10-28 16:07:58.176 DEBUG 18140 --- [http-nio-8090-exec-6] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==>  Preparing: select id, openid, token, status from weixin WHERE token = ? 
+2020-10-28 16:07:58.177 DEBUG 18140 --- [http-nio-8090-exec-6] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==> Parameters: 1212(String)
+2020-10-28 16:07:58.222 DEBUG 18140 --- [http-nio-8090-exec-6] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : <==      Total: 0
+2020-10-28 16:08:00.229 ERROR 18140 --- [http-nio-8090-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to localhost:6379] with root cause
+
+java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:327)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:636)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:583)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:500)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:462)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:897)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:745)
+
+2020-10-28 16:10:07.501  INFO 18140 --- [Thread-6] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-28 16:10:08.626  INFO 18140 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-10-28 16:10:08.636  INFO 18140 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-10-28 16:10:09.000  INFO 18140 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on mingshengwang-02 with PID 18140 (D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by mingshengwang in D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-10-28 16:10:09.001  INFO 18140 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-10-28 16:10:09.251  INFO 18140 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-28 16:10:09.252  INFO 18140 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-10-28 16:10:09.259  INFO 18140 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 repository interfaces.
+2020-10-28 16:10:09.319  INFO 18140 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.config.RedisConfig$$EnhancerBySpringCGLIB$$bd2bb3ce] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:10:09.321  INFO 18140 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$69244b75] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:10:09.418  INFO 18140 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-10-28 16:10:09.419  INFO 18140 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:10:09.419  INFO 18140 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-28 16:10:09.419  INFO 18140 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-10-28 16:10:09.531  INFO 18140 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-10-28 16:10:09.534  INFO 18140 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-28 16:10:09.535  INFO 18140 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 532 ms
+2020-10-28 16:10:09.721  INFO 18140 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-28 16:10:09.811  INFO 18140 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-28 16:10:09.823  INFO 18140 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:10:09.827  INFO 18140 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2020-10-28 16:10:09.828  INFO 18140 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Started MiddlePlatformServicesApplication in 0.868 seconds (JVM running for 741.69)
+2020-10-28 16:10:09.831  INFO 18140 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-28 16:13:02.598  INFO 18220 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on mingshengwang-02 with PID 18220 (D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by mingshengwang in D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-10-28 16:13:02.601  INFO 18220 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-10-28 16:13:02.678  INFO 18220 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-10-28 16:13:02.679  INFO 18220 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-10-28 16:13:03.463  INFO 18220 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-28 16:13:03.466  INFO 18220 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-10-28 16:13:03.500  INFO 18220 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 repository interfaces.
+2020-10-28 16:13:04.017  INFO 18220 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.config.RedisConfig$$EnhancerBySpringCGLIB$$8f1d041e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:13:04.024  INFO 18220 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b159bc5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:13:04.781  INFO 18220 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-10-28 16:13:04.804  INFO 18220 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:13:04.816  INFO 18220 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-28 16:13:04.816  INFO 18220 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-10-28 16:13:04.831  INFO 18220 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\softwareEnviroment\jdk\jdk1.8.0_121\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/bin/server;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/bin;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/lib/amd64;D:\worksoftware\python379\Scripts\;D:\worksoftware\python379\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\softwareEnviroment\jdk\jdk1.8.0_121\bin;C:\softwareEnviroment\apache-maven-3.6.3\bin;D:\worksoftware\svn\bin;D:\worksoftware\Git\cmd;D:\worksoftware\redis-2.6;D:\worksoftware\nodejs;D:\worksoftware\python379\Scripts;C:\Users\mingshengwang\AppData\Local\Microsoft\WindowsApps;D:\worksoftware\eclipse;;.]
+2020-10-28 16:13:05.106  INFO 18220 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-10-28 16:13:05.112  INFO 18220 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-28 16:13:05.113  INFO 18220 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2434 ms
+2020-10-28 16:13:06.636  INFO 18220 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-28 16:13:07.078  INFO 18220 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-28 16:13:07.112  INFO 18220 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:13:07.150  INFO 18220 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2020-10-28 16:13:07.153  INFO 18220 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Started MiddlePlatformServicesApplication in 5.022 seconds (JVM running for 5.487)
+2020-10-28 16:13:11.245  INFO 18220 --- [http-nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-28 16:13:11.246  INFO 18220 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-28 16:13:11.257  INFO 18220 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2020-10-28 16:13:11.376  INFO 18220 --- [http-nio-8090-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-28 16:13:12.081  INFO 18220 --- [http-nio-8090-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-28 16:13:12.087 DEBUG 18220 --- [http-nio-8090-exec-1] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==>  Preparing: select id, openid, token, status from weixin WHERE token = ? 
+2020-10-28 16:13:12.115 DEBUG 18220 --- [http-nio-8090-exec-1] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==> Parameters: 1212(String)
+2020-10-28 16:13:12.189 DEBUG 18220 --- [http-nio-8090-exec-1] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : <==      Total: 0
+2020-10-28 16:13:12.486  INFO 18220 --- [http-nio-8090-exec-1] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2020-10-28 16:13:12.488  INFO 18220 --- [http-nio-8090-exec-1] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library
+2020-10-28 16:13:14.966 ERROR 18220 --- [http-nio-8090-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to localhost:6379] with root cause
+
+java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:327)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:636)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:583)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:500)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:462)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:897)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:745)
+
+2020-10-28 16:14:17.491  INFO 17212 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on mingshengwang-02 with PID 17212 (D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by mingshengwang in D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-10-28 16:14:17.494  INFO 17212 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-10-28 16:14:17.576  INFO 17212 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-10-28 16:14:17.576  INFO 17212 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-10-28 16:14:18.347  INFO 17212 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-28 16:14:18.349  INFO 17212 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-10-28 16:14:18.380  INFO 17212 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 repository interfaces.
+2020-10-28 16:14:18.792  INFO 17212 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.config.RedisConfig$$EnhancerBySpringCGLIB$$7ea0267e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:14:18.800  INFO 17212 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2a98be25] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:14:19.527  INFO 17212 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-10-28 16:14:19.546  INFO 17212 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:14:19.557  INFO 17212 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-28 16:14:19.558  INFO 17212 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-10-28 16:14:19.570  INFO 17212 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\softwareEnviroment\jdk\jdk1.8.0_121\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/bin/server;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/bin;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/lib/amd64;D:\worksoftware\python379\Scripts\;D:\worksoftware\python379\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\softwareEnviroment\jdk\jdk1.8.0_121\bin;C:\softwareEnviroment\apache-maven-3.6.3\bin;D:\worksoftware\svn\bin;D:\worksoftware\Git\cmd;D:\worksoftware\redis-2.6;D:\worksoftware\nodejs;D:\worksoftware\python379\Scripts;C:\Users\mingshengwang\AppData\Local\Microsoft\WindowsApps;D:\worksoftware\eclipse;;.]
+2020-10-28 16:14:19.843  INFO 17212 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-10-28 16:14:19.852  INFO 17212 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-28 16:14:19.852  INFO 17212 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2275 ms
+2020-10-28 16:14:21.358  INFO 17212 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-28 16:14:21.803  INFO 17212 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-28 16:14:21.838  INFO 17212 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:14:21.876  INFO 17212 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2020-10-28 16:14:21.879  INFO 17212 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Started MiddlePlatformServicesApplication in 4.857 seconds (JVM running for 5.323)
+2020-10-28 16:14:27.769  INFO 17212 --- [http-nio-8090-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-28 16:14:27.769  INFO 17212 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-28 16:14:27.780  INFO 17212 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2020-10-28 16:14:27.883  INFO 17212 --- [http-nio-8090-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-28 16:14:28.523  INFO 17212 --- [http-nio-8090-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-28 16:14:28.536 DEBUG 17212 --- [http-nio-8090-exec-2] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==>  Preparing: select id, openid, token, status from weixin WHERE token = ? 
+2020-10-28 16:14:28.589 DEBUG 17212 --- [http-nio-8090-exec-2] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==> Parameters: 1212(String)
+2020-10-28 16:14:28.650 DEBUG 17212 --- [http-nio-8090-exec-2] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : <==      Total: 0
+2020-10-28 16:14:28.938  INFO 17212 --- [http-nio-8090-exec-2] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2020-10-28 16:14:28.939  INFO 17212 --- [http-nio-8090-exec-2] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library
+2020-10-28 16:14:31.409 ERROR 17212 --- [http-nio-8090-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to localhost:6379] with root cause
+
+java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:327)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:636)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:583)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:500)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:462)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:897)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:745)
+
+2020-10-28 16:15:44.629  INFO 8496 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on mingshengwang-02 with PID 8496 (D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by mingshengwang in D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-10-28 16:15:44.632  INFO 8496 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-10-28 16:15:44.693  INFO 8496 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-10-28 16:15:44.694  INFO 8496 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-10-28 16:15:45.500  INFO 8496 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-28 16:15:45.505  INFO 8496 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-10-28 16:15:45.537  INFO 8496 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 repository interfaces.
+2020-10-28 16:15:45.998  INFO 8496 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.config.RedisConfig$$EnhancerBySpringCGLIB$$a93a0789] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:15:46.002  INFO 8496 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$55329f30] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:15:46.681  INFO 8496 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-10-28 16:15:46.704  INFO 8496 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:15:46.717  INFO 8496 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-28 16:15:46.718  INFO 8496 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-10-28 16:15:46.734  INFO 8496 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\softwareEnviroment\jdk\jdk1.8.0_121\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/bin/server;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/bin;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/lib/amd64;D:\worksoftware\python379\Scripts\;D:\worksoftware\python379\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\softwareEnviroment\jdk\jdk1.8.0_121\bin;C:\softwareEnviroment\apache-maven-3.6.3\bin;D:\worksoftware\svn\bin;D:\worksoftware\Git\cmd;D:\worksoftware\redis-2.6;D:\worksoftware\nodejs;D:\worksoftware\python379\Scripts;C:\Users\mingshengwang\AppData\Local\Microsoft\WindowsApps;D:\worksoftware\eclipse;;.]
+2020-10-28 16:15:47.039  INFO 8496 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-10-28 16:15:47.046  INFO 8496 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-28 16:15:47.046  INFO 8496 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2352 ms
+2020-10-28 16:15:48.560  INFO 8496 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-28 16:15:49.001  INFO 8496 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-28 16:15:49.033  INFO 8496 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:15:49.070  INFO 8496 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2020-10-28 16:15:49.073  INFO 8496 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Started MiddlePlatformServicesApplication in 4.908 seconds (JVM running for 5.391)
+2020-10-28 16:15:58.130  INFO 8496 --- [http-nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-28 16:15:58.131  INFO 8496 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-28 16:15:58.144  INFO 8496 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2020-10-28 16:15:58.253  INFO 8496 --- [http-nio-8090-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-28 16:15:58.966  INFO 8496 --- [http-nio-8090-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-28 16:15:58.972 DEBUG 8496 --- [http-nio-8090-exec-1] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==>  Preparing: select id, openid, token, status from weixin WHERE token = ? 
+2020-10-28 16:15:58.996 DEBUG 8496 --- [http-nio-8090-exec-1] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==> Parameters: 1212(String)
+2020-10-28 16:15:59.057 DEBUG 8496 --- [http-nio-8090-exec-1] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : <==      Total: 0
+2020-10-28 16:15:59.383  INFO 8496 --- [http-nio-8090-exec-1] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2020-10-28 16:15:59.385  INFO 8496 --- [http-nio-8090-exec-1] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library
+2020-10-28 16:16:01.864 ERROR 8496 --- [http-nio-8090-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to localhost:6379] with root cause
+
+java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:327)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:636)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:583)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:500)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:462)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:897)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:745)
+
+2020-10-28 16:17:43.528  INFO 8496 --- [Thread-6] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-28 16:17:44.641  INFO 8496 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-10-28 16:17:44.650  INFO 8496 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-10-28 16:17:45.027  INFO 8496 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on mingshengwang-02 with PID 8496 (D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by mingshengwang in D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-10-28 16:17:45.028  INFO 8496 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-10-28 16:17:45.296  INFO 8496 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-28 16:17:45.296  INFO 8496 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-10-28 16:17:45.304  INFO 8496 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8ms. Found 0 repository interfaces.
+2020-10-28 16:17:45.366  INFO 8496 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.config.RedisConfig$$EnhancerBySpringCGLIB$$a93a0789] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:17:45.368  INFO 8496 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$55329f30] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:17:45.496  INFO 8496 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-10-28 16:17:45.497  INFO 8496 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:17:45.498  INFO 8496 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-28 16:17:45.499  INFO 8496 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-10-28 16:17:45.616  INFO 8496 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-10-28 16:17:45.619  INFO 8496 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-28 16:17:45.620  INFO 8496 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 590 ms
+2020-10-28 16:17:45.809  INFO 8496 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-28 16:17:45.908  INFO 8496 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-28 16:17:45.921  INFO 8496 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:17:45.925  INFO 8496 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2020-10-28 16:17:45.926  INFO 8496 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Started MiddlePlatformServicesApplication in 0.937 seconds (JVM running for 122.245)
+2020-10-28 16:17:45.928  INFO 8496 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-28 16:17:51.355  INFO 8496 --- [Thread-10] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-28 16:17:51.695  INFO 8496 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on mingshengwang-02 with PID 8496 (D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by mingshengwang in D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-10-28 16:17:51.695  INFO 8496 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-10-28 16:17:51.969  INFO 8496 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-28 16:17:51.970  INFO 8496 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-10-28 16:17:51.977  INFO 8496 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 repository interfaces.
+2020-10-28 16:17:52.036  INFO 8496 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.config.RedisConfig$$EnhancerBySpringCGLIB$$a93a0789] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:17:52.038  INFO 8496 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$55329f30] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:17:52.125  INFO 8496 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-10-28 16:17:52.126  INFO 8496 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:17:52.127  INFO 8496 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-28 16:17:52.127  INFO 8496 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-10-28 16:17:52.230  INFO 8496 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-10-28 16:17:52.234  INFO 8496 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-28 16:17:52.234  INFO 8496 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 537 ms
+2020-10-28 16:17:52.322  WARN 8496 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'checkInfoController': Unsatisfied dependency expressed through field 'redistemplate'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'rediTemplateA' defined in class path resource [org/roncoo/pay/jackdking/middleplatformservices/modules/wechat/config/RedisConfig.class]: Unsatisfied dependency expressed through method 'redisTemplate' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'spring.redis-org.springframework.boot.autoconfigure.data.redis.RedisProperties': Could not bind properties to 'RedisProperties' : prefix=spring.redis, ignoreInvalidFields=false, ignoreUnknownFields=true; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'spring.redis.lettuce' to org.springframework.boot.autoconfigure.data.redis.RedisProperties$Lettuce
+2020-10-28 16:17:52.323  INFO 8496 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-10-28 16:17:52.327  INFO 8496 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-10-28 16:17:52.329 ERROR 8496 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.redis.lettuce' to org.springframework.boot.autoconfigure.data.redis.RedisProperties$Lettuce:
+
+    Property: spring.redis.lettuce
+    Value: 
+    Origin: class path resource [application.yml]:31:13
+    Reason: No converter found capable of converting from type [java.lang.String] to type [org.springframework.boot.autoconfigure.data.redis.RedisProperties$Lettuce]
+
+Action:
+
+Update your application's configuration
+
+2020-10-28 16:17:54.820  INFO 8496 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on mingshengwang-02 with PID 8496 (D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by mingshengwang in D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-10-28 16:17:54.820  INFO 8496 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-10-28 16:17:55.051  INFO 8496 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-28 16:17:55.051  INFO 8496 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-10-28 16:17:55.058  INFO 8496 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 repository interfaces.
+2020-10-28 16:17:55.113  INFO 8496 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.config.RedisConfig$$EnhancerBySpringCGLIB$$a93a0789] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:17:55.116  INFO 8496 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$55329f30] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:17:55.210  INFO 8496 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-10-28 16:17:55.211  INFO 8496 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:17:55.212  INFO 8496 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-28 16:17:55.212  INFO 8496 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-10-28 16:17:55.306  INFO 8496 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-10-28 16:17:55.308  INFO 8496 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-28 16:17:55.308  INFO 8496 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 486 ms
+2020-10-28 16:17:55.479  INFO 8496 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-28 16:17:55.570  INFO 8496 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-28 16:17:55.582  INFO 8496 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:17:55.586  INFO 8496 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2020-10-28 16:17:55.587  INFO 8496 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Started MiddlePlatformServicesApplication in 0.8 seconds (JVM running for 131.906)
+2020-10-28 16:17:55.588  INFO 8496 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-28 16:19:36.508  INFO 9932 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on mingshengwang-02 with PID 9932 (D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by mingshengwang in D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-10-28 16:19:36.511  INFO 9932 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-10-28 16:19:36.589  INFO 9932 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-10-28 16:19:36.589  INFO 9932 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-10-28 16:19:37.404  INFO 9932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-28 16:19:37.407  INFO 9932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-10-28 16:19:37.438  INFO 9932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 repository interfaces.
+2020-10-28 16:19:37.882  INFO 9932 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.config.RedisConfig$$EnhancerBySpringCGLIB$$b83c8dbb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:19:37.897  INFO 9932 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$64352562] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:19:38.640  INFO 9932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-10-28 16:19:38.659  INFO 9932 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:19:38.669  INFO 9932 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-28 16:19:38.669  INFO 9932 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-10-28 16:19:38.682  INFO 9932 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\softwareEnviroment\jdk\jdk1.8.0_121\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/bin/server;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/bin;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/lib/amd64;D:\worksoftware\python379\Scripts\;D:\worksoftware\python379\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\softwareEnviroment\jdk\jdk1.8.0_121\bin;C:\softwareEnviroment\apache-maven-3.6.3\bin;D:\worksoftware\svn\bin;D:\worksoftware\Git\cmd;D:\worksoftware\redis-2.6;D:\worksoftware\nodejs;D:\worksoftware\python379\Scripts;C:\Users\mingshengwang\AppData\Local\Microsoft\WindowsApps;D:\worksoftware\eclipse;;.]
+2020-10-28 16:19:38.982  INFO 9932 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-10-28 16:19:38.989  INFO 9932 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-28 16:19:38.989  INFO 9932 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2400 ms
+2020-10-28 16:19:40.606  INFO 9932 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-28 16:19:41.060  INFO 9932 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-28 16:19:41.096  INFO 9932 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:19:41.132  INFO 9932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2020-10-28 16:19:41.136  INFO 9932 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Started MiddlePlatformServicesApplication in 5.117 seconds (JVM running for 5.61)
+2020-10-28 16:19:51.041  INFO 9932 --- [http-nio-8090-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-28 16:19:51.041  INFO 9932 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-28 16:19:51.053  INFO 9932 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2020-10-28 16:19:51.152  INFO 9932 --- [http-nio-8090-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-28 16:19:51.802  INFO 9932 --- [http-nio-8090-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-28 16:19:51.816 DEBUG 9932 --- [http-nio-8090-exec-2] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==>  Preparing: select id, openid, token, status from weixin WHERE token = ? 
+2020-10-28 16:19:51.855 DEBUG 9932 --- [http-nio-8090-exec-2] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==> Parameters: 1212(String)
+2020-10-28 16:19:51.920 DEBUG 9932 --- [http-nio-8090-exec-2] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : <==      Total: 0
+2020-10-28 16:19:52.222  INFO 9932 --- [http-nio-8090-exec-2] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2020-10-28 16:19:52.223  INFO 9932 --- [http-nio-8090-exec-2] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library
+2020-10-28 16:19:54.693 ERROR 9932 --- [http-nio-8090-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to localhost:6379] with root cause
+
+java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:327)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:636)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:583)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:500)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:462)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:897)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:745)
+
+2020-10-28 16:21:01.267 DEBUG 9932 --- [http-nio-8090-exec-4] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==>  Preparing: select id, openid, token, status from weixin WHERE token = ? 
+2020-10-28 16:21:01.267 DEBUG 9932 --- [http-nio-8090-exec-4] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==> Parameters: 1212(String)
+2020-10-28 16:21:01.312 DEBUG 9932 --- [http-nio-8090-exec-4] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : <==      Total: 0
+2020-10-28 16:21:01.345  INFO 9932 --- [http-nio-8090-exec-4] o.r.p.j.m.m.w.c.CheckInfoController      : 查询网站参数locked的返回结果：true
+2020-10-28 16:22:45.225  INFO 9932 --- [Thread-6] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-28 16:22:46.339  INFO 9932 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-10-28 16:22:46.346  INFO 9932 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-10-28 16:22:46.720  INFO 9932 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on mingshengwang-02 with PID 9932 (D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by mingshengwang in D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-10-28 16:22:46.720  INFO 9932 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-10-28 16:22:46.993  INFO 9932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-28 16:22:46.993  INFO 9932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-10-28 16:22:47.001  INFO 9932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8ms. Found 0 repository interfaces.
+2020-10-28 16:22:47.063  INFO 9932 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.config.RedisConfig$$EnhancerBySpringCGLIB$$b83c8dbb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:22:47.065  INFO 9932 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$64352562] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:22:47.161  INFO 9932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-10-28 16:22:47.162  INFO 9932 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:22:47.162  INFO 9932 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-28 16:22:47.162  INFO 9932 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-10-28 16:22:47.274  INFO 9932 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-10-28 16:22:47.277  INFO 9932 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-28 16:22:47.277  INFO 9932 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 554 ms
+2020-10-28 16:22:47.485  INFO 9932 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-28 16:22:47.583  INFO 9932 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-28 16:22:47.599  INFO 9932 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:22:47.604  INFO 9932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2020-10-28 16:22:47.605  INFO 9932 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Started MiddlePlatformServicesApplication in 0.92 seconds (JVM running for 192.08)
+2020-10-28 16:22:47.608  INFO 9932 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-28 16:22:55.235  INFO 9932 --- [http-nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-28 16:22:55.235  INFO 9932 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-28 16:22:55.243  INFO 9932 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2020-10-28 16:22:55.246  INFO 9932 --- [http-nio-8090-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2020-10-28 16:22:55.747  INFO 9932 --- [http-nio-8090-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2020-10-28 16:22:55.748 DEBUG 9932 --- [http-nio-8090-exec-1] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==>  Preparing: select id, openid, token, status from weixin WHERE token = ? 
+2020-10-28 16:22:55.748 DEBUG 9932 --- [http-nio-8090-exec-1] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==> Parameters: 1212(String)
+2020-10-28 16:22:55.792 DEBUG 9932 --- [http-nio-8090-exec-1] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : <==      Total: 0
+2020-10-28 16:22:55.804  INFO 9932 --- [http-nio-8090-exec-1] o.r.p.j.m.m.w.c.CheckInfoController      : 查询网站参数locked的返回结果：true
+2020-10-28 16:22:57.133 DEBUG 9932 --- [http-nio-8090-exec-3] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==>  Preparing: select id, openid, token, status from weixin WHERE token = ? 
+2020-10-28 16:22:57.134 DEBUG 9932 --- [http-nio-8090-exec-3] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==> Parameters: 1212(String)
+2020-10-28 16:22:57.177 DEBUG 9932 --- [http-nio-8090-exec-3] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : <==      Total: 0
+2020-10-28 16:22:57.179  INFO 9932 --- [http-nio-8090-exec-3] o.r.p.j.m.m.w.c.CheckInfoController      : 查询网站参数locked的返回结果：true
+2020-10-28 16:23:02.162 DEBUG 9932 --- [http-nio-8090-exec-4] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==>  Preparing: select id, openid, token, status from weixin WHERE token = ? 
+2020-10-28 16:23:02.163 DEBUG 9932 --- [http-nio-8090-exec-4] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==> Parameters: 1212(String)
+2020-10-28 16:23:02.207 DEBUG 9932 --- [http-nio-8090-exec-4] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : <==      Total: 0
+2020-10-28 16:23:02.208  INFO 9932 --- [http-nio-8090-exec-4] o.r.p.j.m.m.w.c.CheckInfoController      : 查询网站参数locked的返回结果：true
+2020-10-28 16:23:03.414 DEBUG 9932 --- [http-nio-8090-exec-5] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==>  Preparing: select id, openid, token, status from weixin WHERE token = ? 
+2020-10-28 16:23:03.415 DEBUG 9932 --- [http-nio-8090-exec-5] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==> Parameters: 1212(String)
+2020-10-28 16:23:03.459 DEBUG 9932 --- [http-nio-8090-exec-5] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : <==      Total: 0
+2020-10-28 16:23:03.460  INFO 9932 --- [http-nio-8090-exec-5] o.r.p.j.m.m.w.c.CheckInfoController      : 查询网站参数locked的返回结果：true
+2020-10-28 16:23:03.837 DEBUG 9932 --- [http-nio-8090-exec-6] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==>  Preparing: select id, openid, token, status from weixin WHERE token = ? 
+2020-10-28 16:23:03.837 DEBUG 9932 --- [http-nio-8090-exec-6] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==> Parameters: 1212(String)
+2020-10-28 16:23:03.881 DEBUG 9932 --- [http-nio-8090-exec-6] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : <==      Total: 0
+2020-10-28 16:23:03.884  INFO 9932 --- [http-nio-8090-exec-6] o.r.p.j.m.m.w.c.CheckInfoController      : 查询网站参数locked的返回结果：true
+2020-10-28 16:23:04.304 DEBUG 9932 --- [http-nio-8090-exec-7] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==>  Preparing: select id, openid, token, status from weixin WHERE token = ? 
+2020-10-28 16:23:04.305 DEBUG 9932 --- [http-nio-8090-exec-7] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==> Parameters: 1212(String)
+2020-10-28 16:23:04.352 DEBUG 9932 --- [http-nio-8090-exec-7] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : <==      Total: 0
+2020-10-28 16:23:04.354  INFO 9932 --- [http-nio-8090-exec-7] o.r.p.j.m.m.w.c.CheckInfoController      : 查询网站参数locked的返回结果：true
+2020-10-28 16:23:20.575  INFO 9932 --- [lettuce-nioEventLoop-7-1] io.lettuce.core.protocol.CommandHandler  : null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at io.netty.buffer.PooledUnsafeDirectByteBuf.setBytes(PooledUnsafeDirectByteBuf.java:288)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:347)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:648)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:583)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:500)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:462)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:897)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:745)
+
+2020-10-28 16:23:20.679  INFO 9932 --- [lettuce-eventExecutorLoop-5-7] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost/127.0.0.1:6379
+2020-10-28 16:23:22.688  WARN 9932 --- [lettuce-nioEventLoop-7-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:6379
+2020-10-28 16:23:26.809 DEBUG 9932 --- [http-nio-8090-exec-8] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==>  Preparing: select id, openid, token, status from weixin WHERE token = ? 
+2020-10-28 16:23:26.810 DEBUG 9932 --- [http-nio-8090-exec-8] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==> Parameters: 1212(String)
+2020-10-28 16:23:26.853 DEBUG 9932 --- [http-nio-8090-exec-8] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : <==      Total: 0
+2020-10-28 16:23:26.977  INFO 9932 --- [lettuce-eventExecutorLoop-5-3] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2020-10-28 16:23:28.982  WARN 9932 --- [lettuce-nioEventLoop-7-5] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:6379
+2020-10-28 16:23:32.861 ERROR 9932 --- [http-nio-8090-exec-8] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.QueryTimeoutException: Redis command timed out; nested exception is io.lettuce.core.RedisCommandTimeoutException: Command timed out after 6 second(s)] with root cause
+
+io.lettuce.core.RedisCommandTimeoutException: Command timed out after 6 second(s)
+	at io.lettuce.core.ExceptionFactory.createTimeoutException(ExceptionFactory.java:51)
+	at io.lettuce.core.LettuceFutures.awaitOrCancel(LettuceFutures.java:114)
+	at io.lettuce.core.FutureSyncInvocationHandler.handleInvocation(FutureSyncInvocationHandler.java:69)
+	at io.lettuce.core.internal.AbstractInvocationHandler.invoke(AbstractInvocationHandler.java:80)
+	at com.sun.proxy.$Proxy87.get(Unknown Source)
+	at org.springframework.data.redis.connection.lettuce.LettuceStringCommands.get(LettuceStringCommands.java:66)
+	at org.springframework.data.redis.connection.DefaultedRedisConnection.get(DefaultedRedisConnection.java:253)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:57)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:59)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:184)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:95)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:53)
+	at org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.controller.CheckInfoController.checkThirdPartIsLocked(CheckInfoController.java:128)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+
+2020-10-28 16:23:33.278  INFO 9932 --- [lettuce-eventExecutorLoop-5-6] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2020-10-28 16:23:35.284  WARN 9932 --- [lettuce-nioEventLoop-7-8] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:6379
+2020-10-28 16:23:40.378  INFO 9932 --- [lettuce-eventExecutorLoop-5-1] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2020-10-28 16:23:42.383  WARN 9932 --- [lettuce-nioEventLoop-7-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:6379
+2020-10-28 16:23:47.578  INFO 9932 --- [lettuce-eventExecutorLoop-5-3] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2020-10-28 16:23:49.583  WARN 9932 --- [lettuce-nioEventLoop-7-5] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:6379
+2020-10-28 16:23:53.778  INFO 9932 --- [lettuce-eventExecutorLoop-5-4] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2020-10-28 16:23:55.781  WARN 9932 --- [lettuce-nioEventLoop-7-6] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:6379
+2020-10-28 16:24:03.978  INFO 9932 --- [lettuce-eventExecutorLoop-5-5] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2020-10-28 16:24:05.986  WARN 9932 --- [lettuce-nioEventLoop-7-7] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:6379
+2020-10-28 16:24:21.845  INFO 9932 --- [Thread-10] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-28 16:24:21.851  INFO 9932 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2020-10-28 16:24:21.855  INFO 9932 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2020-10-28 16:24:22.166  INFO 9932 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on mingshengwang-02 with PID 9932 (D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by mingshengwang in D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-10-28 16:24:22.166  INFO 9932 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-10-28 16:24:22.375  INFO 9932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-28 16:24:22.375  INFO 9932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-10-28 16:24:22.383  INFO 9932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8ms. Found 0 repository interfaces.
+2020-10-28 16:24:22.439  INFO 9932 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.config.RedisConfig$$EnhancerBySpringCGLIB$$b83c8dbb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:24:22.441  INFO 9932 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$64352562] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:24:22.521  INFO 9932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-10-28 16:24:22.522  INFO 9932 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:24:22.523  INFO 9932 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-28 16:24:22.523  INFO 9932 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-10-28 16:24:22.621  INFO 9932 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-10-28 16:24:22.625  INFO 9932 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-28 16:24:22.625  INFO 9932 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 458 ms
+2020-10-28 16:24:22.788  INFO 9932 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-28 16:24:22.863  INFO 9932 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-28 16:24:22.874  INFO 9932 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:24:22.877  INFO 9932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2020-10-28 16:24:22.878  INFO 9932 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Started MiddlePlatformServicesApplication in 0.739 seconds (JVM running for 287.354)
+2020-10-28 16:24:22.880  INFO 9932 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-28 16:25:14.762  INFO 9932 --- [Thread-16] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-28 16:25:15.076  INFO 9932 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on mingshengwang-02 with PID 9932 (D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by mingshengwang in D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-10-28 16:25:15.076  INFO 9932 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-10-28 16:25:15.281  INFO 9932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-28 16:25:15.282  INFO 9932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-10-28 16:25:15.289  INFO 9932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 repository interfaces.
+2020-10-28 16:25:15.340  INFO 9932 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.config.RedisConfig$$EnhancerBySpringCGLIB$$b83c8dbb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:25:15.342  INFO 9932 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$64352562] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:25:15.426  INFO 9932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-10-28 16:25:15.427  INFO 9932 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:25:15.427  INFO 9932 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-28 16:25:15.427  INFO 9932 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-10-28 16:25:15.519  INFO 9932 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-10-28 16:25:15.522  INFO 9932 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-28 16:25:15.522  INFO 9932 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 444 ms
+2020-10-28 16:25:15.680  INFO 9932 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-28 16:25:15.765  INFO 9932 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-28 16:25:15.775  INFO 9932 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:25:15.779  INFO 9932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2020-10-28 16:25:15.780  INFO 9932 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Started MiddlePlatformServicesApplication in 0.73 seconds (JVM running for 340.255)
+2020-10-28 16:25:15.782  INFO 9932 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-28 16:25:25.768  INFO 11348 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on mingshengwang-02 with PID 11348 (D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by mingshengwang in D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-10-28 16:25:25.771  INFO 11348 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-10-28 16:25:25.850  INFO 11348 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-10-28 16:25:25.851  INFO 11348 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-10-28 16:25:26.588  INFO 11348 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-28 16:25:26.590  INFO 11348 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-10-28 16:25:26.616  INFO 11348 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11ms. Found 0 repository interfaces.
+2020-10-28 16:25:27.036  INFO 11348 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.config.RedisConfig$$EnhancerBySpringCGLIB$$7d3f032] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:25:27.043  INFO 11348 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b3cc87d9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:25:27.699  INFO 11348 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-10-28 16:25:27.716  INFO 11348 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:25:27.725  INFO 11348 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-28 16:25:27.725  INFO 11348 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-10-28 16:25:27.743  INFO 11348 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\softwareEnviroment\jdk\jdk1.8.0_121\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/bin/server;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/bin;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/lib/amd64;D:\worksoftware\python379\Scripts\;D:\worksoftware\python379\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\softwareEnviroment\jdk\jdk1.8.0_121\bin;C:\softwareEnviroment\apache-maven-3.6.3\bin;D:\worksoftware\svn\bin;D:\worksoftware\Git\cmd;D:\worksoftware\redis-2.6;D:\worksoftware\nodejs;D:\worksoftware\python379\Scripts;C:\Users\mingshengwang\AppData\Local\Microsoft\WindowsApps;D:\worksoftware\eclipse;;.]
+2020-10-28 16:25:28.063  INFO 11348 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-10-28 16:25:28.072  INFO 11348 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-28 16:25:28.072  INFO 11348 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2221 ms
+2020-10-28 16:25:29.543  INFO 11348 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-28 16:25:29.989  INFO 11348 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-28 16:25:30.025  INFO 11348 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:25:30.063  INFO 11348 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2020-10-28 16:25:30.065  INFO 11348 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Started MiddlePlatformServicesApplication in 4.737 seconds (JVM running for 5.202)
+2020-10-28 16:25:32.920  INFO 11348 --- [http-nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-28 16:25:32.920  INFO 11348 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-28 16:25:32.931  INFO 11348 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2020-10-28 16:25:33.037  INFO 11348 --- [http-nio-8090-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-28 16:25:33.711  INFO 11348 --- [http-nio-8090-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-28 16:25:33.717 DEBUG 11348 --- [http-nio-8090-exec-1] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==>  Preparing: select id, openid, token, status from weixin WHERE token = ? 
+2020-10-28 16:25:33.739 DEBUG 11348 --- [http-nio-8090-exec-1] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==> Parameters: 1212(String)
+2020-10-28 16:25:33.819 DEBUG 11348 --- [http-nio-8090-exec-1] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : <==      Total: 0
+2020-10-28 16:25:34.115  INFO 11348 --- [http-nio-8090-exec-1] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2020-10-28 16:25:34.116  INFO 11348 --- [http-nio-8090-exec-1] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library
+2020-10-28 16:25:36.567 ERROR 11348 --- [http-nio-8090-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to localhost:6379] with root cause
+
+java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:327)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:636)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:583)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:500)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:462)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:897)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:745)
+
+2020-10-28 16:27:02.328  INFO 11348 --- [Thread-6] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-28 16:27:03.444  INFO 11348 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-10-28 16:27:03.453  INFO 11348 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-10-28 16:27:03.811  INFO 11348 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Starting MiddlePlatformServicesApplication on mingshengwang-02 with PID 11348 (D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices\target\classes started by mingshengwang in D:\workspace\roncoo-pay\roncoo-pay-jackdking-middleplatformservices)
+2020-10-28 16:27:03.811  INFO 11348 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : The following profiles are active: dev
+2020-10-28 16:27:04.070  INFO 11348 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-28 16:27:04.070  INFO 11348 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-10-28 16:27:04.078  INFO 11348 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8ms. Found 0 repository interfaces.
+2020-10-28 16:27:04.146  INFO 11348 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.config.RedisConfig$$EnhancerBySpringCGLIB$$7d3f032] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:27:04.148  INFO 11348 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b3cc87d9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-28 16:27:04.233  INFO 11348 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-10-28 16:27:04.234  INFO 11348 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:27:04.235  INFO 11348 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-28 16:27:04.235  INFO 11348 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2020-10-28 16:27:04.345  INFO 11348 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-10-28 16:27:04.349  INFO 11348 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-28 16:27:04.349  INFO 11348 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 536 ms
+2020-10-28 16:27:04.530  INFO 11348 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-28 16:27:04.634  INFO 11348 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-28 16:27:04.648  INFO 11348 --- [restartedMain] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8090"]
+2020-10-28 16:27:04.653  INFO 11348 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2020-10-28 16:27:04.654  INFO 11348 --- [restartedMain] .p.j.m.MiddlePlatformServicesApplication : Started MiddlePlatformServicesApplication in 0.884 seconds (JVM running for 99.791)
+2020-10-28 16:27:04.660  INFO 11348 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   CacheAutoConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.cache.CacheManager' (OnClassCondition)
+      - @ConditionalOnBean (types: org.springframework.cache.interceptor.CacheAspectSupport; SearchStrategy: all) found bean 'cacheInterceptor'; @ConditionalOnMissingBean (names: cacheResolver; types: org.springframework.cache.CacheManager; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   CacheAutoConfiguration#cacheManagerCustomizers matched:
+      - @ConditionalOnMissingBean (types: org.springframework.boot.autoconfigure.cache.CacheManagerCustomizers; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+   GenericCacheConfiguration:
+      Did not match:
+         - @ConditionalOnBean (types: org.springframework.cache.Cache; SearchStrategy: all) did not find any beans of type org.springframework.cache.Cache (OnBeanCondition)
+      Matched:
+         - Cache org.springframework.boot.autoconfigure.cache.GenericCacheConfiguration automatic cache type (CacheCondition)
+
+   LettuceConnectionConfiguration#redisConnectionFactory:
+      Did not match:
+         - @ConditionalOnMissingBean (types: org.springframework.data.redis.connection.RedisConnectionFactory; SearchStrategy: all) found beans of type 'org.springframework.data.redis.connection.RedisConnectionFactory' factoryA (OnBeanCondition)
+
+   NoOpCacheConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (types: org.springframework.cache.CacheManager; SearchStrategy: all) found beans of type 'org.springframework.cache.CacheManager' cacheManager (OnBeanCondition)
+      Matched:
+         - Cache org.springframework.boot.autoconfigure.cache.NoOpCacheConfiguration automatic cache type (CacheCondition)
+
+   SimpleCacheConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (types: org.springframework.cache.CacheManager; SearchStrategy: all) found beans of type 'org.springframework.cache.CacheManager' cacheManager (OnBeanCondition)
+      Matched:
+         - Cache org.springframework.boot.autoconfigure.cache.SimpleCacheConfiguration automatic cache type (CacheCondition)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2020-10-28 16:27:08.105  INFO 11348 --- [http-nio-8090-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-28 16:27:08.106  INFO 11348 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-28 16:27:08.109  INFO 11348 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2020-10-28 16:27:08.111  INFO 11348 --- [http-nio-8090-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2020-10-28 16:27:08.646  INFO 11348 --- [http-nio-8090-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2020-10-28 16:27:08.647 DEBUG 11348 --- [http-nio-8090-exec-2] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==>  Preparing: select id, openid, token, status from weixin WHERE token = ? 
+2020-10-28 16:27:08.648 DEBUG 11348 --- [http-nio-8090-exec-2] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : ==> Parameters: 1212(String)
+2020-10-28 16:27:08.692 DEBUG 11348 --- [http-nio-8090-exec-2] r.o.r.p.j.m.m.w.d.W.selectWeixinList     : <==      Total: 0
+2020-10-28 16:27:08.877  INFO 11348 --- [http-nio-8090-exec-2] o.r.p.j.m.m.w.c.CheckInfoController      : 查询网站参数locked的返回结果：true

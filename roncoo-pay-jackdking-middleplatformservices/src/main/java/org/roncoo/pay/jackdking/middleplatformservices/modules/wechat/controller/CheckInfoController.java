@@ -20,6 +20,8 @@ import org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.service.IW
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,7 +39,10 @@ import com.roncoo.pay.common.core.utils.StringUtil;
 public class CheckInfoController {
 	
 	private static final Logger log = LoggerFactory.getLogger(CheckInfoController.class);
-
+	
+	@Autowired
+	@Qualifier("rediTemplateA")
+	private RedisTemplate redistemplate;
 	
 	@Autowired
 	private IWeixinService  iWeixinService;
@@ -93,6 +98,44 @@ public class CheckInfoController {
 			returnMsg.put("locked", false);
 		
 		return returnMsg.toJSONString();
+	}
+	
+	
+	//验证是否获得 文章查看权限
+	@ResponseBody
+	@RequestMapping(value = "/checkTPIsLocked", method = RequestMethod.POST)//openIdDomain
+	public String checkThirdPartIsLocked(@RequestParam String token , @RequestParam Long articleId , HttpServletResponse response) {
+		
+		// 允许跨域访问的域名：若有端口需写全（协议+域名+端口），若没有端口末尾不用加'/'
+		response.setHeader("Access-Control-Allow-Origin", "*"); 
+
+		JSONObject returnMsg = new JSONObject();
+		
+		Weixin weixin = new Weixin();
+		weixin.setToken(token);
+		List<Weixin>  result  =  iWeixinService.selectWeixinList(weixin);
+		
+		returnMsg.put("locked", true);//默认是锁住的
+		
+		//查看用户是否已经解锁文章
+		if(!ObjectUtils.isEmpty(result)&&result.get(0).getStatus()!=null&&result.get(0).getStatus()==0)
+		{
+			returnMsg.put("locked", false);
+			return  returnMsg.toJSONString();//用户关注了且发送了token，则解锁。
+		}else{
+			//用户没关注 ，则查看该文章是否上锁。
+			
+			Object res = redistemplate.opsForValue().get("article_lock_"+articleId.toString());
+//			String resp = HttpHelper.post(params, url);
+			Boolean resp = res==null? true:(boolean) res;
+			log.info("查询网站参数locked的返回结果：{}",resp);
+			
+			returnMsg.put("locked", resp);
+			
+			return returnMsg.toJSONString();
+		}
+		
+
 	}
 
 }
