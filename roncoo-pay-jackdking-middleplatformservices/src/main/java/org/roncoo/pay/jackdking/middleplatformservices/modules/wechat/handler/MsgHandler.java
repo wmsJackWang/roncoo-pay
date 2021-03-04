@@ -143,9 +143,12 @@ public class MsgHandler extends AbstractHandler {
         
         //TODO 组装回复消息  默认方式
 //        String content = "收到信息内容：" + JsonUtils.toJson(wxMessage);
+
+
+        
         String content = "你好，欢迎关注FrontierTechnology！   \n\n公众号专栏列表 : \n<a href='https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzI5NDcxNDY2Ng==&action=getalbum&album_id=1363971746453585923&scene=173#wechat_redirect&scene=0&subscene=92&sessionid=1599487747&enterid=1599487754'>Java架构师方案宝典</a>\n<a href='https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzI5NDcxNDY2Ng==&action=getalbum&album_id=1370184404953530368&scene=173#wechat_redirect&scene=0&subscene=92&sessionid=1599488643&enterid=1599488854'>你或许感兴趣的科技美文</a>"
-        		+ "\n\n头条搜索\"前沿科技bot\",这里有最新的科技资讯报道,期待您的关注"
-        		+ "\n\n本公众号技术博客网站：http://bittechblog.com/blog/";
+        		+ "\n\n头条搜索\"<a href='https://profile.zjurl.cn/rogue/ugc/profile/?version_code=7.5.7&version_name=70507&user_id=2436116630212455&media_id=1662199072727051&request_source=1&active_tab=dongtai&device_id=65&app_name=news_article'>前沿科技bot</a>\",这里有最新的科技资讯报道,期待您的关注"
+        		+ "\n\n<a href='http://bittechblog.com/blog/'>本公众号技术博客网站</a>：http://bittechblog.com/blog/";
 
         return new org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.build.TextBuilder().build(content, wxMessage, weixinService);
 

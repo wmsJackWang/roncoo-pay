@@ -5,6 +5,11 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import com.sohu.common.validator.group.AddGroup;
+import com.sohu.common.validator.group.UpdateGroup;
 import com.sohu.entity.base.ParameterEntity;
 
 
@@ -21,7 +26,11 @@ public class RedpacketInfoEntity extends ParameterEntity implements Serializable
 	
 	//红包编号
 	private Long id;
+	
+	
 	//发红包账户名
+	@NotNull(message = "用户名不能为空",groups = {AddGroup.class, UpdateGroup.class})
+	@Size(min=1,max=64, message = "用户名长度只能为1-64位",groups = {AddGroup.class, UpdateGroup.class})
 	private String userName;
 	//红包剩余金额
 	private BigDecimal remainderAmt;

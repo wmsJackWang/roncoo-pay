@@ -1,0 +1,5 @@
+elastic:
+  job:
+    zk:
+      serverLists: localhost:2181
+      namespace: test_1

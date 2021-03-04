@@ -4,7 +4,7 @@ server:
         uri-encoding: UTF-8
         max-threads: 200
         min-spare-threads: 75
-    port: 80
+    port: 8080
     connection-timeout: 15000 
     context-path: /redpack 
 # mysql

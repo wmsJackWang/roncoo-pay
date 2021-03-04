@@ -152,8 +152,8 @@ public abstract class AbsAsynchronousQueue<T,R> implements Callable<String>{
 				}
 				else {
 					
-					System.out.println("没有领取红包的请求 ");
-					log.info("没有领取红包的请求  .......");
+//					System.out.println("没有领取红包的请求 ");
+//					log.info("没有领取红包的请求  .......");
 //					System.out.println(workQueueName+"队列没有红包请求");
 				}
 			}catch (Exception e) {

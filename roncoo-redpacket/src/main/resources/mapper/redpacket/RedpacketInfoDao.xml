@@ -9,7 +9,6 @@
         <result property="userName" column="USER_NAME"/>
         <result property="remainderAmt" column="REMAINDER_AMT"/>
         <result property="memo1" column="MEMO1"/>
-        <result property="psid" column="PSID"/>
         <result property="psTransId" column="PS_TRANS_ID"/>
         <result property="accountId" column="ACCOUNT_ID"/>
         <result property="expireTime" column="EXPIRE_TIME"/>
@@ -35,13 +34,12 @@
 	<select id="queryObject" resultType="com.sohu.modules.redpacket.entity.RedpacketInfoEntity">
 		select <include refid="Base_Column_List" /> from SW_REDPACKET_INFO where ID = #{value}
 	</select>
-
+	<sql id="table_name">  roncoo_redpacket_info </sql>
 	<sql id="Base_Column_List">
 		ID,         
 		USER_NAME,         
 		REMAINDER_AMT,         
 		MEMO1,         
-		PSID,         
 		PS_TRANS_ID,         
 		ACCOUNT_ID,         
 		EXPIRE_TIME,         
@@ -77,9 +75,6 @@
 			</if>
 			<if test="memo1 != null">
 				AND MEMO1 = #{memo1}
-			</if>
-			<if test="psid != null">
-				AND PSID = #{psid}
 			</if>
 			<if test="psTransId != null">
 				AND PS_TRANS_ID = #{psTransId}
@@ -170,20 +165,21 @@
 	</select>
 	
  	<select id="queryTotal" resultType="int">
-		select count(1) from SW_REDPACKET_INFO <include refid="Generic_Where_Clause" />
+		select count(1) from <include refid="table_name" /> <include refid="Generic_Where_Clause" />
 	</select>
 	 
 	<insert id="insert" parameterType="com.sohu.modules.redpacket.entity.RedpacketInfoEntity">
 		<!--<selectKey resultType="Long" order="BEFORE" keyProperty="id">  
     	  SELECT SEQ_SW_REDPACKET_INFO.NEXTVAL id  from DUAL
    		</selectKey>--> 
-		insert into SW_REDPACKET_INFO
+		insert into 
+		
+		<include refid="table_name" />
 		(
 			ID, 			
 			USER_NAME, 			
 			REMAINDER_AMT, 			
 			MEMO1, 			
-			PSID, 			
 			PS_TRANS_ID, 			
 			ACCOUNT_ID, 			
 			EXPIRE_TIME, 			
@@ -211,7 +207,6 @@
 			#{userName,jdbcType=VARCHAR}, 			 
 			#{remainderAmt,jdbcType=FLOAT}, 			 
 			#{memo1,jdbcType=VARCHAR}, 			 
-			#{psid,jdbcType=INTEGER}, 			 
 			#{psTransId,jdbcType=VARCHAR}, 			 
 			#{accountId,jdbcType=BIGINT}, 			 
 			#{expireTime,jdbcType=TIMESTAMP}, 			 
@@ -243,8 +238,6 @@
 			<if test="remainderAmt != null">REMAINDER_AMT = #{remainderAmt}, </if>
 			
 			<if test="memo1 != null">MEMO1 = #{memo1}, </if>
-			
-			<if test="psid != null">PSID = #{psid}, </if>
 			
 			<if test="psTransId != null">PS_TRANS_ID = #{psTransId}, </if>
 			

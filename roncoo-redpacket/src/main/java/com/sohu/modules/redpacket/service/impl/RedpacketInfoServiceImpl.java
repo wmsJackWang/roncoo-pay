@@ -65,10 +65,10 @@ public class RedpacketInfoServiceImpl implements IRedpacketInfoService {
 	public R createRedPacket(RedpacketInfoEntity redpacketInfo,Map<String, String[]> parameterMap) {
 		// TODO Auto-generated method stub
 		Assert.isTrue(redpacketInfo.getAmt().compareTo(BigDecimal.ZERO)<=0, "红包金额必须大于零元");
-		String seed = "";//从缓存中拿到seed值，加钱秘钥值
-		String signOrder = CheckSignUtil.signOrderArr(parameterMap,seed);
-		Assert.isFalse(signOrder.equals(redpacketInfo.getSign()),CheckParameterExceptionEnum.CHECK_PARAMETER_EXCEPTION.getCode(), "签名错误");
-		
+//		String seed = "";//从缓存中拿到seed值，加钱秘钥值
+//		String signOrder = CheckSignUtil.signOrderArr(parameterMap,seed);
+//		Assert.isFalse(signOrder.equals(redpacketInfo.getSign()),CheckParameterExceptionEnum.CHECK_PARAMETER_EXCEPTION.getCode(), "签名错误");
+//		
 		
 		
 		//插入发红包订单数据

@@ -3,9 +3,9 @@ spring:
         datasource: 
             driverClassName: com.mysql.cj.jdbc.Driver
             type: com.alibaba.druid.pool.DruidDataSource
-            url: jdbc:mysql://10.18.93.13:3306/redpacket1?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+            url: jdbc:mysql://bittechblog.com:3308/redpacket1?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
             username: root
-            password: jackdking@1234
+            password: wanyang@wms
             #连接池的配置信息
             initialSize: 3
             minIdle: 30
