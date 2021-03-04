@@ -46,21 +46,22 @@
 		<module>roncoo-pay-web-sample-shop</module>
 		<!--中台封装业务能力--> 
     	<module>roncoo-pay-jackdking-middleplatformservices</module>
+    <module>roncoo-redpacket</module>
   </modules>
 
 	<!-- 配置maven地址 -->
-	<distributionManagement>
-		<repository>
-			<id>nexus-releases</id>
-			<name>Nexus Release Repository</name>
-			<url>http://192.168.1.221:8081/nexus/content/repositories/releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>nexus-snapshots</id>
-			<name>Nexus Snapshot Repository</name>
-			<url>http://192.168.1.221:8081/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
+<!-- 	<distributionManagement> -->
+<!-- 		<repository> -->
+<!-- 			<id>nexus-releases</id> -->
+<!-- 			<name>Nexus Release Repository</name> -->
+<!-- 			<url>http://192.168.1.221:8081/nexus/content/repositories/releases/</url> -->
+<!-- 		</repository> -->
+<!-- 		<snapshotRepository> -->
+<!-- 			<id>nexus-snapshots</id> -->
+<!-- 			<name>Nexus Snapshot Repository</name> -->
+<!-- 			<url>http://192.168.1.221:8081/nexus/content/repositories/snapshots/</url> -->
+<!-- 		</snapshotRepository> -->
+<!-- 	</distributionManagement> -->
 
 	<!--版本维护-->
 	<properties>

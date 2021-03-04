@@ -1,21 +1,16 @@
 package org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
-
-import org.roncoo.pay.jackdking.middleplatformservices.utils.SystemConfigConst;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.google.gson.Gson;
+import me.chanjar.weixin.common.error.WxErrorException;
+import me.chanjar.weixin.mp.api.WxMpService;
+import me.chanjar.weixin.mp.bean.result.WxMpQrCodeTicket;
+import me.chanjar.weixin.mp.util.WxMpConfigStorageHolder;
 
 
 /*
@@ -25,6 +20,75 @@ import com.google.gson.Gson;
 @Controller
 @RequestMapping("/wx")
 public class WxOfficialAccountLoginController {
+	
+	@Autowired
+	private WxMpService wxMpService;
+	
+
+	@ResponseBody
+	@RequestMapping(value = "/testTicket")//openIdDomain
+	public String test() {
+		try {
+			WxMpConfigStorageHolder.set("wx21eb36134e421873");//第一个公众号
+			WxMpQrCodeTicket ticket = wxMpService.getQrcodeService().qrCodeCreateLastTicket(1);
+		    Assert.assertNotNull(ticket.getUrl());
+		    Assert.assertNotNull(ticket.getTicket());
+		    Assert.assertTrue(ticket.getExpireSeconds() == -1);
+		    System.out.println(ticket);
+		} catch (WxErrorException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "";
+	}
+	
+	
+	/*
+	 * 作为开放平台，需要有安全合理的商户管理平台。appid只是暂时放在这.
+	 */
+	@RequestMapping("/getLastQrcodeUrl")
+	public String getLastQrcodeUrl(@RequestParam String appid) {
+		String url = null;
+		try {
+			WxMpConfigStorageHolder.set("wx21eb36134e421873");//第一个公众号
+			WxMpQrCodeTicket ticket = wxMpService.getQrcodeService().qrCodeCreateLastTicket(1);
+		    Assert.assertNotNull(ticket.getUrl());
+		    Assert.assertNotNull(ticket.getTicket());
+		    Assert.assertTrue(ticket.getExpireSeconds() == -1);
+		    System.out.println(ticket);
+		    url = wxMpService.getQrcodeService().qrCodePictureUrl(ticket.getTicket());
+		    Assert.assertNotNull(url);
+		} catch (WxErrorException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return url;
+		
+	}
+	
+	@RequestMapping("/getTempQrcodeUrl")
+	public String getTempQrcodeUrl(@RequestParam String appid) {
+		String url = null;
+		try {
+			WxMpConfigStorageHolder.set("wx21eb36134e421873");//第一个公众号
+			WxMpQrCodeTicket ticket = wxMpService.getQrcodeService().qrCodeCreateTmpTicket(1, 100000);
+		    Assert.assertNotNull(ticket.getUrl());
+		    Assert.assertNotNull(ticket.getTicket());
+		    Assert.assertTrue(ticket.getExpireSeconds() == -1);
+		    System.out.println(ticket);
+		    url = wxMpService.getQrcodeService().qrCodePictureUrl(ticket.getTicket());
+		    Assert.assertNotNull(url);
+		} catch (WxErrorException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return url;
+		
+	}
+	
+	
+	
+	
 //	
 //	private static final Logger LOGGER = LoggerFactory.getLogger(WxOfficialAccountLoginController.class);
 //	
@@ -41,7 +105,7 @@ public class WxOfficialAccountLoginController {
 //        LOGGER.info("ticket :"+ticket);
 //        LOGGER.info("get wechat qrcode  ==> end");
 //        return ticket;
-//    }-*
+//    }
 //    /** 
 //     * 创建临时带参数二维码 
 //     * @param accessToken 

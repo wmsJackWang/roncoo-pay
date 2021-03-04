@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sohu.modules.redpacket.dao.RedpacketInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.sohu.modules.redpacket.entity.RedpacketInfoEntity" id="redpacketInfoMap">
+        <result property="id" column="ID"/>
+        <result property="userName" column="USER_NAME"/>
+        <result property="remainderAmt" column="REMAINDER_AMT"/>
+        <result property="memo1" column="MEMO1"/>
+        <result property="psid" column="PSID"/>
+        <result property="psTransId" column="PS_TRANS_ID"/>
+        <result property="accountId" column="ACCOUNT_ID"/>
+        <result property="expireTime" column="EXPIRE_TIME"/>
+        <result property="refundAmt" column="REFUND_AMT"/>
+        <result property="amt" column="AMT"/>
+        <result property="createdOn" column="CREATED_ON"/>
+        <result property="productId" column="PRODUCT_ID"/>
+        <result property="updatedOn" column="UPDATED_ON"/>
+        <result property="partitionMonth" column="PARTITION_MONTH"/>
+        <result property="memo4" column="MEMO4"/>
+        <result property="versionOptimizedLock" column="VERSION_OPTIMIZED_LOCK"/>
+        <result property="transId" column="TRANS_ID"/>
+        <result property="productName" column="PRODUCT_NAME"/>
+        <result property="total" column="TOTAL"/>
+        <result property="rType" column="R_TYPE"/>
+        <result property="memo3" column="MEMO3"/>
+        <result property="remainderTotal" column="REMAINDER_TOTAL"/>
+        <result property="merchantId" column="MERCHANT_ID"/>
+        <result property="memo2" column="MEMO2"/>
+        <result property="status" column="STATUS"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.sohu.modules.redpacket.entity.RedpacketInfoEntity">
+		select <include refid="Base_Column_List" /> from SW_REDPACKET_INFO where ID = #{value}
+	</select>
+
+	<sql id="Base_Column_List">
+		ID,         
+		USER_NAME,         
+		REMAINDER_AMT,         
+		MEMO1,         
+		PSID,         
+		PS_TRANS_ID,         
+		ACCOUNT_ID,         
+		EXPIRE_TIME,         
+		REFUND_AMT,         
+		AMT,         
+		CREATED_ON,         
+		PRODUCT_ID,         
+		UPDATED_ON,         
+		PARTITION_MONTH,         
+		MEMO4,         
+		VERSION_OPTIMIZED_LOCK,         
+		TRANS_ID,         
+		PRODUCT_NAME,         
+		TOTAL,         
+		R_TYPE,         
+		MEMO3,         
+		REMAINDER_TOTAL,         
+		MERCHANT_ID,         
+		MEMO2,         
+		STATUS        
+	</sql>
+	
+	<sql id="Generic_Where_Clause">
+		<where>
+			<if test="id != null">
+				AND ID = #{id}
+			</if>
+			<if test="userName != null">
+				AND USER_NAME = #{userName}
+			</if>
+			<if test="remainderAmt != null">
+				AND REMAINDER_AMT = #{remainderAmt}
+			</if>
+			<if test="memo1 != null">
+				AND MEMO1 = #{memo1}
+			</if>
+			<if test="psid != null">
+				AND PSID = #{psid}
+			</if>
+			<if test="psTransId != null">
+				AND PS_TRANS_ID = #{psTransId}
+			</if>
+			<if test="accountId != null">
+				AND ACCOUNT_ID = #{accountId}
+			</if>
+			<if test="expireTime != null">
+				AND EXPIRE_TIME = #{expireTime}
+			</if>
+			<if test="refundAmt != null">
+				AND REFUND_AMT = #{refundAmt}
+			</if>
+			<if test="amt != null">
+				AND AMT = #{amt}
+			</if>
+			<if test="createdOn != null">
+				AND CREATED_ON = #{createdOn}
+			</if>
+			<if test="productId != null">
+				AND PRODUCT_ID = #{productId}
+			</if>
+			<if test="updatedOn != null">
+				AND UPDATED_ON = #{updatedOn}
+			</if>
+			<if test="partitionMonth != null">
+				AND PARTITION_MONTH = #{partitionMonth}
+			</if>
+			<if test="memo4 != null">
+				AND MEMO4 = #{memo4}
+			</if>
+			<if test="versionOptimizedLock != null">
+				AND VERSION_OPTIMIZED_LOCK = #{versionOptimizedLock}
+			</if>
+			<if test="transId != null">
+				AND TRANS_ID = #{transId}
+			</if>
+			<if test="productName != null">
+				AND PRODUCT_NAME = #{productName}
+			</if>
+			<if test="total != null">
+				AND TOTAL = #{total}
+			</if>
+			<if test="rType != null">
+				AND R_TYPE = #{rType}
+			</if>
+			<if test="memo3 != null">
+				AND MEMO3 = #{memo3}
+			</if>
+			<if test="remainderTotal != null">
+				AND REMAINDER_TOTAL = #{remainderTotal}
+			</if>
+			<if test="merchantId != null">
+				AND MERCHANT_ID = #{merchantId}
+			</if>
+			<if test="memo2 != null">
+				AND MEMO2 = #{memo2}
+			</if>
+			<if test="status != null">
+				AND STATUS = #{status}
+			</if>
+		</where>
+	</sql>
+	
+	<select id="queryList" resultType="com.sohu.modules.redpacket.entity.RedpacketInfoEntity">
+		select  ua.* 
+		    from(
+		       (select rownum rn,uo.* from
+		              (
+					SELECT
+		                <include refid="Base_Column_List" />                        
+		            FROM
+		                SW_REDPACKET_INFO
+		            <include refid="Generic_Where_Clause" />
+					<choose>
+						<when test="sidx != null and sidx.trim() != ''">
+							order by ${sidx} ${order}
+						</when>
+					</choose>
+				) uo
+		<if test="offset != null and end != null ">
+            where rownum&lt;=${end} )) ua
+			where ua.rn>=${offset}
+		</if>
+		<if test="offset == null || end == null">
+			)) ua
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(1) from SW_REDPACKET_INFO <include refid="Generic_Where_Clause" />
+	</select>
+	 
+	<insert id="insert" parameterType="com.sohu.modules.redpacket.entity.RedpacketInfoEntity">
+		<!--<selectKey resultType="Long" order="BEFORE" keyProperty="id">  
+    	  SELECT SEQ_SW_REDPACKET_INFO.NEXTVAL id  from DUAL
+   		</selectKey>--> 
+		insert into SW_REDPACKET_INFO
+		(
+			ID, 			
+			USER_NAME, 			
+			REMAINDER_AMT, 			
+			MEMO1, 			
+			PSID, 			
+			PS_TRANS_ID, 			
+			ACCOUNT_ID, 			
+			EXPIRE_TIME, 			
+			REFUND_AMT, 			
+			AMT, 			
+			CREATED_ON, 			
+			PRODUCT_ID, 			
+			UPDATED_ON, 			
+			PARTITION_MONTH, 			
+			MEMO4, 			
+			VERSION_OPTIMIZED_LOCK, 			
+			TRANS_ID, 			
+			PRODUCT_NAME, 			
+			TOTAL, 			
+			R_TYPE, 			
+			MEMO3, 			
+			REMAINDER_TOTAL, 			
+			MERCHANT_ID, 			
+			MEMO2, 			
+			STATUS			
+		)
+		values
+		(
+			#{id,jdbcType=BIGINT}, 			 
+			#{userName,jdbcType=VARCHAR}, 			 
+			#{remainderAmt,jdbcType=FLOAT}, 			 
+			#{memo1,jdbcType=VARCHAR}, 			 
+			#{psid,jdbcType=INTEGER}, 			 
+			#{psTransId,jdbcType=VARCHAR}, 			 
+			#{accountId,jdbcType=BIGINT}, 			 
+			#{expireTime,jdbcType=TIMESTAMP}, 			 
+			#{refundAmt,jdbcType=FLOAT}, 			 
+			#{amt,jdbcType=FLOAT}, 			 
+			#{createdOn,jdbcType=TIMESTAMP}, 			 
+			#{productId,jdbcType=INTEGER}, 			 
+			#{updatedOn,jdbcType=TIMESTAMP}, 			 
+			#{partitionMonth,jdbcType=INTEGER}, 			 
+			#{memo4,jdbcType=VARCHAR}, 			 
+			0, 			
+			#{transId,jdbcType=VARCHAR}, 			 
+			#{productName,jdbcType=VARCHAR}, 			 
+			#{total,jdbcType=BIGINT}, 			 
+			#{rType,jdbcType=INTEGER}, 			 
+			#{memo3,jdbcType=VARCHAR}, 			 
+			#{remainderTotal,jdbcType=BIGINT}, 			 
+			#{merchantId,jdbcType=VARCHAR}, 			 
+			#{memo2,jdbcType=VARCHAR}, 			 
+			#{status,jdbcType=INTEGER}			 
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.sohu.modules.redpacket.entity.RedpacketInfoEntity">
+		update SW_REDPACKET_INFO 
+		<set>
+			<if test="userName != null">USER_NAME = #{userName}, </if>
+			
+			<if test="remainderAmt != null">REMAINDER_AMT = #{remainderAmt}, </if>
+			
+			<if test="memo1 != null">MEMO1 = #{memo1}, </if>
+			
+			<if test="psid != null">PSID = #{psid}, </if>
+			
+			<if test="psTransId != null">PS_TRANS_ID = #{psTransId}, </if>
+			
+			<if test="accountId != null">ACCOUNT_ID = #{accountId}, </if>
+			
+			<if test="expireTime != null">EXPIRE_TIME = #{expireTime}, </if>
+			
+			<if test="refundAmt != null">REFUND_AMT = #{refundAmt}, </if>
+			
+			<if test="amt != null">AMT = #{amt}, </if>
+			
+			<if test="createdOn != null">CREATED_ON = #{createdOn}, </if>
+			
+			<if test="productId != null">PRODUCT_ID = #{productId}, </if>
+			
+			<if test="updatedOn != null">UPDATED_ON = #{updatedOn}, </if>
+			
+			<if test="partitionMonth != null">PARTITION_MONTH = #{partitionMonth}, </if>
+			
+			<if test="memo4 != null">MEMO4 = #{memo4}, </if>
+			
+			VERSION_OPTIMIZED_LOCK = VERSION_OPTIMIZED_LOCK + 1 , 			
+			<if test="transId != null">TRANS_ID = #{transId}, </if>
+			
+			<if test="productName != null">PRODUCT_NAME = #{productName}, </if>
+			
+			<if test="total != null">TOTAL = #{total}, </if>
+			
+			<if test="rType != null">R_TYPE = #{rType}, </if>
+			
+			<if test="memo3 != null">MEMO3 = #{memo3}, </if>
+			
+			<if test="remainderTotal != null">REMAINDER_TOTAL = #{remainderTotal}, </if>
+			
+			<if test="merchantId != null">MERCHANT_ID = #{merchantId}, </if>
+			
+			<if test="memo2 != null">MEMO2 = #{memo2}, </if>
+			
+			<if test="status != null">STATUS = #{status}</if>
+			
+		</set>
+		where
+		
+			VERSION_OPTIMIZED_LOCK = #{versionOptimizedLock} 
+			
+	</update>
+	
+	<delete id="delete">
+		delete from SW_REDPACKET_INFO where ID = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from SW_REDPACKET_INFO where ID in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

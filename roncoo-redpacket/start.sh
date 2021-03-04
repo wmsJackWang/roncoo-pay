@@ -1,0 +1,2 @@
+#!/bin/sh
+java -Xmx2g -Xms2g  -Djava.security.egd=file:/dev/./urandom -Dlog.path.prefix=/data/wallet-redservice/8281/ -jar  wallet-redservice-1.0.0.jar  --spring.profiles.active=test --renewal.status=start  --server.port=8281 & echo  \ $! >stop.pid

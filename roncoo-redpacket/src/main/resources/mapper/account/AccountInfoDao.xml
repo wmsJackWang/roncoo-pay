@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sohu.modules.account.dao.AccountInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.sohu.modules.account.entity.AccountInfoEntity" id="accountInfoMap">
+        <result property="id" column="ID"/>
+        <result property="accountAmt" column="ACCOUNT_AMT"/>
+        <result property="salt" column="SALT"/>
+        <result property="verityLevel" column="VERITY_LEVEL"/>
+        <result property="realName" column="REAL_NAME"/>
+        <result property="accountRole" column="ACCOUNT_ROLE"/>
+        <result property="credentialsNumber" column="CREDENTIALS_NUMBER"/>
+        <result property="updatedOn" column="UPDATED_ON"/>
+        <result property="userName" column="USER_NAME"/>
+        <result property="onwayAmt" column="ONWAY_AMT"/>
+        <result property="versionOptimizedLock" column="VERSION_OPTIMIZED_LOCK"/>
+        <result property="bindEmail" column="BIND_EMAIL"/>
+        <result property="accountStatus" column="ACCOUNT_STATUS"/>
+        <result property="bindMobile" column="BIND_MOBILE"/>
+        <result property="lastLoginTime" column="LAST_LOGIN_TIME"/>
+        <result property="accountType" column="ACCOUNT_TYPE"/>
+        <result property="totalSubsidyAmt" column="TOTAL_SUBSIDY_AMT"/>
+        <result property="freezeTime" column="FREEZE_TIME"/>
+        <result property="createdOn" column="CREATED_ON"/>
+        <result property="withdrawAmt" column="WITHDRAW_AMT"/>
+        <result property="merchantId" column="MERCHANT_ID"/>
+        <result property="password" column="PASSWORD"/>
+        <result property="lastIp" column="LAST_IP"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.sohu.modules.account.entity.AccountInfoEntity">
+		select <include refid="Base_Column_List" /> from SW_ACCOUNT_INFO where ID = #{value}
+	</select>
+
+	<sql id="Base_Column_List">
+		ID,         
+		ACCOUNT_AMT,         
+		SALT,         
+		VERITY_LEVEL,         
+		REAL_NAME,         
+		ACCOUNT_ROLE,         
+		CREDENTIALS_NUMBER,         
+		UPDATED_ON,         
+		USER_NAME,         
+		ONWAY_AMT,         
+		VERSION_OPTIMIZED_LOCK,         
+		BIND_EMAIL,         
+		ACCOUNT_STATUS,         
+		BIND_MOBILE,         
+		LAST_LOGIN_TIME,         
+		ACCOUNT_TYPE,         
+		TOTAL_SUBSIDY_AMT,         
+		FREEZE_TIME,         
+		CREATED_ON,         
+		WITHDRAW_AMT,         
+		MERCHANT_ID,         
+		PASSWORD,         
+		LAST_IP        
+	</sql>
+	
+	<sql id="Generic_Where_Clause">
+		<where>
+			<if test="id != null">
+				AND ID = #{id}
+			</if>
+			<if test="accountAmt != null">
+				AND ACCOUNT_AMT = #{accountAmt}
+			</if>
+			<if test="salt != null">
+				AND SALT = #{salt}
+			</if>
+			<if test="verityLevel != null">
+				AND VERITY_LEVEL = #{verityLevel}
+			</if>
+			<if test="realName != null">
+				AND REAL_NAME = #{realName}
+			</if>
+			<if test="accountRole != null">
+				AND ACCOUNT_ROLE = #{accountRole}
+			</if>
+			<if test="credentialsNumber != null">
+				AND CREDENTIALS_NUMBER = #{credentialsNumber}
+			</if>
+			<if test="updatedOn != null">
+				AND UPDATED_ON = #{updatedOn}
+			</if>
+			<if test="userName != null">
+				AND USER_NAME = #{userName}
+			</if>
+			<if test="onwayAmt != null">
+				AND ONWAY_AMT = #{onwayAmt}
+			</if>
+			<if test="versionOptimizedLock != null">
+				AND VERSION_OPTIMIZED_LOCK = #{versionOptimizedLock}
+			</if>
+			<if test="bindEmail != null">
+				AND BIND_EMAIL = #{bindEmail}
+			</if>
+			<if test="accountStatus != null">
+				AND ACCOUNT_STATUS = #{accountStatus}
+			</if>
+			<if test="bindMobile != null">
+				AND BIND_MOBILE = #{bindMobile}
+			</if>
+			<if test="lastLoginTime != null">
+				AND LAST_LOGIN_TIME = #{lastLoginTime}
+			</if>
+			<if test="accountType != null">
+				AND ACCOUNT_TYPE = #{accountType}
+			</if>
+			<if test="totalSubsidyAmt != null">
+				AND TOTAL_SUBSIDY_AMT = #{totalSubsidyAmt}
+			</if>
+			<if test="freezeTime != null">
+				AND FREEZE_TIME = #{freezeTime}
+			</if>
+			<if test="createdOn != null">
+				AND CREATED_ON = #{createdOn}
+			</if>
+			<if test="withdrawAmt != null">
+				AND WITHDRAW_AMT = #{withdrawAmt}
+			</if>
+			<if test="merchantId != null">
+				AND MERCHANT_ID = #{merchantId}
+			</if>
+			<if test="password != null">
+				AND PASSWORD = #{password}
+			</if>
+			<if test="lastIp != null">
+				AND LAST_IP = #{lastIp}
+			</if>
+		</where>
+	</sql>
+	
+	<select id="queryList" resultType="com.sohu.modules.account.entity.AccountInfoEntity">
+		select  ua.* 
+		    from(
+		       (select rownum rn,uo.* from
+		              (
+					SELECT
+		                <include refid="Base_Column_List" />                        
+		            FROM
+		                SW_ACCOUNT_INFO
+		            <include refid="Generic_Where_Clause" />
+					<choose>
+						<when test="sidx != null and sidx.trim() != ''">
+							order by ${sidx} ${order}
+						</when>
+					</choose>
+				) uo
+		<if test="offset != null and end != null ">
+            where rownum&lt;=${end} )) ua
+			where ua.rn>=${offset}
+		</if>
+		<if test="offset == null || end == null">
+			)) ua
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(1) from SW_ACCOUNT_INFO <include refid="Generic_Where_Clause" />
+	</select>
+	 
+	<insert id="insert" parameterType="com.sohu.modules.account.entity.AccountInfoEntity">
+		<!--<selectKey resultType="Long" order="BEFORE" keyProperty="id">  
+    	  SELECT SEQ_SW_ACCOUNT_INFO.NEXTVAL id  from DUAL
+   		</selectKey>--> 
+		insert into SW_ACCOUNT_INFO
+		(
+			ID, 			
+			ACCOUNT_AMT, 			
+			SALT, 			
+			VERITY_LEVEL, 			
+			REAL_NAME, 			
+			ACCOUNT_ROLE, 			
+			CREDENTIALS_NUMBER, 			
+			UPDATED_ON, 			
+			USER_NAME, 			
+			ONWAY_AMT, 			
+			VERSION_OPTIMIZED_LOCK, 			
+			BIND_EMAIL, 			
+			ACCOUNT_STATUS, 			
+			BIND_MOBILE, 			
+			LAST_LOGIN_TIME, 			
+			ACCOUNT_TYPE, 			
+			TOTAL_SUBSIDY_AMT, 			
+			FREEZE_TIME, 			
+			CREATED_ON, 			
+			WITHDRAW_AMT, 			
+			MERCHANT_ID, 			
+			PASSWORD, 			
+			LAST_IP			
+		)
+		values
+		(
+			#{id,jdbcType=BIGINT}, 			 
+			#{accountAmt,jdbcType=FLOAT}, 			 
+			#{salt,jdbcType=VARCHAR}, 			 
+			#{verityLevel,jdbcType=INTEGER}, 			 
+			#{realName,jdbcType=VARCHAR}, 			 
+			#{accountRole,jdbcType=INTEGER}, 			 
+			#{credentialsNumber,jdbcType=VARCHAR}, 			 
+			#{updatedOn,jdbcType=TIMESTAMP}, 			 
+			#{userName,jdbcType=VARCHAR}, 			 
+			#{onwayAmt,jdbcType=FLOAT}, 			 
+			0, 			
+			#{bindEmail,jdbcType=VARCHAR}, 			 
+			#{accountStatus,jdbcType=INTEGER}, 			 
+			#{bindMobile,jdbcType=VARCHAR}, 			 
+			#{lastLoginTime,jdbcType=TIMESTAMP}, 			 
+			#{accountType,jdbcType=INTEGER}, 			 
+			#{totalSubsidyAmt,jdbcType=FLOAT}, 			 
+			#{freezeTime,jdbcType=TIMESTAMP}, 			 
+			#{createdOn,jdbcType=TIMESTAMP}, 			 
+			#{withdrawAmt,jdbcType=FLOAT}, 			 
+			#{merchantId,jdbcType=INTEGER}, 			 
+			#{password,jdbcType=VARCHAR}, 			 
+			#{lastIp,jdbcType=VARCHAR}			 
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.sohu.modules.account.entity.AccountInfoEntity">
+		update SW_ACCOUNT_INFO 
+		<set>
+			<if test="accountAmt != null">ACCOUNT_AMT = #{accountAmt}, </if>
+			
+			<if test="salt != null">SALT = #{salt}, </if>
+			
+			<if test="verityLevel != null">VERITY_LEVEL = #{verityLevel}, </if>
+			
+			<if test="realName != null">REAL_NAME = #{realName}, </if>
+			
+			<if test="accountRole != null">ACCOUNT_ROLE = #{accountRole}, </if>
+			
+			<if test="credentialsNumber != null">CREDENTIALS_NUMBER = #{credentialsNumber}, </if>
+			
+			<if test="updatedOn != null">UPDATED_ON = #{updatedOn}, </if>
+			
+			<if test="userName != null">USER_NAME = #{userName}, </if>
+			
+			<if test="onwayAmt != null">ONWAY_AMT = #{onwayAmt}, </if>
+			
+			VERSION_OPTIMIZED_LOCK = VERSION_OPTIMIZED_LOCK + 1 , 			
+			<if test="bindEmail != null">BIND_EMAIL = #{bindEmail}, </if>
+			
+			<if test="accountStatus != null">ACCOUNT_STATUS = #{accountStatus}, </if>
+			
+			<if test="bindMobile != null">BIND_MOBILE = #{bindMobile}, </if>
+			
+			<if test="lastLoginTime != null">LAST_LOGIN_TIME = #{lastLoginTime}, </if>
+			
+			<if test="accountType != null">ACCOUNT_TYPE = #{accountType}, </if>
+			
+			<if test="totalSubsidyAmt != null">TOTAL_SUBSIDY_AMT = #{totalSubsidyAmt}, </if>
+			
+			<if test="freezeTime != null">FREEZE_TIME = #{freezeTime}, </if>
+			
+			<if test="createdOn != null">CREATED_ON = #{createdOn}, </if>
+			
+			<if test="withdrawAmt != null">WITHDRAW_AMT = #{withdrawAmt}, </if>
+			
+			<if test="merchantId != null">MERCHANT_ID = #{merchantId}, </if>
+			
+			<if test="password != null">PASSWORD = #{password}, </if>
+			
+			<if test="lastIp != null">LAST_IP = #{lastIp}</if>
+			
+		</set>
+		where
+		
+			VERSION_OPTIMIZED_LOCK = #{versionOptimizedLock} 
+			
+	</update>
+	
+	<delete id="delete">
+		delete from SW_ACCOUNT_INFO where ID = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from SW_ACCOUNT_INFO where ID in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

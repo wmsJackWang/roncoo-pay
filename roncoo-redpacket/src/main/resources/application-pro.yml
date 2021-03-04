@@ -1,0 +1,56 @@
+spring:
+    master:
+        datasource: 
+            driverClassName: oracle.jdbc.driver.OracleDriver
+            url: jdbc:oracle:thin:@wallet.db2.sohuno.com:1521:wallet
+            username: wallet
+            password: wr9txF7LGlguzar
+            #连接池的配置信息
+            initialSize: 3
+            minIdle: 30
+            maxActive: 30
+            maxWait: 60000
+            timeBetweenEvictionRunsMillis: 60000
+            minEvictableIdleTimeMillis: 300000
+            validationQuery: SELECT 1 FROM DUAL
+            testWhileIdle: true
+            testOnBorrow: false
+            testOnReturn: false
+            poolPreparedStatements: true
+            maxPoolPreparedStatementPerConnectionSize: 20
+    redis: 
+        database: 0 
+        host: mb.y.redis.sohucs.com 
+        password: b99f2da3baff6ac9413e4b893edbd84f 
+        port: 22901 
+        pool: 
+            max-idle: 100 
+            min-idle: 100 
+            max-active: 100     
+renewal: 
+        status: stop 
+        keys: redpacket_renewal_key
+        time: 30
+        step: 5 
+redpacket: 
+        batch: 20
+        waitTime: 5000
+        testTime: 5000
+        testWaitTime: 5000
+block: 
+     queue: 
+        corepoolsize: 20
+        maxpoolsize: 20
+        allow: true 
+        keepalivetime: 60
+        queuecapacity: 20
+#javamelody
+#    init-parameters: 
+#        log: true 
+#        authorized-users: wallet:abc123456 
+#        storage-directory: ${log.path.prefix}/javamelody 
+#        monitoring-path: /see 
+stats: 
+    projectName: wallet-redservice.pro
+    ip: 10.11.152.59
+    port: 8125

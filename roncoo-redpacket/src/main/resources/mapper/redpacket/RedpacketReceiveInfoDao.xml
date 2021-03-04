@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sohu.modules.redpacket.dao.RedpacketReceiveInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.sohu.modules.redpacket.entity.RedpacketReceiveInfoEntity" id="redpacketReceiveInfoMap">
+        <result property="id" column="ID"/>
+        <result property="frId" column="FR_ID"/>
+        <result property="userName" column="USER_NAME"/>
+        <result property="memo1" column="MEMO1"/>
+        <result property="psid" column="PSID"/>
+        <result property="psTransId" column="PS_TRANS_ID"/>
+        <result property="updatedOn" column="UPDATED_ON"/>
+        <result property="memo4" column="MEMO4"/>
+        <result property="accountId" column="ACCOUNT_ID"/>
+        <result property="versionOptimizedLock" column="VERSION_OPTIMIZED_LOCK"/>
+        <result property="amt" column="AMT"/>
+        <result property="createdOn" column="CREATED_ON"/>
+        <result property="rType" column="R_TYPE"/>
+        <result property="memo3" column="MEMO3"/>
+        <result property="merchantId" column="MERCHANT_ID"/>
+        <result property="memo2" column="MEMO2"/>
+        <result property="productId" column="PRODUCT_ID"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.sohu.modules.redpacket.entity.RedpacketReceiveInfoEntity">
+		select <include refid="Base_Column_List" /> from SW_REDPACKET_RECEIVE_INFO where ID = #{value}
+	</select>
+
+	<sql id="Base_Column_List">
+		ID,         
+		FR_ID,         
+		USER_NAME,         
+		MEMO1,         
+		PSID,         
+		PS_TRANS_ID,         
+		UPDATED_ON,         
+		MEMO4,         
+		ACCOUNT_ID,         
+		VERSION_OPTIMIZED_LOCK,         
+		AMT,         
+		CREATED_ON,         
+		R_TYPE,         
+		MEMO3,         
+		MERCHANT_ID,         
+		MEMO2,         
+		PRODUCT_ID        
+	</sql>
+	
+	<sql id="Generic_Where_Clause">
+		<where>
+			<if test="id != null">
+				AND ID = #{id}
+			</if>
+			<if test="frId != null">
+				AND FR_ID = #{frId}
+			</if>
+			<if test="userName != null">
+				AND USER_NAME = #{userName}
+			</if>
+			<if test="memo1 != null">
+				AND MEMO1 = #{memo1}
+			</if>
+			<if test="psid != null">
+				AND PSID = #{psid}
+			</if>
+			<if test="psTransId != null">
+				AND PS_TRANS_ID = #{psTransId}
+			</if>
+			<if test="updatedOn != null">
+				AND UPDATED_ON = #{updatedOn}
+			</if>
+			<if test="memo4 != null">
+				AND MEMO4 = #{memo4}
+			</if>
+			<if test="accountId != null">
+				AND ACCOUNT_ID = #{accountId}
+			</if>
+			<if test="versionOptimizedLock != null">
+				AND VERSION_OPTIMIZED_LOCK = #{versionOptimizedLock}
+			</if>
+			<if test="amt != null">
+				AND AMT = #{amt}
+			</if>
+			<if test="createdOn != null">
+				AND CREATED_ON = #{createdOn}
+			</if>
+			<if test="rType != null">
+				AND R_TYPE = #{rType}
+			</if>
+			<if test="memo3 != null">
+				AND MEMO3 = #{memo3}
+			</if>
+			<if test="merchantId != null">
+				AND MERCHANT_ID = #{merchantId}
+			</if>
+			<if test="memo2 != null">
+				AND MEMO2 = #{memo2}
+			</if>
+			<if test="productId != null">
+				AND PRODUCT_ID = #{productId}
+			</if>
+		</where>
+	</sql>
+	
+	<select id="queryList" resultType="com.sohu.modules.redpacket.entity.RedpacketReceiveInfoEntity">
+		select  ua.* 
+		    from(
+		       (select rownum rn,uo.* from
+		              (
+					SELECT
+		                <include refid="Base_Column_List" />                        
+		            FROM
+		                SW_REDPACKET_RECEIVE_INFO
+		            <include refid="Generic_Where_Clause" />
+					<choose>
+						<when test="sidx != null and sidx.trim() != ''">
+							order by ${sidx} ${order}
+						</when>
+					</choose>
+				) uo
+		<if test="offset != null and end != null ">
+            where rownum&lt;=${end} )) ua
+			where ua.rn>=${offset}
+		</if>
+		<if test="offset == null || end == null">
+			)) ua
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(1) from SW_REDPACKET_RECEIVE_INFO <include refid="Generic_Where_Clause" />
+	</select>
+	 
+	<insert id="insert" parameterType="com.sohu.modules.redpacket.entity.RedpacketReceiveInfoEntity">
+		<!--<selectKey resultType="Long" order="BEFORE" keyProperty="id">  
+    	  SELECT SEQ_SW_REDPACKET_RECEIVE_INFO.NEXTVAL id  from DUAL
+   		</selectKey>--> 
+		insert into SW_REDPACKET_RECEIVE_INFO
+		(
+			ID, 			
+			FR_ID, 			
+			USER_NAME, 			
+			MEMO1, 			
+			PSID, 			
+			PS_TRANS_ID, 			
+			UPDATED_ON, 			
+			MEMO4, 			
+			ACCOUNT_ID, 			
+			VERSION_OPTIMIZED_LOCK, 			
+			AMT, 			
+			CREATED_ON, 			
+			R_TYPE, 			
+			MEMO3, 			
+			MERCHANT_ID, 			
+			MEMO2, 			
+			PRODUCT_ID			
+		)
+		values
+		(
+			#{id,jdbcType=BIGINT}, 			 
+			#{frId,jdbcType=VARCHAR}, 			 
+			#{userName,jdbcType=VARCHAR}, 			 
+			#{memo1,jdbcType=VARCHAR}, 			 
+			#{psid,jdbcType=INTEGER}, 			 
+			#{psTransId,jdbcType=VARCHAR}, 			 
+			#{updatedOn,jdbcType=TIMESTAMP}, 			 
+			#{memo4,jdbcType=VARCHAR}, 			 
+			#{accountId,jdbcType=BIGINT}, 			 
+			0, 			
+			#{amt,jdbcType=FLOAT}, 			 
+			#{createdOn,jdbcType=TIMESTAMP}, 			 
+			#{rType,jdbcType=INTEGER}, 			 
+			#{memo3,jdbcType=VARCHAR}, 			 
+			#{merchantId,jdbcType=INTEGER}, 			 
+			#{memo2,jdbcType=VARCHAR}, 			 
+			#{productId,jdbcType=INTEGER}			 
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.sohu.modules.redpacket.entity.RedpacketReceiveInfoEntity">
+		update SW_REDPACKET_RECEIVE_INFO 
+		<set>
+			<if test="frId != null">FR_ID = #{frId}, </if>
+			
+			<if test="userName != null">USER_NAME = #{userName}, </if>
+			
+			<if test="memo1 != null">MEMO1 = #{memo1}, </if>
+			
+			<if test="psid != null">PSID = #{psid}, </if>
+			
+			<if test="psTransId != null">PS_TRANS_ID = #{psTransId}, </if>
+			
+			<if test="updatedOn != null">UPDATED_ON = #{updatedOn}, </if>
+			
+			<if test="memo4 != null">MEMO4 = #{memo4}, </if>
+			
+			<if test="accountId != null">ACCOUNT_ID = #{accountId}, </if>
+			
+			VERSION_OPTIMIZED_LOCK = VERSION_OPTIMIZED_LOCK + 1 , 			
+			<if test="amt != null">AMT = #{amt}, </if>
+			
+			<if test="createdOn != null">CREATED_ON = #{createdOn}, </if>
+			
+			<if test="rType != null">R_TYPE = #{rType}, </if>
+			
+			<if test="memo3 != null">MEMO3 = #{memo3}, </if>
+			
+			<if test="merchantId != null">MERCHANT_ID = #{merchantId}, </if>
+			
+			<if test="memo2 != null">MEMO2 = #{memo2}, </if>
+			
+			<if test="productId != null">PRODUCT_ID = #{productId}</if>
+			
+		</set>
+		where
+		
+			VERSION_OPTIMIZED_LOCK = #{versionOptimizedLock} 
+			
+	</update>
+	
+	<delete id="delete">
+		delete from SW_REDPACKET_RECEIVE_INFO where ID = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from SW_REDPACKET_RECEIVE_INFO where ID in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

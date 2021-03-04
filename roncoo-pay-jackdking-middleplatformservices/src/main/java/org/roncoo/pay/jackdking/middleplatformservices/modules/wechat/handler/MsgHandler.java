@@ -6,11 +6,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
+import org.roncoo.pay.jackdking.middleplatformservices.consts.RedisConstant;
 import org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.RetMessages;
 import org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.Weixin;
 import org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.service.IRetMessagesService;
 import org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.service.IWeixinService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 
@@ -28,6 +31,9 @@ import me.chanjar.weixin.mp.builder.outxml.TextBuilder;
 @Component
 public class MsgHandler extends AbstractHandler {
 	
+	@Autowired
+	@Qualifier("rediTemplateA")
+	private RedisTemplate redistemplate;
 
 	@Autowired
 	IWeixinService iWeixinService;
@@ -60,10 +66,12 @@ public class MsgHandler extends AbstractHandler {
             	 Weixin newUser = new Weixin();
                  newUser.setOpenid(wxMessage.getFromUser());
                  
+                 //用户解锁  发送得token，存放到redis，用户统计  热门吸引用户关注文章，以帮助创作者得知技术热点。
+                 redistemplate.opsForValue().set(RedisConstant.USER_SUBS_TOKEN_PREFIX+wxMessage.getContent(), wxMessage.getContent());
 
                  List<Weixin> result = iWeixinService.selectWeixinList(newUser);
 
-                 //用户在粉丝列表中
+                 //用户在粉丝列表中 ， 如果用户是取关后又关注  那就更新
                  if(!ObjectUtils.isEmpty(result)) {
                  	
                  	Weixin updateUser = result.get(0);
@@ -71,7 +79,7 @@ public class MsgHandler extends AbstractHandler {
                  	updateUser.setToken(wxMessage.getContent());//发送新的token会覆盖掉之前的token值
                  	iWeixinService.updateWeixin(updateUser);//设置为不可用
                  	
-                 //用户不在粉丝列表中，之前就关注了的粉丝
+                 //用户不在粉丝列表中，之前没关注过这个号
                  }else{
                      
                   	logger.info("新关注用户{},不在粉丝列表中",wxMessage.getFromUser());

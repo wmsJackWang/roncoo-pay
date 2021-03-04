@@ -103,6 +103,8 @@ public class RpAccountTransactionServiceImpl implements RpAccountTransactionServ
 	 *            业务类型
 	 * @param remark
 	 *            备注
+	 *            账户处理还使用这种  数据库悲观锁的方案，太落后了。
+	 *            这个解决方案太老了，一般对于账户并发安全的控制都是会通过  版本号乐观锁方案+定时重试/限次重试方案  以及最终的上报错误。
 	 */
 	@Transactional(rollbackFor = Exception.class)
 	public RpAccount creditToAccount(String userNo, BigDecimal amount, String requestNo, String bankTrxNo, String trxType, String remark) {

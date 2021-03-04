@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.http.HttpResponse;
@@ -17,6 +16,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.Weixin;
 import org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.service.IWeixinService;
+import org.roncoo.pay.jackdking.middleplatformservices.tasks.CollectUnlockArticleTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.roncoo.pay.common.core.utils.HttpHelper;
 import com.roncoo.pay.common.core.utils.StringUtil;
 
 @Controller
@@ -46,6 +45,9 @@ public class CheckInfoController {
 	
 	@Autowired
 	private IWeixinService  iWeixinService;
+	
+	@Autowired
+	private CollectUnlockArticleTask collectUnlockArticleTask;
 	
 	//验证是否获得 文章查看权限
 	@ResponseBody
@@ -104,7 +106,7 @@ public class CheckInfoController {
 	//验证是否获得 文章查看权限
 	@ResponseBody
 	@RequestMapping(value = "/checkTPIsLocked", method = RequestMethod.POST)//openIdDomain
-	public String checkThirdPartIsLocked(@RequestParam String token , @RequestParam Long articleId , HttpServletResponse response) {
+	public String checkThirdPartIsLocked(@RequestParam String token , @RequestParam Long articleId , @RequestParam Long appId , HttpServletResponse response) {
 		
 		// 允许跨域访问的域名：若有端口需写全（协议+域名+端口），若没有端口末尾不用加'/'
 		response.setHeader("Access-Control-Allow-Origin", "*"); 
@@ -121,14 +123,19 @@ public class CheckInfoController {
 		if(!ObjectUtils.isEmpty(result)&&result.get(0).getStatus()!=null&&result.get(0).getStatus()==0)
 		{
 			returnMsg.put("locked", false);
+			
+			//如果解锁了 resp 为false时候  文章解锁了。
+			collectUnlockArticleTask.addLookRecordToQueue(appId+":"+articleId+":"+token);
+			
 			return  returnMsg.toJSONString();//用户关注了且发送了token，则解锁。
 		}else{
 			//用户没关注 ，则查看该文章是否上锁。
-			
+			//文章是否上锁信息   是set到redis中的。
 			Object res = redistemplate.opsForValue().get("article_lock_"+articleId.toString());
 //			String resp = HttpHelper.post(params, url);
 			Boolean resp = res==null? true:(boolean) res;
 			log.info("查询网站参数locked的返回结果：{}",resp);
+			
 			
 			returnMsg.put("locked", resp);
 			

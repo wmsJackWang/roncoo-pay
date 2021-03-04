@@ -20,6 +20,7 @@ public class ScanHandler extends AbstractHandler {
     public WxMpXmlOutMessage handle(WxMpXmlMessage wxMpXmlMessage, Map<String, Object> map,
                                     WxMpService wxMpService, WxSessionManager wxSessionManager) throws WxErrorException {
         // 扫码事件处理
+    	wxMpXmlMessage.getEventKey();
         return null;
     }
 }

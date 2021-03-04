@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug" monitorInterval="5">
+<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="[%-d{yyyy-MM-dd HH:mm:ss,SSS}] [%p] [%F:%L] [%c.%M] [%t]: %m%n" />
+		</Console>
+		<RollingFile name="SysRollingFile"
+			fileName="${sys:log.path.prefix}/log.log"
+			filePattern="${sys:log.path.prefix}/$${date:yyyy-MM}/log-%d{yyyy-MM-dd_HH}-%i.log">
+			<PatternLayout charset="UTF-8"
+				pattern="[%-d{yyyy-MM-dd HH:mm:ss,SSS}] [%p] [%F:%L] [%c.%M] [%t]: %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy modulate="true" interval="1"/> 
+				<SizeBasedTriggeringPolicy size="250 MB" />
+			</Policies>
+		</RollingFile>
+		<Syslog charset="UTF-8" name="RFC5424" format="RFC5424" host="10.11.157.101"
+			port="9999" protocol="UDP" facility="LOCAL0" newLine="true"
+			messageId="wallet-redservice-msg" appName="wallet-redservice-app" mdcId="wallet-redservice-mdc">
+			<LoggerFields>
+				<KeyValuePair key="thread" value="%t" />
+				<KeyValuePair key="level" value="%p" />
+				<KeyValuePair key="class" value="%c" />
+				<KeyValuePair key="method" value="%M" />
+				<KeyValuePair key="file" value="%F:%L" />
+				<KeyValuePair key="exception" value="%ex" />
+			</LoggerFields>
+		</Syslog>
+	</Appenders>
+	<Loggers>
+		<Root level="info">
+			<AppenderRef ref="SysRollingFile" />
+			<!-- <AppenderRef ref="Console" /> -->
+		</Root>
+	</Loggers>
+</Configuration>

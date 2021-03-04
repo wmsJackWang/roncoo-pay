@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean
+		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">
+		<property name="proxyTargetClass" value="true" />
+	</bean>
+	<!-- 配置数据源 -->
+	<bean id="abstractDataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+		abstract="true" destroy-method="close">
+		<property name="maxIdle" value="${dbcp2.maxIdle}" />
+		<property name="minIdle" value="${dbcp2.minIdle}" />
+		<property name="initialSize" value="${dbcp2.initialSize}" />
+		<property name="poolPreparedStatements" value="${dbcp2.poolPreparedStatements}" />
+		<property name="maxOpenPreparedStatements" value="${dbcp2.maxOpenPreparedStatements}" />
+		<property name="timeBetweenEvictionRunsMillis" value="${dbcp2.timeBetweenEvictionRunsMillis}" />
+		<property name="removeAbandonedTimeout" value="${dbcp2.removeAbandonedTimeout}" />
+		<property name="removeAbandonedOnMaintenance" value="${dbcp2.removeAbandonedOnMaintenance}" />
+		<property name="validationQuery" value="${dbcp2.validationQuery}" />
+		<property name="testOnCreate" value="${dbcp2.testOnCreate}" />
+		<property name="testOnBorrow" value="${dbcp2.testOnBorrow}" />
+		<property name="testOnReturn" value="${dbcp2.testOnReturn}" />
+		<property name="testWhileIdle" value="${dbcp2.testWhileIdle}" />
+	</bean>
+	
+	<bean id="quartzds" parent="abstractDataSource">
+		<property name="driverClassName" value="${quartz.driver}" />
+		<property name="url" value="${quartz.jdbcUrl}" />
+		<property name="username" value="${quartz.user}" />
+		<property name="password" value="${quartz.password}" />
+	</bean>
+
+	<!-- 增加定时器配置 -->
+	<!-- 线程执行器配置，用于任务注册 -->
+	<bean id="executor"
+		class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="corePoolSize" value="5" />
+		<property name="maxPoolSize" value="100" />
+		<property name="queueCapacity" value="500" />
+	</bean>
+
+	<!-- 设置调度 -->
+	<bean id="redPacketAccountRecieveScheduler"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="configLocation"
+			value="classpath:quartz.properties" />
+		<property name="dataSource" ref="quartzds" />
+		<!-- <property name="transactionManager" ref="txManager" />  -->
+		<!-- This name is persisted as SCHED_NAME in db. for local testing could 
+			change to unique name to avoid collision with dev server -->
+		<property name="schedulerName" value="redPacketAccountRecieveScheduler" />
+		<!-- Will update database cron triggers to what is in this jobs file on 
+			each deploy. Replaces all previous trigger and job data that was in the database. 
+			YMMV -->
+		<property name="overwriteExistingJobs" value="true" />
+		<!-- 任务调度延迟时间，单位是秒 -->
+		<property name="startupDelay" value="1" />
+		<property name="applicationContextSchedulerContextKey" value="applicationContext" />
+		<!-- 
+		jobFactory用来注入spring的bean
+		 -->
+		 
+		<property name="jobFactory">
+			<bean
+				class="com.sohu.common.quartz.AutowiringSpringBeanJobFactory" />
+		</property>
+		<property name="taskExecutor" ref="executor" />
+		
+		<property name="triggers">
+			<list>
+				<ref bean="redPacketUpdateTask"/>
+				<ref bean="mangerQueueTask"/>
+			</list>
+		</property>
+
+	</bean>
+	
+	
+	<bean id="mangerQueueTask" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<bean id="clearAccountRedisDataTask" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+				<property name="jobClass" value="com.sohu.modules.redpacket.service.impl.UpdateAccountTask" />
+				<property name="durability" value="true" />
+				<property name="requestsRecovery" value="true" />
+			</bean>
+		</property>
+		<property name="cronExpression" value="0/1 * * * * ? *" />
+	</bean>
+	
+	<bean id="redPacketUpdateTask" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<bean id="clearAccountRedisDataTask" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+				<property name="jobClass" value="com.sohu.modules.redpacket.service.impl.ManagerQueueTask" />
+				<property name="durability" value="true" />
+				<property name="requestsRecovery" value="true" />
+			</bean>
+		</property>
+		<property name="cronExpression" value="0/1 * * * * ? *" />
+	</bean>
+
+</beans>	

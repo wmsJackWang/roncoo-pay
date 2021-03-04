@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.dao.MdUnlockArticleMapper">
+    
+    <resultMap type="org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.MdUnlockArticle" id="MdUnlockArticleResult">
+        <result property="id"    column="id"    />
+        <result property="articleId"    column="article_id"    />
+        <result property="unlockCount"    column="unlock_count"    />
+        <result property="appid"    column="appid"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+    <sql id="selectMdUnlockArticleVo">
+        select id, article_id, unlock_count, appid, create_time, update_time from md_unlock_article
+    </sql>
+
+    <select id="selectMdUnlockArticleList" parameterType="org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.MdUnlockArticle" resultMap="MdUnlockArticleResult">
+        <include refid="selectMdUnlockArticleVo"/>
+        <where>  
+            <if test="articleId != null "> and article_id = #{articleId}</if>
+            <if test="unlockCount != null "> and unlock_count = #{unlockCount}</if>
+            <if test="appid != null "> and appid = #{appid}</if>
+        </where>
+    </select>
+    
+    <select id="selectMdUnlockArticle" parameterType="org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.MdUnlockArticle" resultMap="MdUnlockArticleResult">
+        <include refid="selectMdUnlockArticleVo"/>
+        <where>  
+            <if test="articleId != null "> and article_id = #{articleId}</if>
+            <if test="appid != null "> and appid = #{appid}</if>
+        </where>
+    </select>
+    
+    <select id="selectMdUnlockArticleById" parameterType="Long" resultMap="MdUnlockArticleResult">
+        <include refid="selectMdUnlockArticleVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertMdUnlockArticle" parameterType="org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.MdUnlockArticle" useGeneratedKeys="true" keyProperty="id">
+        insert into md_unlock_article
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="articleId != null ">article_id,</if>
+            <if test="unlockCount != null ">unlock_count,</if>
+            <if test="appid != null ">appid,</if>
+            <if test="createTime != null ">create_time,</if>
+            <if test="updateTime != null ">update_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="articleId != null ">#{articleId},</if>
+            <if test="unlockCount != null ">#{unlockCount},</if>
+            <if test="appid != null ">#{appid},</if>
+            <if test="createTime != null ">#{createTime},</if>
+            <if test="updateTime != null ">#{updateTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMdUnlockArticle" parameterType="org.roncoo.pay.jackdking.middleplatformservices.modules.wechat.domain.MdUnlockArticle">
+        update md_unlock_article
+        <trim prefix="SET" suffixOverrides=",">
+            unlock_count = unlock_count+1,
+            <if test="updateTime != null ">update_time = #{updateTime},</if>
+        </trim>
+        <where>  
+            <if test="articleId != null "> and article_id = #{articleId}</if>
+            <if test="appid != null "> and appid = #{appid}</if>
+        </where>
+    </update>
+    
+
+    <delete id="deleteMdUnlockArticleById" parameterType="Long">
+        delete from md_unlock_article where id = #{id}
+    </delete>
+
+    <delete id="deleteMdUnlockArticleByIds" parameterType="String">
+        delete from md_unlock_article where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

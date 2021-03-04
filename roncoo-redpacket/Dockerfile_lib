@@ -1,0 +1,3 @@
+FROM 10.11.152.38:5000/centos/jdk8
+#VOLUME /lib
+ADD target/lib  /workspace/lib
