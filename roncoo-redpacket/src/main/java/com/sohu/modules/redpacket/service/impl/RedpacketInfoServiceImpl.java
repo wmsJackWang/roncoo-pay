@@ -72,6 +72,7 @@ public class RedpacketInfoServiceImpl implements IRedpacketInfoService {
 		
 		
 		//插入发红包订单数据
+		redpacketInfo.setPsTransId("RP"+System.currentTimeMillis());
 		redpacketInfoDao.insert(redpacketInfo);
 		
 		

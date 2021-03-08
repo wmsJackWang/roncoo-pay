@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sohu.modules.redpacket.dao.ServiceNodeInfoMapper">
+    
+    <resultMap type="com.sohu.modules.redpacket.entity.ServiceNodeInfo" id="ServiceNodeInfoResult">
+        <result property="id"    column="id"    />
+        <result property="servicename"    column="servicename"    />
+        <result property="nodeId"    column="node_id"    />
+        <result property="createdOn"    column="created_on"    />
+        <result property="updatedOn"    column="updated_on"    />
+        <result property="versionOptimizedLock"    column="VERSION_OPTIMIZED_LOCK"    />
+    </resultMap>
+
+    <sql id="selectServiceNodeInfoVo">
+        select id, servicename, node_id, created_on, updated_on, VERSION_OPTIMIZED_LOCK from service_node_info
+    </sql>
+
+    <select id="selectServiceNodeInfoList" parameterType="com.sohu.modules.redpacket.entity.ServiceNodeInfo" resultMap="ServiceNodeInfoResult">
+        <include refid="selectServiceNodeInfoVo"/>
+        <where>  
+            <if test="servicename != null  and servicename != ''"> and servicename like concat('%', #{servicename}, '%')</if>
+            <if test="nodeId != null "> and node_id = #{nodeId}</if>
+            <if test="createdOn != null "> and created_on = #{createdOn}</if>
+            <if test="updatedOn != null "> and updated_on = #{updatedOn}</if>
+            <if test="versionOptimizedLock != null "> and VERSION_OPTIMIZED_LOCK = #{versionOptimizedLock}</if>
+        </where>
+    </select>
+    
+    <select id="selectServiceNodeInfoByNameAndNodeid" parameterType="com.sohu.modules.redpacket.entity.ServiceNodeInfo" resultMap="ServiceNodeInfoResult">
+        <include refid="selectServiceNodeInfoVo"/>
+        where servicename = #{servicename} and node_id = #{nodeId}
+    </select>
+    
+    <select id="selectServiceNodeInfoById" parameterType="Long" resultMap="ServiceNodeInfoResult">
+        <include refid="selectServiceNodeInfoVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertServiceNodeInfo" parameterType="com.sohu.modules.redpacket.entity.ServiceNodeInfo" useGeneratedKeys="true" keyProperty="id">
+        insert into service_node_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="servicename != null  and servicename != ''">servicename,</if>
+            <if test="nodeId != null ">node_id,</if>
+            <if test="createdOn != null ">created_on,</if>
+            <if test="updatedOn != null ">updated_on,</if>
+            <if test="versionOptimizedLock != null ">VERSION_OPTIMIZED_LOCK,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="servicename != null  and servicename != ''">#{servicename},</if>
+            <if test="nodeId != null ">#{nodeId},</if>
+            <if test="createdOn != null ">#{createdOn},</if>
+            <if test="updatedOn != null ">#{updatedOn},</if>
+            <if test="versionOptimizedLock != null ">#{versionOptimizedLock},</if>
+         </trim>
+    </insert>
+    
+    <update id="checkBeat" parameterType="com.sohu.modules.redpacket.entity.ServiceNodeInfo">
+        update service_node_info
+        SET
+        	updated_on = sysdate(),
+        	VERSION_OPTIMIZED_LOCK = #{versionOptimizedLock}+1
+
+        where   servicename = #{servicename} AND node_id = #{nodeId}
+        		AND  VERSION_OPTIMIZED_LOCK = #{versionOptimizedLock}
+    </update>
+
+    <update id="updateServiceNodeInfo" parameterType="com.sohu.modules.redpacket.entity.ServiceNodeInfo">
+        update service_node_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="servicename != null  and servicename != ''">servicename = #{servicename},</if>
+            <if test="nodeId != null ">node_id = #{nodeId},</if>
+            <if test="createdOn != null ">created_on = #{createdOn},</if>
+            <if test="updatedOn != null ">updated_on = #{updatedOn},</if>
+            <if test="versionOptimizedLock != null ">VERSION_OPTIMIZED_LOCK = #{versionOptimizedLock},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteServiceNodeInfoById" parameterType="Long">
+        delete from service_node_info where id = #{id}
+    </delete>
+
+    <delete id="deleteServiceNodeInfoByIds" parameterType="String">
+        delete from service_node_info where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

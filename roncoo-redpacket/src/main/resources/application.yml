@@ -27,8 +27,8 @@ spring:
     aop: 
         auto: true 
         proxy-target-class: true 
-# Mybatis配置
-mybatis:
-    mapperLocations: classpath:mapper/**/*.xml
-    configLocation: classpath:mybatis.xml
-
+## Mybatis配置
+#mybatis:
+#    mapperLocations: classpath:mapper/**/*.xml
+#    configLocation: classpath:mybatis.xml
+#

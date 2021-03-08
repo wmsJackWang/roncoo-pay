@@ -1,24 +1,25 @@
+# 数据库配置
 spring:
-    master:
-        datasource: 
-            driverClassName: com.mysql.cj.jdbc.Driver
-            type: com.alibaba.druid.pool.DruidDataSource
-            url: jdbc:mysql://bittechblog.com:3308/redpacket1?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
-            username: root
-            password: wanyang@wms
-            #连接池的配置信息
-            initialSize: 3
-            minIdle: 30
-            maxActive: 30
-            maxWait: 60000
-            timeBetweenEvictionRunsMillis: 60000
-            minEvictableIdleTimeMillis: 300000
-            validationQuery: SELECT 1 FROM DUAL
-            testWhileIdle: true
-            testOnBorrow: false
-            testOnReturn: false
-            poolPreparedStatements: true
-            maxPoolPreparedStatementPerConnectionSize: 20
+#    master:
+#        datasource: 
+#            driverClassName: com.mysql.cj.jdbc.Driver
+#            type: com.alibaba.druid.pool.DruidDataSource
+#            url: jdbc:mysql://bittechblog.com:3308/redpacket1?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+#            username: root
+#            password: wanyang@wms
+#            #连接池的配置信息
+#            initialSize: 3
+#            minIdle: 30
+#            maxActive: 30
+#            maxWait: 60000
+#            timeBetweenEvictionRunsMillis: 60000
+#            minEvictableIdleTimeMillis: 300000
+#            validationQuery: SELECT 1 FROM DUAL
+#            testWhileIdle: true
+#            testOnBorrow: false
+#            testOnReturn: false
+#            poolPreparedStatements: true
+#            maxPoolPreparedStatementPerConnectionSize: 20
     redis: 
         database: 0 
         #host: 192.168.64.224 

@@ -2,14 +2,19 @@ package com.sohu.config;
 
 import javax.sql.DataSource;
 
-import org.apache.commons.dbcp2.BasicDataSource;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.core.annotation.Order;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Service;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 /**
  * Druid配置
@@ -18,65 +23,60 @@ import org.springframework.stereotype.Service;
  * @email sunlightcs@gmail.com
  * @date 2017-04-21 0:00
  */
-@Service
-@Order(Integer.MAX_VALUE)
+@Configuration
+@MapperScan(basePackages = "com.sohu", sqlSessionTemplateRef = "dbSqlSessionTemplate")
 public class MasterDruidConfig {
-    @Value("${spring.master.datasource.url:#{null}}")
-    private String dbUrl;
-    @Value("${spring.master.datasource.username:#{null}}")
-    private String username;
-    @Value("${spring.master.datasource.password:#{null}}")
-    private String password;
-    @Value("${spring.master.datasource.driver-class-name:#{null}}")
-    private String driverClassName;
-    @Value("${spring.master.datasource.initial-size:#{null}}")
-    private Integer initialSize;
-    @Value("${spring.master.datasource.min-idle:#{null}}")
-    private Integer minIdle;
-    @Value("${spring.master.datasource.max-idle:#{null}}")
-    private Integer maxIdle;
-    @Value("${spring.master.datasource.max-active:#{null}}")
-    private Integer maxActive;
-    @Value("${spring.master.datasource.max-wait-millis:#{null}}")
-    private Integer maxWaitMillis;
-    @Value("${spring.master.datasource.validation-query:#{null}}")
-    private String validationQuery;
-    @Value("${spring.master.datasource.connection-properties:#{null}}")
-    private String connectionProperties;
-    
-    @Bean(name="dataSource")
+   
+    /**
+     * 生成数据源.  @Primary 注解声明为默认数据源
+     */
+    @Bean(name = "dataSource")
+    @ConfigurationProperties(prefix = "spring.datasource.hikari")
     @Primary
-    public DataSource dataSource(){
-    	
-    	BasicDataSource datasource = new  BasicDataSource();
-        datasource.setUrl(this.dbUrl);
-        datasource.setUsername(username);
-        datasource.setPassword(password);
-        datasource.setDriverClassName(driverClassName);
-        //configuration
-        if(initialSize != null) {
-            datasource.setInitialSize(initialSize);
-        }
-        if(minIdle != null) {
-            datasource.setMinIdle(minIdle);
-        }
-        if(minIdle != null) {
-            datasource.setMaxIdle(maxIdle);
-        }
-        if(maxActive != null) {
-            datasource.setMaxWaitMillis(maxWaitMillis);;
-        }
-        if(maxIdle != null) {
-            datasource.setMaxIdle(maxIdle);
-        }
-        if(validationQuery!=null) {
-            datasource.setValidationQuery(validationQuery);
-        }
-
-        return datasource;
+    public DataSource testDataSource() {
+        return DataSourceBuilder.create().build();
     }
 
+    /**
+     * 创建 SqlSessionFactory
+     */
+    @Bean(name = "dbSqlSessionFactory")
+    @Primary
+    public SqlSessionFactory testSqlSessionFactory(@Qualifier("dataSource") DataSource dataSource) throws Exception {
+        SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
+        bean.setDataSource(dataSource);
+        
+        bean.setTypeAliasesPackage("com.sohu.modules.redpacket.entity");
+        Resource[] resources = new PathMatchingResourcePatternResolver()
+                .getResources("classpath:mapper/**/*.xml");
+        bean.setMapperLocations(resources);
+
+        // 如果使用xml请放开下面配置
+        // bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/mapper/db1/*.xml"));
+        return bean.getObject();
+    }
     
+    /**
+     * 配置事务管理
+     */
+    @Bean(name = "dbTransactionManager")
+    @Primary
+    public DataSourceTransactionManager testTransactionManager(@Qualifier("dataSource") DataSource dataSource) {
+        return new DataSourceTransactionManager(dataSource);
+    }
+
+    /**
+     * 配置数据库操作模板
+     * @param sqlSessionFactory
+     * @return
+     * @throws Exception
+     */
+    @Bean(name = "dbSqlSessionTemplate")
+    @Primary
+    public SqlSessionTemplate testSqlSessionTemplate(@Qualifier("dbSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+        return new SqlSessionTemplate(sqlSessionFactory);
+    }
+
   
 }
 

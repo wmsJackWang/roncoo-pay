@@ -5,8 +5,12 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Size;
+
+import org.springframework.beans.factory.annotation.Value;
 
 import com.sohu.common.validator.group.AddGroup;
 import com.sohu.common.validator.group.UpdateGroup;
@@ -47,6 +51,8 @@ public class RedpacketInfoEntity extends ParameterEntity implements Serializable
 	//退款金额
 	private BigDecimal refundAmt;
 	//红包金额
+	@Digits(fraction=2 , message="发的红包金额不能超过两位小数", integer = -1)
+	@NotNull(message = "红包金额不能为空",groups = {AddGroup.class, UpdateGroup.class})
 	private BigDecimal amt;
 	//创建时间
 	private Timestamp createdOn;
@@ -65,6 +71,7 @@ public class RedpacketInfoEntity extends ParameterEntity implements Serializable
 	//产品名称
 	private String productName;
 	//红包个数
+	@NotNull(message = "红包个数不能为空",groups = {AddGroup.class, UpdateGroup.class})
 	private Long total;
 	//1:可提现红包;2:不可体现红包
 	private Integer rType;
