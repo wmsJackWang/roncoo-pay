@@ -24,7 +24,7 @@ public class UniqueServiceNode implements ApplicationRunner{
 		// TODO Auto-generated method stub
 
 		System.out.println("应用启动");
-		nodeInfoService.getNodeId();
+//		nodeInfoService.getNodeId();
 		
 	}
 	

@@ -2,7 +2,7 @@ package com.sohu.common.utils;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerInitializedEvent;
+import org.springframework.boot.web.context.WebServerInitializedEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +11,7 @@ import com.timgroup.statsd.NonBlockingStatsDClient;
 import com.timgroup.statsd.StatsDClient;
 
 @Component
-public class UtilStatsd implements ApplicationListener<EmbeddedServletContainerInitializedEvent>{
+public class UtilStatsd implements ApplicationListener<WebServerInitializedEvent>{
 	private static StatsDClient statsdc;
 	private static UtilStatsd singleton;
 
@@ -33,8 +33,8 @@ public class UtilStatsd implements ApplicationListener<EmbeddedServletContainerI
 		statsdc.incrementCounter(string);
 	}
 	@Override
-	public void onApplicationEvent(EmbeddedServletContainerInitializedEvent event) {
-		this.serverPort = event.getEmbeddedServletContainer().getPort();
+	public void onApplicationEvent(WebServerInitializedEvent event) {
+		this.serverPort = event.getWebServer().getPort();
 		projectName = cofnig.getProjectName()+"."+IPUtils.getAddress()+"."+serverPort;
 		statsdc = new NonBlockingStatsDClient(cofnig.getProjectName(), cofnig.getIp(), cofnig.getPort());
 	}

@@ -1,28 +1,22 @@
 package com.sohu.common.renaewal;
 
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
-import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import com.sohu.common.exception.BusinessException;
 import com.sohu.common.utils.SpringUtil;
 
 
 
 @Service("renewal")
 public class Renewal {
-	private Logger log = LogManager.getLogger(this.getClass());
+	private Logger log = LoggerFactory.getLogger(this.getClass());
 	private Map<String, String> renewal = new HashMap<>();
 	private Map<String, Integer> count = new HashMap<>();
 	private Map<String, IRenewalHeadler> isRun = new HashMap<>();
@@ -52,8 +46,8 @@ public class Renewal {
 	
 	@Autowired
 	private RedisTemplate<String, Object> redisTemplate;
-	@Autowired
-	private JdbcTemplate jdbcTemplate;
+//	@Autowired
+//	private JdbcTemplate jdbcTemplate;
 
 	
 	public void init() {

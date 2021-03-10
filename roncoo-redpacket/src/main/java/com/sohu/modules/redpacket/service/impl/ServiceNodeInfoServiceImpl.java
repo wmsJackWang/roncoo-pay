@@ -38,7 +38,7 @@ public class ServiceNodeInfoServiceImpl implements IServiceNodeInfoService
 	
 	
 //	@Scheduled(cron = "5/1 * * * * *")
-	@Scheduled(fixedRate =10*1000)
+//	@Scheduled(fixedRate =10*1000)
 	public void heartBeatCheck() {
 		if(serviceReady) {
 			ServiceNodeInfo result = selectServiceNodeInfoByNameAndNodeid(serviceNodeInfo);

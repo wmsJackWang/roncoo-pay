@@ -1,18 +1,59 @@
 spring:
-    master:
-        datasource: 
-            driver-class-name: oracle.jdbc.driver.OracleDriver 
-            url: jdbc:oracle:thin:@10.18.64.125:1521:paytest 
-            username: wallet_junior_dev 
-            password: wallet_junior_dev 
-            #连接池的配置信息
-            max-wait-millis: 10000
-            initial-size: 10  
-            min-idle: 10 
-            max-idle: 10
-            max-active: 50
-            validation-query: select 1 from dual  
-            connection-properties: characterEncoding=utf8 
+  main:
+# sharding-jdbc定义了重复的dataSource数据源bean，启动时必须添加以下值
+    allow-bean-definition-overriding: true
+# sharding-jdbc 分库、分表配置
+  shardingsphere:
+    datasource:
+      names: ds0,ds1
+      ds0:
+        type: com.alibaba.druid.pool.DruidDataSource
+#        url: jdbc:mysql://10.18.93.13:3308/myutilproject0?characterEncoding=GBK&useSSL=false
+#        username: root
+#        password: jackdking@1234
+        url: jdbc:mysql://bittechblog.com:3308/myutilproject0?characterEncoding=GBK&useSSL=false
+        username: root
+        password: wanyang@wms
+        driver-class-name: com.mysql.jdbc.Driver
+      ds1:
+        type: com.alibaba.druid.pool.DruidDataSource
+#        url: jdbc:mysql://10.18.93.13:3308/myutilproject1?characterEncoding=GBK&useSSL=false
+#        username: root
+#        password: jackdking@1234
+        url: jdbc:mysql://bittechblog.com:3308/myutilproject1?characterEncoding=GBK&useSSL=false
+        username: root
+        password: wanyang@wms
+        driver-class-name: com.mysql.jdbc.Driver
+    sharding:
+      tables:
+        TransInfo:
+          actual-data-nodes: ds$->{0..1}.TransInfo$->{0..1}
+          database-strategy:
+            standard:
+              precise-algorithm-class-name: org.jackdking.shardjdbcyaml.algorithm.SuperDbShardingAlgorithm
+              sharding-column: orderid
+          table-strategy:
+            standard:
+              precise-algorithm-class-name: org.jackdking.shardjdbcyaml.algorithm.SuperTableShardingAlgorithm
+              sharding-column: orderid
+#            inline:
+#              #分片规则对应列，即以user_id值作为分片规则的列
+#              sharding-column: orderid
+#              #分片按user_id列和10取模运算，路由到对应的order0...9的表
+#              algorithm-expression: TransInfo$->{orderid % 2}
+          key-generator:
+            column: id
+            type: SNOWFLAKE
+#      default-database-strategy:
+#        standard:
+#          precise-algorithm-class-name: org.jackdking.shardjdbcyaml.algorithm.SuperTableShardingAlgorithm
+#          sharding-column: orderid
+#        inline:
+#          sharding-column: id
+#          algorithm-expression: ds$->{id % 2}
+    props:
+      sql.show: true      
+          
     redis: 
         database: 0 
         host: mpt.zw.redis.sohucs.com

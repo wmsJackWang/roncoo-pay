@@ -61,7 +61,11 @@ public class RedpacketInfoServiceImpl implements IRedpacketInfoService {
 	}
 
 	@Override
-	@Transactional
+//	@Transactional
+//	问题的原因在于早期项目中只有一个数据源，也只有一个与该数据源绑定的事务管理器，因此直接使用@Transactional()注释时Spring会帮助我们自动识别出来，但是后期当项目中同时出现两个数据源和两个相关的事务管理器时，在使用@Transactional()注解时如果不直接指定，Spring就不知道具体使用哪一个事务管理器来进行事务管理了，因此需要通过某种方式来具体指定一下。
+//
+//	指定的方式可以通过使用 @Transactional(transactionManager = “aaaTransactionManager”) 来进行指定
+	
 	public R createRedPacket(RedpacketInfoEntity redpacketInfo,Map<String, String[]> parameterMap) {
 		// TODO Auto-generated method stub
 		Assert.isTrue(redpacketInfo.getAmt().compareTo(BigDecimal.ZERO)<=0, "红包金额必须大于零元");

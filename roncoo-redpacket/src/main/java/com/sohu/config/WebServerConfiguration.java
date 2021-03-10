@@ -1,45 +1,49 @@
 package com.sohu.config;
 
-import org.apache.catalina.connector.Connector;  
-import org.apache.coyote.http11.Http11NioProtocol;  
-import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;  
-import org.springframework.boot.context.embedded.tomcat.TomcatConnectorCustomizer;  
-import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;  
-import org.springframework.context.annotation.Bean;  
+import org.apache.catalina.Context;
+import org.apache.catalina.connector.Connector;
+import org.apache.tomcat.util.descriptor.web.SecurityCollection;
+import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
+import org.springframework.boot.web.embedded.tomcat.TomcatConnectorCustomizer;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;  
   
 @Configuration  
 public class WebServerConfiguration  
 {  
-    @Bean  
-    public EmbeddedServletContainerFactory createEmbeddedServletContainerFactory()  
-    {  
-        TomcatEmbeddedServletContainerFactory tomcatFactory = new TomcatEmbeddedServletContainerFactory();  
-        tomcatFactory.setPort(8080);  
-        tomcatFactory.addConnectorCustomizers(new MyTomcatConnectorCustomizer());  
-        return tomcatFactory;  
-    }  
-}  
-class MyTomcatConnectorCustomizer implements TomcatConnectorCustomizer  
-{   
-	public void customize(Connector connector)  
-    {  
-        Http11NioProtocol protocol = (Http11NioProtocol) connector.getProtocolHandler();  
-        //设置最大连接数  
-        protocol.setMaxConnections(2000);  
-        //设置最大线程数  
-        protocol.setMaxThreads(2000);  
-//        protocol.setConnectionTimeout(30000); 
-//        protocol.setAcceptorThreadCount(5000);
-//        protocol.setMaxKeepAliveRequests(10000);
-//        protocol.setKeepAliveTimeout(65*1000);
-    }  
-    
-//    public void customize(Connector connector)  
-//    {  
-//        Http11NioProtocol protocol = (Http11NioProtocol) connector.getProtocolHandler();  
-//        protocol.setMaxKeepAliveRequests(1);
-////        protocol.setKeepAliveTimeout(200);
-//     
-//    }  
+	@Bean
+	public ServletWebServerFactory servletContainer() {
+	    TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
+	    tomcat.addConnectorCustomizers(new GwsTomcatConnectionCustomizer());
+	    return tomcat;
+	}
+	
+	
+    /**
+    *
+    * 默认http连接
+    *
+    *
+    */
+   public class GwsTomcatConnectionCustomizer implements TomcatConnectorCustomizer {
+
+       public GwsTomcatConnectionCustomizer() {
+       }
+
+       @Override
+       public void customize(Connector connector) {
+           connector.setPort(Integer.valueOf(8080));
+//           connector.setAttribute("connectionTimeout", connectionTimeout);
+//           connector.setAttribute("acceptorThreadCount", acceptorThreadCount);
+//           connector.setAttribute("minSpareThreads", minSpareThreads);
+//           connector.setAttribute("maxSpareThreads", maxSpareThreads);
+           connector.setAttribute("maxThreads", 2000);
+           connector.setAttribute("maxConnections", 2000);
+//           connector.setAttribute("protocol", protocol);
+//           connector.setAttribute("redirectPort", "redirectPort");
+//           connector.setAttribute("compression", "compression");
+       }
+   }
 }  
